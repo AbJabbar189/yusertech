@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import {
   CheckCircle2,
-  ArrowRight,
-  Terminal,
-  ShieldCheck,
+  MessageSquare,
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import type { PortfolioItem } from '../config/siteConfig';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { Badge } from '../components/common/Badge';
-import { Button } from '../components/common/Button';
-import { POSMockup } from '../components/products/POSMockup';
 
 export const PortfolioPage: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
@@ -21,12 +17,12 @@ export const PortfolioPage: React.FC = () => {
   });
 
   return (
-    <div className="bg-[#F7F5EF] py-16 sm:py-24">
+    <div className="bg-[#F8FAF9] py-14 sm:py-20 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Work & Engineering"
-          title="Architectural Blueprints, Prototypes & Deployments"
-          subtitle="We present authentic engineering work: product prototypes, architecture blueprints, and client web solutions. No fabricated case studies or unverified testimonials."
+          badge="Engineering & Blueprints"
+          title="Architectural Blueprints & Completed Systems"
+          subtitle="Real software architecture built for local business conditions in Karachi. Transparent technical stacks with zero marketing fabrications."
         />
 
         {/* Filter buttons */}
@@ -35,15 +31,14 @@ export const PortfolioPage: React.FC = () => {
             { label: 'All Engineering Work', value: 'all' },
             { label: 'Internal Prototypes', value: 'internal product prototype' },
             { label: 'Architecture Blueprints', value: 'architecture blueprint' },
-            { label: 'Client Solutions', value: 'client web solution' },
           ].map((btn) => (
             <button
               key={btn.value}
               onClick={() => setFilter(btn.value)}
-              className={`px-4 py-2 text-xs font-semibold rounded-lg border transition-all ${
+              className={`px-4 py-2 text-xs font-semibold rounded-xl border transition-all ${
                 filter === btn.value
                   ? 'bg-[#123B2A] text-white border-[#123B2A] shadow-xs'
-                  : 'bg-white text-[#202722] border-[#E3E0D5] hover:bg-[#FAF9F5]'
+                  : 'bg-white text-[#1A231F] border-[#DCE4E0] hover:bg-[#F0F4F2]'
               }`}
             >
               {btn.label}
@@ -52,45 +47,45 @@ export const PortfolioPage: React.FC = () => {
         </div>
 
         {/* Portfolio Items List */}
-        <div className="space-y-12">
+        <div className="space-y-10">
           {filteredItems.map((item: PortfolioItem) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl border border-[#E3E0D5] overflow-hidden shadow-xs hover:border-[#123B2A]/40 transition-colors"
+              className="bg-white rounded-2xl border border-[#DCE4E0] overflow-hidden shadow-2xs hover:border-[#123B2A]/40 transition-colors"
             >
-              <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Left: Context and Technical Breakdown */}
-                <div className="lg:col-span-7 space-y-6">
+                <div className="lg:col-span-7 space-y-5">
                   <div>
-                    <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                      <span className="text-xs font-mono uppercase text-[#6B746E]">
+                    <div className="flex flex-wrap items-center gap-2 mb-2.5">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#5C6760]">
                         {item.category}
                       </span>
                       <Badge variant={item.status}>{item.status}</Badge>
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#FAF3E0] text-[#7A5B12] border border-[#E8D49F]">
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#FDF8EB] text-[#A67E22] border border-[#F3E3BC]">
                         {item.type}
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202722] mb-4">
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A231F] mb-3">
                       {item.title}
                     </h2>
 
-                    <div className="space-y-4">
-                      <div className="p-4 rounded-xl bg-[#FAF9F5] border border-[#E3E0D5]">
+                    <div className="space-y-3">
+                      <div className="p-3.5 rounded-xl bg-[#F8FAF9] border border-[#E2E8E4]">
                         <h3 className="text-xs font-bold uppercase tracking-wider text-[#123B2A] mb-1">
-                          Problem Identified
+                          Operational Bottleneck
                         </h3>
-                        <p className="text-xs sm:text-sm text-[#202722] leading-relaxed">
+                        <p className="text-xs text-[#2C3832] leading-relaxed">
                           {item.problemStatement}
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#FAF3E0]/50 border border-[#E8D49F]">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-[#7A5B12] mb-1">
-                          Engineered Solution
+                      <div className="p-3.5 rounded-xl bg-[#EBF3EE] border border-[#CFE1D6]">
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-[#123B2A] mb-1">
+                          Engineered Architecture
                         </h3>
-                        <p className="text-xs sm:text-sm text-[#202722] leading-relaxed">
+                        <p className="text-xs text-[#2C3832] leading-relaxed">
                           {item.solution}
                         </p>
                       </div>
@@ -99,12 +94,12 @@ export const PortfolioPage: React.FC = () => {
 
                   {/* Highlights */}
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#123B2A] mb-2.5">
-                      Technical Highlights:
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#123B2A] mb-2">
+                      Key Highlights:
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {item.highlights.map((h, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#202722]">
+                        <li key={i} className="flex items-start gap-2 text-xs text-[#2C3832]">
                           <CheckCircle2 className="w-4 h-4 text-[#123B2A] shrink-0 mt-0.5" />
                           <span>{h}</span>
                         </li>
@@ -114,14 +109,14 @@ export const PortfolioPage: React.FC = () => {
 
                   {/* Tech stack badges */}
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#6B746E] block mb-2">
-                      Technologies & Protocols Used:
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#5C6760] block mb-1.5">
+                      Technologies &amp; Protocols:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {item.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#F7F5EF] text-[#202722] border border-[#E3E0D5]"
+                          className="text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-[#F8FAF9] text-[#1A231F] border border-[#E2E8E4]"
                         >
                           {tech}
                         </span>
@@ -130,62 +125,47 @@ export const PortfolioPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Right: Interactive Terminal or Architecture Diagram Preview */}
-                <div className="lg:col-span-5 bg-[#FAF9F5] rounded-xl p-5 border border-[#E3E0D5] flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between pb-3 border-b border-[#E3E0D5] mb-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#123B2A] flex items-center gap-1.5">
-                        <Terminal className="w-3.5 h-3.5 text-[#D6B46A]" /> Engineering Demonstration
-                      </span>
-                      <span className="text-[10px] font-mono text-[#6B746E]">Interactive Model</span>
+                {/* Right: Architecture Summary Box */}
+                <div className="lg:col-span-5 bg-[#F8FAF9] rounded-2xl p-6 border border-[#E2E8E4] flex flex-col justify-between space-y-5">
+                  <div className="space-y-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#123B2A] block pb-2 border-b border-[#E2E8E4]">
+                      System Reliability Specifications
+                    </span>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between py-1 border-b border-[#EEF2F0]">
+                        <span className="text-[#5C6760]">Offline Resilience:</span>
+                        <strong className="text-emerald-800 font-bold">100% Guaranteed</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#EEF2F0]">
+                        <span className="text-[#5C6760]">Hardware Protocol:</span>
+                        <strong className="text-[#1A231F]">ESC/POS 58/80mm Thermal</strong>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-[#EEF2F0]">
+                        <span className="text-[#5C6760]">Language Support:</span>
+                        <strong className="text-[#1A231F]">Urdu &amp; English Unicode</strong>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-[#5C6760]">Data Storage:</span>
+                        <strong className="text-[#1A231F]">Local ACID Database</strong>
+                      </div>
                     </div>
-
-                    {item.id === 'yuser-pos-prototype' ? (
-                      <div className="space-y-3">
-                        <POSMockup />
-                      </div>
-                    ) : (
-                      <div className="bg-[#202722] text-[#F7F5EF] p-5 rounded-xl border border-[#323C35] font-mono text-xs space-y-3">
-                        <div className="flex items-center justify-between pb-2 border-b border-[#323C35]">
-                          <span className="text-[#D6B46A]">{item.title}</span>
-                          <span className="text-[10px] text-emerald-400">Spec Ready</span>
-                        </div>
-                        <p className="text-[11px] text-[#9AA39D] leading-relaxed">
-                          // Architectural schematic verified for multi-role workflows and secure data validation.
-                        </p>
-                        <div className="bg-[#18201B] p-3 rounded border border-[#2B352E] space-y-1 text-[11px]">
-                          <div>• Target SLA: 99.9% availability</div>
-                          <div>• Role Matrix: Admin, Operator, Auditor</div>
-                          <div>• Data Schema: Relational ACID Transactions</div>
-                        </div>
-                      </div>
-                    )}
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-[#E3E0D5]">
-                    <Button
-                      to={`/contact?service=${encodeURIComponent(item.title)}`}
-                      variant="primary"
-                      size="sm"
-                      className="w-full justify-center"
-                      rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
+                  <div className="pt-3 border-t border-[#E2E8E4] space-y-2">
+                    <a
+                      href={`https://wa.me/${siteConfig.founders[1].phoneClean}?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20${encodeURIComponent(item.title)}%20k%20jaisa%20software%20chahiye.`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full justify-center px-4 py-2.5 rounded-xl bg-[#123B2A] text-white text-xs font-bold flex items-center gap-1.5 hover:bg-[#0B251A] transition-colors"
                     >
-                      Discuss Similar Architecture
-                    </Button>
+                      <MessageSquare className="w-3.5 h-3.5 text-[#C59E3F]" />
+                      <span>Inquire About Similar Architecture</span>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Verification Footer Notice */}
-        <div className="mt-16 p-6 rounded-xl bg-white border border-[#E3E0D5] max-w-3xl mx-auto text-center">
-          <ShieldCheck className="w-6 h-6 text-[#123B2A] mx-auto mb-2" />
-          <h3 className="text-sm font-bold text-[#202722]">Authentic Portfolio Policy</h3>
-          <p className="text-xs text-[#6B746E] mt-1 max-w-xl mx-auto leading-relaxed">
-            YUSERTECH values long-term reputation above promotional shortcuts. We strictly present verified prototypes and contracted work, without ghostwriting fake client praise or inflating project statistics.
-          </p>
         </div>
       </div>
     </div>

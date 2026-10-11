@@ -1,9 +1,8 @@
 /**
  * YUSERTECH Centralized Configuration
  * 
- * To rebrand or update business information, edit the values in this file.
- * All brand colors, contact endpoints, service descriptions, product data,
- * and portfolio entries are driven from this single source of truth.
+ * Single source of truth for brand, founders, contact channels,
+ * services, products, and operational parameters.
  */
 
 export interface ProductFeature {
@@ -24,7 +23,7 @@ export interface ProductItem {
   targetAudience: string[];
   problemsSolved: string[];
   keyFeatures: ProductFeature[];
-  deploymentType: 'Desktop & Offline-Ready' | 'Cloud Web-Based' | 'Hybrid (Local + Cloud Sync Planned)';
+  deploymentType: string;
   specs: {
     platform: string;
     offlineSupport: string;
@@ -69,450 +68,378 @@ export interface FaqItem {
 export const siteConfig = {
   brand: {
     name: 'YUSERTECH',
-    legalName: 'YUSERTECH Solutions (Working Brand Name)',
+    legalName: 'YUSERTECH Software Solutions',
     tagline: 'Technology That Works for Your Business.',
-    category: 'Software Development & Web Solutions Agency',
+    category: 'Software Development & Business Solutions Agency',
     missionStatement:
-      'We build practical, reliable digital solutions that solve everyday operating bottlenecks for businesses, retailers, bakeries, educational institutions, and growing organizations.',
+      'YUSERTECH designs and builds customized POS software, business management systems, workflow automation, and high-performance websites for businesses across Karachi and beyond.',
     philosophy:
-      'We believe in maintainable software over fleeting tech fads, clear contracts without hidden complexity, and genuine business value over bloated decorative code.',
-    foundedNote: 'Independent Software Solutions Agency',
+      'We believe in straightforward, reliable software that solves real operational bottlenecks without bloated subscriptions or unnecessary complexity.',
+    locationSummary: 'Based in Orangi Town, Karachi (Remote & On-Site Client Consultations)',
   },
+
+  founders: [
+    {
+      name: 'Fayyaz Khan',
+      role: 'Founder',
+      phone: '0342 2643761',
+      phoneClean: '923422643761',
+      whatsappUrl: 'https://wa.me/923422643761?text=Salam%20Fayyaz%20bhai%2C%20mujhe%20YUSERTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
+      bio: 'Visionary leadership, project scoping, client strategy, and business solution architecture.',
+    },
+    {
+      name: 'Abdul Jabbar',
+      role: 'Co-Founder',
+      phone: '0346 7366879',
+      phoneClean: '923467366879',
+      whatsappUrl: 'https://wa.me/923467366879?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20YUSERTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
+      bio: 'Technical development, system engineering, POS software customization, and workflow automation.',
+    },
+  ],
 
   colors: {
     forestGreen: '#123B2A',
-    warmGold: '#D6B46A',
-    offWhite: '#F7F5EF',
-    charcoal: '#202722',
+    warmGold: '#C59E3F',
+    offWhite: '#F8FAF9',
+    charcoal: '#1A231F',
     white: '#FFFFFF',
-    mutedGray: '#6B746E',
+    mutedGray: '#5C6760',
   },
 
-  // Contact & Social channels (Clearly marked placeholders for unsupplied values)
   contact: {
-    email: 'contact@yusertech.com', // Placeholder: Update when official inbox is established
-    phone: '+1 (555) 019-2834', // Placeholder: Update when official line is assigned
-    phoneDisplay: '+1 (555) 019-2834 (Inquiries)',
-    whatsapp: '+1 (555) 019-2834', // Placeholder: Format with country code for wa.me link
-    whatsappMessageDefault: 'Hello YUSERTECH, I would like to discuss a software project for my business.',
-    address: 'Business Solutions Hub — Remote & On-Site Consultation (Address on file upon agreement)',
-    officeHours: 'Monday – Friday, 9:00 AM – 6:00 PM (UTC+5 / Regional Standard)',
-    isLiveBackendConfigured: false, // Set to true when integrating a REST or serverless mail gateway
+    email: 'contact@yusertech.com',
+    primaryPhone: '0346 7366879 (Abdul Jabbar) / 0342 2643761 (Fayyaz Khan)',
+    abdulJabbarPhone: '0346 7366879',
+    fayyazKhanPhone: '0342 2643761',
+    address: 'Orangi Town, Karachi, Pakistan (Currently Remote & On-Site Client Operations; Physical Office Coming Soon)',
+    officeHours: 'Monday – Thursday & Saturday: 9:00 AM – 5:00 PM (PKT)',
+    offDays: 'Friday & Sunday: Closed (Jumma & Itwar Off)',
+    whatsapp: '923467366879',
+    whatsappMessageDefault: 'Salam YUSERTECH, mujhe apne business k liye software / website k baare mein baat karni hai.',
+    isLiveBackendConfigured: false,
   },
 
   socials: [
-    { name: 'GitHub', url: 'https://github.com/yusertech', isConfigured: true },
-    { name: 'LinkedIn', url: 'https://linkedin.com/company/yusertech', isConfigured: true },
-    { name: 'WhatsApp', url: 'https://wa.me/15550192834', isConfigured: false },
+    { name: 'WhatsApp (Abdul Jabbar)', url: 'https://wa.me/923467366879', isConfigured: true },
+    { name: 'WhatsApp (Fayyaz Khan)', url: 'https://wa.me/923422643761', isConfigured: true },
+    { name: 'GitHub', url: 'https://github.com/AbJabbar189/yusertech', isConfigured: true },
   ],
 
   seo: {
-    siteUrl: 'https://yusertech.com', // Configure actual production domain here
-    defaultTitle: 'YUSERTECH — Technology That Works for Your Business',
+    siteUrl: 'https://abjabbar189.github.io/yusertech',
+    defaultTitle: 'YUSERTECH — Custom POS, Management Systems & Web Solutions',
     titleTemplate: '%s | YUSERTECH',
     defaultDescription:
-      'YUSERTECH designs and builds robust business websites, custom web applications, POS software, and organizational management systems.',
-    author: 'YUSERTECH Software Solutions',
-    twitterHandle: '@yusertech',
+      'Founded by Fayyaz Khan & Abdul Jabbar. We build custom POS software for all business types, management systems, workflow automation, and websites.',
+    author: 'YUSERTECH (Fayyaz Khan & Abdul Jabbar)',
   },
 
   services: [
     {
-      id: 'website-development',
-      title: 'Website Development',
+      id: 'custom-pos-systems',
+      title: 'Custom POS Systems (All Business Types)',
       shortDescription:
-        'Fast, accessible, and high-converting business websites built for clarity, credibility, and organic search performance.',
+        'Custom point-of-sale software tailored for your exact trade: Retail Stores, Mini-Marts, Bakeries, Restaurants, Pharmacies, Hardware, and Wholesalers.',
       problemSolved:
-        'Many businesses struggle with outdated templates, slow loading speeds, broken mobile layouts, and websites that fail to convert visitors into inquiries.',
+        'Standard off-the-shelf POS software either forces unnecessary features, crashes when internet drops, or charges expensive monthly fees without local hardware support.',
       targetAudience:
-        'Service providers, retail businesses, growing corporate organizations, and institutions seeking a reputable digital front door.',
+        'Retail shops, grocery marts, bakeries, sweet shops, cafes, wholesale distributors, and independent traders.',
       benefits: [
-        'Mobile-first responsive architecture tested on smartphones, tablets, and desktops.',
-        'Semantic HTML and structured technical SEO fundamentals.',
-        'Zero bloat: fast load speeds that retain visitors and reduce bounce rates.',
-        'Clean typography and layout aligned with your brand positioning.',
-      ],
-      deliverables: [
-        'Custom business or corporate website',
-        'High-converting landing page',
-        'Website redesign and modernization',
-        'Cross-browser responsive testing report',
-        'Basic SEO integration and Google Search Console readiness',
-      ],
-      nextStep: 'Request a website consultation to review your current site or project specifications.',
-      iconName: 'Globe',
-    },
-    {
-      id: 'web-application-development',
-      title: 'Web Application Development',
-      shortDescription:
-        'Browser-based internal systems, customer portals, and administrative tools tailored to your operational workflows.',
-      problemSolved:
-        'Spreadsheet sprawl, manual record duplicate entries, and lack of central visibility across team operations.',
-      targetAudience:
-        'Companies outgrowing standard spreadsheets who need custom dashboards, role-based workflows, and data control.',
-      benefits: [
-        'Secure multi-user permissions (Admins, Managers, Staff).',
-        'Centralized data storage with structured audit trails.',
-        'Intuitive dashboards presenting core business metrics at a glance.',
-        'Automated document and report generation (PDF, CSV, Excel).',
-      ],
-      deliverables: [
-        'Custom web dashboard architecture',
-        'Administrative system & role management',
-        'Data-entry workflows with validation',
-        'REST / GraphQL API integration',
-        'Deployment on cloud or private server infrastructure',
-      ],
-      nextStep: 'Schedule a workflow discovery session to map your business processes.',
-      iconName: 'LayoutGrid',
-    },
-    {
-      id: 'retail-pos-software',
-      title: 'Retail POS Solutions',
-      shortDescription:
-        'Streamlined sales billing, barcode scanning, stock tracking, and daily cash reconciliation for retail merchants.',
-      problemSolved:
-        'Slow counter checkout times, manual stock discrepancies, lost sales receipts, and unrecorded inventory shrinkage.',
-      targetAudience:
-        'Retail store owners, mini-marts, hardware shops, clothing boutiques, and general merchandise stores.',
-      benefits: [
-        'Fast thermal receipt printing and barcode lookup.',
+        'Works completely offline: Cashiers never stop during power or internet outages.',
+        'Thermal receipt printing (58mm/80mm), barcode scanning, and electronic cash drawer triggers.',
         'Accurate real-time inventory deduction with low-stock alerts.',
-        'Daily cashier shift closing and cash drawer reconciliation.',
-        'Offline resilience: continue sales even during internet outages.',
+        'Custom order workflows (e.g. advance cake bookings for bakeries, prescription tags for pharmacies, unit splits for wholesalers).',
       ],
       deliverables: [
-        'POS checkout counter application',
-        'Product & SKU management module',
-        'Inventory intake and supplier record tracking',
-        'Daily, weekly, and monthly sales reporting',
-        'Receipt printer & barcode scanner configuration guide',
+        'Custom POS software installed on your PC or touch terminal',
+        'Item catalog setup and barcode label configuration',
+        'Cashier shift closing and daily cash reconciliation reports',
+        'Staff training and on-site testing in Karachi',
       ],
-      nextStep: 'Review our Retail POS product roadmap or request a tailored feature demo.',
+      nextStep: 'Contact Abdul Jabbar (0346-7366879) or Fayyaz Khan (0342-2643761) to demo a POS customized for your shop.',
       iconName: 'ShoppingBag',
     },
     {
-      id: 'bakery-pos-software',
-      title: 'Bakery POS Solutions',
+      id: 'management-systems',
+      title: 'Business Management Systems & ERP',
       shortDescription:
-        'Purpose-built management software designed for bakeries, pastry shops, and confectioneries with custom order tracking.',
+        'Comprehensive administrative systems for Madrasas, Schools, Warehouses, Accounts & Ledgers, and Multi-Branch Businesses.',
       problemSolved:
-        'Handling perishable item shelf life, advance custom cake bookings, ingredient costs, and busy morning/evening rush hours.',
+        'Disorganized paperwork, missing fee receipts, untracked inventory across godowns, and errors in manual ledger (Khata) calculations.',
       targetAudience:
-        'Artisan bakeries, patisseries, cake studios, sweet shops, and multi-counter bakery outlets.',
+        'Madrasas, Islamic seminaries, schools, wholesale godowns, clinics, and businesses managing accounts and records.',
       benefits: [
-        'Advance custom order scheduling with advance deposit tracking.',
-        'Quick touch-screen sales screen for high-frequency pastry items.',
-        'Batch waste tracking and perishable expiry logs.',
-        'Daily production summary reports for the baking team.',
+        'Student/Employee records, monthly fee/salary vouchers, and attendance registers.',
+        'Structured customer and vendor credit ledgers (Khata) with payment history.',
+        'Examination marks tabulation, division rankings, and printable report cards.',
+        'Multi-user roles with secure access permissions for admin, accountant, and staff.',
       ],
       deliverables: [
-        'Bakery point-of-sale terminal layout',
-        'Custom cake & pre-order booking manager',
-        'Expiry & wastage registration module',
-        'End-of-day sales and payment breakdown',
-        'Staff shifts and cash handover module',
+        'Full management system configured for your organization',
+        'Printable vouchers, fee slips, student cards, and ledger statements',
+        'Automated database backups to prevent data loss',
+        'User handbook and staff walkthrough',
       ],
-      nextStep: 'Explore the Bakery POS specifications and request early access testing.',
-      iconName: 'UtensilsCrossed',
+      nextStep: 'Share your institution or business register requirements for a tailored system blueprint.',
+      iconName: 'LayoutGrid',
     },
     {
-      id: 'madrasa-management-system',
-      title: 'Madrasa Management System',
+      id: 'workflow-automation',
+      title: 'Workflow & Process Automation',
       shortDescription:
-        'Comprehensive, dignified administrative software for Islamic seminaries, madrasas, and faith-based schools.',
+        'Eliminate repetitive daily tasks by digitizing manual forms, auto-generating invoices, and automating data synchronization.',
       problemSolved:
-        'Disorganized student paper registers, untracked fee payments, manual exam score compilations, and delayed parent notices.',
+        'Hours wasted every day retyping receipts, manually calculating totals in Excel, and following up on pending client balances via phone.',
       targetAudience:
-        'Madrasa principals, Islamic boarding institutions, weekend Quranic schools, and community educational centers.',
+        'Growing businesses looking to reduce human error and speed up daily operations without hiring extra administrative staff.',
       benefits: [
-        'Respectful, organized digital records for Hifz, Nazira, and Alimiyyah departments.',
-        'Clear fee receipt generation with pending dues tracking.',
-        'Daily student & teacher attendance registers.',
-        'Multi-lingual support readiness (Arabic / Urdu / English script considerations).',
+        'Automated PDF invoice generation and balance due reminders.',
+        'Single-click daily and monthly sales summaries sent via WhatsApp or Email.',
+        'Barcode-driven stock entry and automated purchase order creation.',
+        'Centralized dashboards giving owners live visibility into profit and stock.',
       ],
       deliverables: [
-        'Student enrollment & biodata management module',
-        'Fee collection register and voucher printing',
-        'Exam mark-sheet generator and report cards',
-        'Teacher assignment & class schedules',
-        'Data privacy safeguard configuration for sensitive records',
+        'Custom automated workflows and data-entry forms',
+        'Auto-reporting scripts and scheduled summaries',
+        'Integration with your existing spreadsheets or databases',
+        'Full handover and testing',
       ],
-      nextStep: 'Contact us for a demonstration tailored to your madrasa’s structural requirements.',
-      iconName: 'GraduationCap',
+      nextStep: 'Tell us which repetitive task takes the most time in your business every day.',
+      iconName: 'Cpu',
     },
     {
-      id: 'custom-software-development',
-      title: 'Custom Software Development',
+      id: 'website-development',
+      title: 'Modern Website & Web Application Development',
       shortDescription:
-        'Tailored software engineered from scratch to match your unique operational model when off-the-shelf tools fall short.',
+        'Ultra-fast, mobile-friendly websites and customer portals designed to build corporate trust and generate genuine client inquiries.',
       problemSolved:
-        'Off-the-shelf software packages often force businesses into rigid workflows, charge expensive recurring seats, or lack critical regional integrations.',
+        'Outdated, broken websites that look generic, load slowly on smartphones, and fail to convince corporate clients or tender boards.',
       targetAudience:
-        'Enterprises, wholesalers, logistics operators, and unique business models requiring tailored software architecture.',
+        'Service companies, corporate businesses, manufacturers, and agencies requiring a distinguished digital presence.',
       benefits: [
-        'Software built strictly around your company’s real workflow.',
-        'No per-user licensing fees for your own proprietary code.',
-        'Direct integration with your existing databases, hardware, or external APIs.',
-        'Full ownership of project deliverables and configuration.',
+        'Clean modern aesthetic with elegant typography and fast loading times.',
+        '100% responsive design tested across iPhones, Android phones, and desktops.',
+        'Search engine optimization (SEO) setup for Google Search visibility.',
+        'Direct inquiry forms linked directly to your WhatsApp and Email.',
       ],
       deliverables: [
-        'Requirements specifications document and architecture plan',
-        'Clean, documented source code repository',
-        'Automated database migrations and setup scripts',
-        'User guide and administrative handover documentation',
+        'Custom business or corporate website',
+        'Hosting and domain setup assistance',
+        'Mobile optimization and fast loading verification',
+        'Content updates guide and technical handover',
       ],
-      nextStep: 'Book an architectural feasibility review with our lead engineer.',
-      iconName: 'CodeXml',
+      nextStep: 'Request a website consultation to review your project scope.',
+      iconName: 'Globe',
     },
     {
       id: 'maintenance-and-support',
-      title: 'Maintenance and Support',
+      title: 'Maintenance, Support & System Upgrades',
       shortDescription:
-        'Proactive monitoring, security patching, dependency upgrades, bug remediation, and continuous feature enhancements.',
+        'On-going technical assistance, hardware printer configuration, bug fixes, and feature additions for your deployed systems.',
       problemSolved:
-        'Websites and applications left unmaintained become vulnerable to exploits, break when server runtimes upgrade, or slow down over time.',
+        'Software left unmaintained breaks when computers update or printer hardware changes, halting day-to-day business.',
       targetAudience:
-        'Organizations running critical business software that cannot afford downtime or unaddressed errors.',
+        'Businesses using YUSERTECH software or existing systems that need dependable technical support on call.',
       benefits: [
-        'Regular scheduled security patches and framework updates.',
-        'Guaranteed response windows for critical operational incidents.',
-        'Routine database and system backup verification.',
-        'Incremental feature improvements as your business expands.',
+        'Direct phone and WhatsApp access to Abdul Jabbar and Fayyaz Khan.',
+        'Fast turnaround on urgent billing counter hardware or database issues.',
+        'Regular database backup checks to safeguard sales records.',
+        'Continuous feature additions as your business grows.',
       ],
       deliverables: [
-        'Monthly or quarterly health audits',
-        'Bug triage and code hotfixes',
-        'Backup verification and disaster recovery checks',
-        'Performance optimization and index tuning',
+        'Monthly or on-call maintenance support',
+        'Hardware printer & scanner re-calibrations',
+        'Database health checks and disaster recovery plan',
       ],
-      nextStep: 'Discuss a structured monthly maintenance agreement for your software.',
+      nextStep: 'Discuss a straightforward support agreement for your business.',
       iconName: 'ShieldCheck',
     },
   ] as ServiceItem[],
 
   products: [
     {
-      id: 'retail-pos',
-      slug: 'retail-pos',
-      name: 'YUSER Retail POS',
+      id: 'yuser-pos-suite',
+      slug: 'pos-systems',
+      name: 'YUSER All-Trade POS Suite',
       category: 'Point-of-Sale & Inventory',
       shortDescription:
-        'A resilient counter billing and stock tracking system engineered for small and medium retail shops with offline resilience.',
+        'An offline-first, high-speed billing and inventory system customizable for Retail, Bakeries, Marts, Wholesale, and Pharmacies.',
       fullDescription:
-        'YUSER Retail POS is built to eliminate checkout delays and inventory blind spots. Designed for high-frequency counter transactions, it operates smoothly even during local network dropouts, keeping your retail store running without pause.',
+        'YUSER All-Trade POS Suite is designed specifically for local operating conditions. It runs 100% offline so counter billing never freezes during internet or power interruptions, supports instant barcode scanning, handles thermal receipt printing, and manages stock automatically.',
       status: 'In Development',
-      badgeText: 'Active Development — Beta Previews Available',
+      badgeText: 'Active Development — Custom Builds Available',
       targetAudience: [
-        'Mini-markets and grocery stores',
-        'Hardware & electrical stores',
-        'Clothing & apparel boutiques',
-        'Stationery & gift shops',
+        'Supermarkets & Grocery Mini-Marts',
+        'Bakeries, Confectioneries & Pastry Shops',
+        'Retail Boutiques & Garment Stores',
+        'Pharmacies & Medical Stores',
+        'Wholesale Godowns & Distribution Counters',
       ],
       problemsSolved: [
-        'Inability to bill customers when internet connectivity fails.',
-        'Unclear inventory count leading to stockouts or overpurchasing.',
-        'Complicated billing software that requires weeks of cashier training.',
-        'Lack of transparent end-of-day register reconciliation.',
+        'Counter billing stops when internet is down.',
+        'Stock counts are inaccurate, leading to unexpected shortages.',
+        'Cashier shift handover lacks transparent cash-in-drawer audit.',
+        'Complicated software that takes weeks for new staff to learn.',
       ],
       keyFeatures: [
         {
-          title: 'Rapid Barcode & Manual Item Billing',
-          description: 'Instant item lookup via USB/wireless barcode scanners or touch search.',
+          title: 'Offline Local Engine',
+          description: 'All transactions operate directly on local storage — zero internet dependency for checkout.',
           status: 'implemented',
         },
         {
-          title: 'Offline-First Local Storage Engine',
-          description: 'Sales operate on local SQLite/IndexedDB storage so cashiers never stop during disconnections.',
+          title: 'High-Speed Barcode Billing',
+          description: 'Instant lookup with standard USB/Wireless barcode scanners and quick-touch product tiles.',
+          status: 'implemented',
+        },
+        {
+          title: 'Thermal Slip & Invoice Printing',
+          description: 'Auto-formatted receipts for 58mm & 80mm ESC/POS thermal printers with shop logo and contact.',
           status: 'implemented',
         },
         {
           title: 'Inventory & Low Stock Warning',
-          description: 'Automatic stock deduction upon sale completion with customizable threshold alerts.',
+          description: 'Automatic deduction upon bill completion with customizable minimum-stock alert thresholds.',
           status: 'implemented',
         },
         {
-          title: 'Cashier Shift Closing & Reports',
-          description: 'Tracks opening balance, cash in drawer, electronic payments, and variance summaries.',
+          title: 'Shift Reconciliation Report',
+          description: 'End-of-day cash drawer balancing, cash received, online payments, and cashier variance.',
           status: 'implemented',
         },
         {
-          title: 'Cloud Multi-Store Synchronization',
-          description: 'Centralized headquarters inventory sync across multiple shop branches.',
-          status: 'planned',
-        },
-        {
-          title: 'Customer Loyalty & Credit Ledger',
-          description: 'Customer credit ledger tracking (Khata) and recurring customer loyalty discounts.',
+          title: 'Trade-Specific Custom Modules',
+          description: 'Advance cake booking slips for bakeries, batch expiry tracking for pharmacies, Khata ledger for retail.',
           status: 'planned',
         },
       ],
-      deploymentType: 'Desktop & Offline-Ready',
+      deploymentType: 'Desktop PC / Touch POS Terminal (Offline)',
       specs: {
-        platform: 'Windows Desktop / Cross-Platform Web Terminal',
-        offlineSupport: 'Full offline operation supported natively',
-        database: 'Local SQLite / PostgreSQL for centralized networks',
-        dataExport: 'CSV, Excel, and PDF receipt formats',
-        licenseModel: 'One-time setup with optional support plan',
+        platform: 'Windows Desktop / Touchscreen POS Terminal',
+        offlineSupport: 'Full offline local sales execution',
+        database: 'Local transactional database with automated export',
+        dataExport: 'Thermal receipts, PDF statements, Excel/CSV reports',
+        licenseModel: 'One-time setup with optional maintenance support',
       },
       faqs: [
         {
-          question: 'Does this software work if our store loses internet?',
-          answer:
-            'Yes. The core billing terminal is engineered to execute sales locally without an active internet connection. Transactions are stored on the local device.',
+          question: 'Does this software require internet to bill customers?',
+          answer: 'No. The counter billing terminal runs locally on your computer. Sales continue smoothly even without internet.',
         },
         {
-          question: 'What hardware do we need?',
-          answer:
-            'A standard Windows PC or POS terminal, a USB or Bluetooth thermal receipt printer (58mm or 80mm), and a standard barcode scanner.',
-        },
-        {
-          question: 'Is multi-branch sync ready right now?',
-          answer:
-            'Single-store offline billing is functional in our current build. Multi-branch cloud sync is on our development roadmap and is clearly labeled as a planned feature.',
+          question: 'Can you customize it for my specific shop?',
+          answer: 'Yes! Abdul Jabbar and Fayyaz Khan customize the item categories, receipt header, and billing options to match your exact shop setup.',
         },
       ],
     },
     {
-      id: 'bakery-pos',
-      slug: 'bakery-pos',
-      name: 'YUSER Bakery POS',
-      category: 'Food & Bakery Management',
-      shortDescription:
-        'Specialized point-of-sale built for bakeries, pastry kitchens, and sweet shops with advance cake booking workflows.',
-      fullDescription:
-        'Bakeries face unique operational challenges that standard retail POS software misses: fast morning counter rushes, perishable item expiry, and custom birthday or wedding cake orders with advance booking deposits. YUSER Bakery POS is crafted specifically for these workflows.',
-      status: 'In Development',
-      badgeText: 'Active Development — Specification Phase',
-      targetAudience: [
-        'Independent neighborhood bakeries',
-        'Artisan pastry shops & patisseries',
-        'Custom cake studios',
-        'Confectioneries and dessert counters',
-      ],
-      problemsSolved: [
-        'Lost paper slips for advance custom cake orders.',
-        'High food wastage due to untracked daily leftovers and shelf-life expiration.',
-        'Chaos during morning and evening rush hours with slow touchscreen systems.',
-        'Mismatches between kitchen baking queues and front-counter orders.',
-      ],
-      keyFeatures: [
-        {
-          title: 'Touch-Optimized Quick Counter Sale',
-          description: 'Large item touch tiles organized by fresh bread, pastries, beverages, and packaged goods.',
-          status: 'implemented',
-        },
-        {
-          title: 'Advance Custom Cake Order Manager',
-          description: 'Record delivery dates, cake weight, flavor, custom inscriptions, and advance deposits.',
-          status: 'implemented',
-        },
-        {
-          title: 'Daily Wastage & Spoilage Logging',
-          description: 'Log unsold daily batches to pinpoint production over-estimation and save ingredient costs.',
-          status: 'implemented',
-        },
-        {
-          title: 'Kitchen Production Schedule View',
-          description: 'Generates daily morning baking lists based on advance orders and counter quotas.',
-          status: 'planned',
-        },
-        {
-          title: 'Recipe & Ingredient Costing (BOM)',
-          description: 'Bill of materials calculation to measure exact flour, butter, and sugar costs per batch.',
-          status: 'planned',
-        },
-      ],
-      deploymentType: 'Desktop & Offline-Ready',
-      specs: {
-        platform: 'Touchscreen Windows / Android Tablet / Web Terminal',
-        offlineSupport: 'Full offline local sales capability',
-        database: 'Local transactional database with daily export',
-        dataExport: 'Thermal slips, PDF booking receipts, Excel reports',
-        licenseModel: 'Per-store license with optional maintenance',
-      },
-      faqs: [
-        {
-          question: 'Can we print custom order tokens for the kitchen team?',
-          answer:
-            'Yes. The advance booking module formats a dedicated order slip for the bakers detailing delivery time, size, and custom decorations.',
-        },
-        {
-          question: 'Can we handle split payments (e.g. part cash, part card)?',
-          answer:
-            'Yes. The payment window supports split payment tenders as well as tracking advance deposits against remaining balance on pickup.',
-        },
-      ],
-    },
-    {
-      id: 'madrasa-management',
+      id: 'yuser-madrasa-system',
       slug: 'madrasa-management',
-      name: 'YUSER Madrasa Management',
+      name: 'YUSER Madrasa & School Management',
       category: 'Institutional & Education',
       shortDescription:
-        'A comprehensive, dignified management platform for Islamic seminaries, madrasas, and Quranic schools.',
+        'A dignified, respectful administrative platform for Islamic seminaries, madrasas, and schools.',
       fullDescription:
-        'Managing a madrasa involves administrative nuances distinct from standard schools: boarding records, Quranic memorization (Hifz) tracking, Dar-ul-Iqama management, transparent donation/zakat tracking, and semester examinations. This system organizes these operations respectfully and securely.',
-      status: 'Coming Soon',
-      badgeText: 'Planned Architecture — Research & Design Phase',
+        'Specially crafted to manage student admissions across Hifz, Tajweed, and Alimiyyah departments, monthly fee vouchers, boarding hostel records, and semester examination mark-sheet tabulation.',
+      status: 'In Development',
+      badgeText: 'Active Development — Pilot Deployments Available',
       targetAudience: [
-        'Residential Islamic Seminaries (Madaris Islamiyyah)',
-        'Community Quranic Hifz and Nazira centers',
-        'Islamic weekend schools and academies',
-        'Charitable educational trusts',
+        'Residential Madaris (Madrasas with Boarding/Hostels)',
+        'Quranic Hifz & Nazira Academies',
+        'Community Schools & Tuition Centers',
       ],
       problemsSolved: [
-        'Paper register degradation and lost historical student records.',
-        'Lack of transparent fee and donation voucher records.',
-        'Time-consuming manual calculation of exam report cards.',
-        'Difficulty tracking student hostel boarding and guardian permissions.',
+        'Damaged or lost paper registers for student admissions and family contacts.',
+        'Untracked monthly fee payments and lack of standardized bank vouchers.',
+        'Manual, time-consuming calculation of exam mark-sheets and division ranks.',
       ],
       keyFeatures: [
         {
-          title: 'Student Biodata & Department Enrollment',
-          description: 'Track admissions across Hifz, Tajweed, Alimiyyah, and Primary Education divisions.',
-          status: 'prototype',
+          title: 'Student Biodata & Department Registers',
+          description: 'Complete admissions database across Hifz, Tajweed, Primary, and Alimiyyah classes.',
+          status: 'implemented',
         },
         {
-          title: 'Monthly Fee & Donation Ledger',
-          description: 'Generate standardized fee vouchers, receipt printouts, and fee exemption tracking.',
-          status: 'prototype',
+          title: 'Fee Voucher & Slip Generator',
+          description: 'Standardized monthly fee slips with tracking for paid, pending, and zakat/scholarship cases.',
+          status: 'implemented',
         },
         {
-          title: 'Daily Attendance & Absentee Alerts',
-          description: 'Morning and evening attendance records for day students and residential boarders.',
-          status: 'prototype',
+          title: 'Daily Attendance Register',
+          description: 'Morning and evening attendance for residential boarders and day students.',
+          status: 'implemented',
         },
         {
-          title: 'Examination Mark-sheet & Rank Generator',
-          description: 'Automatic grading, division classification (Mumtaz, Jayyid Jiddan, Jayyid), and report cards.',
-          status: 'planned',
-        },
-        {
-          title: 'Hostel & Meal Pass Management',
-          description: 'Boarding room allocations, guardian leave passes, and mess hall tracking.',
+          title: 'Exam Tabulation & Report Cards',
+          description: 'Automated percentage calculations, division awards (Mumtaz, Jayyid Jiddan, Jayyid), and printable certificates.',
           status: 'planned',
         },
       ],
-      deploymentType: 'Cloud Web-Based',
+      deploymentType: 'Desktop / Local Network / Secure Web',
       specs: {
-        platform: 'Secure Web Application (Browser-Based, Responsive)',
-        offlineSupport: 'Exportable offline PDF registers & backups',
-        database: 'Encrypted relational database with automated backups',
-        dataExport: 'PDF Mark-sheets, Student Cards, Excel Registers',
-        licenseModel: 'Affordable annual institutional license with setup',
+        platform: 'Windows PC / Local Network Server / Web Browser',
+        offlineSupport: 'Full offline data storage with backup export',
+        database: 'Relational database with automated daily backups',
+        dataExport: 'Printable fee vouchers, student ID cards, PDF mark-sheets',
+        licenseModel: 'Affordable one-time setup with local support',
       },
       faqs: [
         {
-          question: 'Can the system accommodate multi-lingual text?',
-          answer:
-            'Yes. The schema is built with UTF-8 support to handle Arabic, Urdu, and English names, course titles, and grading descriptions.',
+          question: 'Does it support Urdu or Arabic student names?',
+          answer: 'Yes, the system is fully configured with Unicode UTF-8 support for Urdu, Arabic, and English text.',
+        },
+      ],
+    },
+    {
+      id: 'yuser-business-automation',
+      slug: 'business-automation',
+      name: 'YUSER Business ERP & Automation',
+      category: 'Enterprise & Automation',
+      shortDescription:
+        'Custom internal business software, customer Khata ledgers, warehouse inventory, and automated reporting.',
+      fullDescription:
+        'When off-the-shelf software doesn’t fit how your business actually runs, we build tailored software around your real workflow: multi-godown stock transfers, supplier purchase ledgers, and automated business summaries.',
+      status: 'Available',
+      badgeText: 'Custom Built On-Demand',
+      targetAudience: [
+        'Wholesalers & Distributors',
+        'Importers & Traders',
+        'Contractors & Service Firms',
+      ],
+      problemsSolved: [
+        'Scattered Excel spreadsheets causing accounting errors.',
+        'No centralized visibility into multi-godown stock levels.',
+        'Delay in recovering receivables due to lack of ledger statements.',
+      ],
+      keyFeatures: [
+        {
+          title: 'Customer & Vendor Khata Ledgers',
+          description: 'Clear running balance ledger with debit/credit entries, invoice numbers, and payment receipts.',
+          status: 'implemented',
         },
         {
-          question: 'How is student data kept secure?',
-          answer:
-            'The system enforces strict role-based access control. Only authorized administrators and class teachers can view specific student contact and family records.',
+          title: 'Multi-Warehouse Stock Tracking',
+          description: 'Track items across multiple shops and godowns with inter-branch transfer notes.',
+          status: 'implemented',
+        },
+        {
+          title: 'One-Click WhatsApp / PDF Invoicing',
+          description: 'Send professional PDF invoices and ledger statements directly to customers.',
+          status: 'implemented',
+        },
+      ],
+      deploymentType: 'Cloud Web-Based or Local Office Server',
+      specs: {
+        platform: 'Responsive Web Application / Local Network',
+        offlineSupport: 'Offline exportable statements & reports',
+        database: 'PostgreSQL / SQLite with automated backups',
+        dataExport: 'PDF Statements, Excel Books, CSV',
+        licenseModel: 'Custom project contract with full code ownership',
+      },
+      faqs: [
+        {
+          question: 'Can we access this system from our phone?',
+          answer: 'Yes! Cloud-deployed versions are fully responsive and can be accessed from any smartphone, tablet, or laptop.',
         },
       ],
     },
@@ -520,56 +447,56 @@ export const siteConfig = {
 
   portfolio: [
     {
-      id: 'yuser-pos-prototype',
-      title: 'YUSER Retail POS Architecture & Desktop Shell',
-      category: 'Desktop & POS Software',
+      id: 'yuser-pos-suite-build',
+      title: 'YUSER All-Trade POS Architecture',
+      category: 'POS Software',
       type: 'Internal Product Prototype',
       problemStatement:
-        'Retailers in regional markets suffer revenue losses and customer dissatisfaction whenever internet drops cause cloud POS applications to freeze.',
+        'Local merchants face constant counter delays and lost sales whenever cloud-only POS tools disconnect during internet outages.',
       solution:
-        'Engineered an offline-first transactional engine using local structured storage, instant barcode scanner hooks, and thermal receipt print drivers with queue sync.',
-      technologies: ['TypeScript', 'React', 'Local Database Engine', 'Tailwind CSS', 'Thermal Print Protocol'],
+        'Engineered an offline-first POS architecture running on local database storage with sub-100ms item lookup, barcode scanner hooks, and thermal receipt print protocols.',
+      technologies: ['TypeScript', 'React', 'Local Database Engine', 'Thermal Print Protocol', 'Tailwind CSS'],
       status: 'Prototype Ready',
       highlights: [
-        'Sub-100ms item lookup across 10,000+ SKU test dataset',
-        'Zero cloud dependency for counter sales execution',
-        'Automatic receipt formatting for standard 58mm/80mm ESC/POS hardware',
-      ],
-      demoType: 'interactive-preview',
-    },
-    {
-      id: 'corporate-logistics-portal',
-      title: 'Supply Chain Dispatch & Consignment Dashboard',
-      category: 'Web Application Development',
-      type: 'Architecture Blueprint',
-      problemStatement:
-        'A mid-sized freight dispatch service relied on fragmented WhatsApp groups and manual Excel spreadsheets, causing missing delivery notes and delayed invoices.',
-      solution:
-        'Designed an administrative web portal featuring consignment tracking, driver manifest generation, status lifecycles, and automated PDF invoice generation.',
-      technologies: ['React', 'Node.js Architecture', 'PostgreSQL Schema', 'Tailwind CSS', 'PDF Generation'],
-      status: 'Prototype Ready',
-      highlights: [
-        'Centralized consignment tracking from booking to POD (Proof of Delivery)',
-        'Role-gated dispatch views for administrators, desk agents, and accounting',
-        'Exportable transit logs for monthly customer audits',
+        'Zero cloud dependency for counter sales billing',
+        'Instant barcode scan handling and cash drawer kicks',
+        'Custom receipt layouts with business logo and Urdu/English text',
       ],
       demoType: 'case-study',
     },
     {
-      id: 'commercial-business-showcase',
-      title: 'Precision Engineering Agency Corporate Website',
-      category: 'Website Development',
-      type: 'Client Web Solution',
+      id: 'madrasa-student-portal',
+      title: 'Madrasa Admissions & Fee Voucher System',
+      category: 'Management System',
+      type: 'Internal Product Prototype',
       problemStatement:
-        'An industrial fabrication agency needed a credible digital presence to qualify for municipal and corporate B2B tenders.',
+        'Islamic seminaries struggle with handwritten student registers that degrade over time and manual fee calculations that cause reconciliation discrepancies.',
       solution:
-        'Delivered a lightweight, semantic corporate website with accessible technical service catalogs, project specification sheets, and an inquiry routing pipeline.',
-      technologies: ['Modern Web Standards', 'Semantic HTML5', 'Tailwind CSS', 'Technical SEO', 'Schema.org'],
-      status: 'Production Deployed',
+        'Developed a structured administrative system managing student biodata, three-copy bank fee vouchers, and exam marks calculation.',
+      technologies: ['React', 'Unicode UTF-8 Support', 'PDF Voucher Generation', 'Database Backup Engine'],
+      status: 'Prototype Ready',
       highlights: [
-        'Achieved 99+ mobile performance score on Google Lighthouse',
-        'Semantic JSON-LD organizational structured data markup',
-        'B2B RFP qualification form with document attachment guidelines',
+        'Complete Hifz, Tajweed, and Alimiyyah department registries',
+        'Standardized fee vouchers with pending dues tracking',
+        'Offline backup exports ensuring zero data loss',
+      ],
+      demoType: 'case-study',
+    },
+    {
+      id: 'distribution-khata-portal',
+      title: 'Wholesale Distribution & Customer Khata Portal',
+      category: 'Business Automation',
+      type: 'Architecture Blueprint',
+      problemStatement:
+        'Wholesalers tracking credit on paper note pads frequently experience disputed balances and delayed recoveries.',
+      solution:
+        'Created a streamlined Khata ledger interface with automated balance aging, PDF invoice generation, and running statement downloads.',
+      technologies: ['TypeScript', 'Modern Web Standards', 'Tailwind CSS', 'Financial Ledger Engine'],
+      status: 'Prototype Ready',
+      highlights: [
+        'Automated running customer balances',
+        'Detailed payment history and invoice cross-referencing',
+        'Exportable ledger books for monthly client audits',
       ],
       demoType: 'case-study',
     },
@@ -578,107 +505,95 @@ export const siteConfig = {
   faqs: [
     {
       category: 'General',
-      question: 'What does YUSERTECH do?',
+      question: 'Who are the founders of YUSERTECH?',
       answer:
-        'YUSERTECH is a software development and web solutions agency. We build professional business websites, custom web applications, point-of-sale software for retail stores and bakeries, and management systems for institutions like madrasas.',
+        'YUSERTECH is founded by Fayyaz Khan (Founder) and Abdul Jabbar (Co-Founder). We are based in Orangi Town, Karachi, and provide personalized software, POS, and web development services.',
     },
     {
       category: 'General',
-      question: 'How do you handle client communication during projects?',
+      question: 'Where is your office located and what are your operating hours?',
       answer:
-        'We work through structured milestones with clear written deliverables. You receive direct access to the technical lead building your project, scheduled progress reviews, and transparent staging environments where you can test features as they are built.',
+        'We are based in Orangi Town, Karachi. We currently operate through on-site visits to client premises across Karachi as well as remote consultations (physical office is in active development). Our operating hours are Monday to Thursday & Saturday from 9:00 AM to 5:00 PM (PKT). We are closed on Friday and Sunday (Jumma & Itwar Off).',
     },
     {
       category: 'Services',
-      question: 'What is your process for website development?',
+      question: 'What types of POS software do you develop?',
       answer:
-        'Our process follows four straightforward stages: (1) Discovery & Requirements Gathering, (2) UI/UX Design & Content Architecture, (3) Clean Coding & Responsive Testing across mobile/desktop, and (4) Launch, SEO setup, and Handover.',
+        'We develop customized POS software for all types of businesses: Retail stores, Mini-marts, Bakeries, Sweet shops, Restaurants, Pharmacies, and Wholesale traders. Each system is customized to your trade workflow and works 100% offline.',
     },
     {
       category: 'Services',
-      question: 'Do we own the website and source code once completed?',
+      question: 'How do you handle hardware setup (printers, barcode scanners)?',
       answer:
-        'Yes. For custom website and bespoke software projects, full ownership of the deliverables, configuration, and documentation is transferred to you upon project sign-off and final settlement.',
-    },
-    {
-      category: 'Products',
-      question: 'Are your POS software products available right now?',
-      answer:
-        'Our software products are currently in active development and prototyping phases. We do not make false claims of instant out-of-the-box availability. Interested business owners can review our prototypes, explore feature roadmaps, and request early pilot testing.',
-    },
-    {
-      category: 'Products',
-      question: 'What is the difference between your online and offline software?',
-      answer:
-        'Offline software (such as our POS counter billing) runs locally on your PC so sales continue without internet. Cloud web applications run in a modern browser and can be accessed from any location. We never claim offline and online versions sync automatically unless that capability is specifically built and verified.',
+        'For clients in Karachi, we assist on-site with thermal printer setup (58mm/80mm), barcode scanner connections, cash drawer triggers, and cashier training so your counter is ready to bill on day one.',
     },
     {
       category: 'Process & Pricing',
-      question: 'How are project costs calculated?',
+      question: 'How can we contact the founders directly?',
       answer:
-        'We price projects based on clearly scoped requirements rather than vague ballpark estimates. After reviewing your requirements, we provide an itemized proposal detailing scope, milestone deliverables, timeline, and fixed costs. We do not make arbitrary pricing promises without understanding your needs.',
+        'You can call or WhatsApp Abdul Jabbar (Co-Founder) at 0346-7366879 or Fayyaz Khan (Founder) at 0342-2643761 during working hours (9:00 AM – 5:00 PM).',
     },
     {
       category: 'Process & Pricing',
-      question: 'What ongoing maintenance and support do you offer?',
+      question: 'How is project pricing determined?',
       answer:
-        'We provide structured monthly or quarterly maintenance packages covering security updates, server monitoring, bug fixes, automated backups, and incremental feature updates.',
+        'We do not believe in hidden costs. After understanding your exact requirements, we provide a transparent, itemized proposal detailing the features, milestone deliverables, and fixed project cost.',
     },
   ] as FaqItem[],
 
   processSteps: [
     {
       step: '01',
-      title: 'Discovery & Scope Mapping',
+      title: 'Discovery & Consultation',
       description:
-        'We analyze your actual business bottlenecks, technical requirements, and end-user workflows before writing a single line of code.',
+        'Fayyaz Khan and Abdul Jabbar meet or consult with you to map your daily business workflow and hardware needs.',
     },
     {
       step: '02',
-      title: 'Architecture & UX Design',
+      title: 'Custom Blueprint',
       description:
-        'We create clean page structures, data schemas, and user interfaces focused on speed, readability, and business utility.',
+        'We design the system interface, database schema, and receipt/report layouts tailored strictly to your business.',
     },
     {
       step: '03',
-      title: 'Engineered Development',
+      title: 'Development & Testing',
       description:
-        'We build maintainable, responsive code following web standards, accessible design patterns, and robust error handling.',
+        'We build your software with offline resilience, error checking, and fast performance.',
     },
     {
       step: '04',
-      title: 'Rigorous Testing & Launch',
+      title: 'On-Site Setup & Training',
       description:
-        'We verify cross-browser performance, mobile responsiveness, form validation, and technical SEO before deploying to production.',
+        'We install the system on your machines, configure receipt printers and scanners, and train your staff.',
     },
     {
       step: '05',
-      title: 'Handover & Support',
+      title: 'Continuous Support',
       description:
-        'We provide complete documentation, staff guidance, and ongoing maintenance to ensure long-term stability.',
+        'Direct phone and WhatsApp support from our founders whenever you need adjustments or assistance.',
     },
   ],
 
   whyChooseUs: [
     {
-      title: 'Practical Business Focus',
+      title: 'Direct Founder Access',
       description:
-        'We build software that solves operational headaches and supports client acquisition, not decorative fluff or unnecessary complexity.',
+        'You deal directly with Fayyaz Khan and Abdul Jabbar. No corporate middlemen, no delayed customer support tickets.',
     },
     {
-      title: 'Strict Honesty & Integrity',
+      title: 'Built for Local Realities',
       description:
-        'No inflated team numbers, no fake client reviews, no made-up statistics, and no false promises about software readiness.',
+        'Our software works 100% offline without freezing during internet outages, with full thermal printer and local ledger support.',
     },
     {
-      title: 'Maintainable Architecture',
+      title: 'Zero Hidden Subscriptions',
       description:
-        'Clean, modular code with centralized configuration that your team or future developers can easily adapt and extend.',
+        'Transparent project pricing with complete ownership of your software setup and database.',
     },
     {
-      title: 'Transparent Pricing & Milestones',
+      title: 'Tailored for Your Exact Trade',
       description:
-        'Clear deliverables, itemized milestones, and regular progress reports with zero surprise charges.',
+        'Whether retail, bakery, school, madrasa, or wholesale godown, every feature is customized to your trade.',
     },
   ],
 };

@@ -7,24 +7,29 @@ describe('Centralized siteConfig Verification', () => {
     expect(siteConfig.brand.tagline).toBe('Technology That Works for Your Business.');
   });
 
-  it('defines the required brand color palette system', () => {
-    expect(siteConfig.colors.forestGreen).toBe('#123B2A');
-    expect(siteConfig.colors.warmGold).toBe('#D6B46A');
-    expect(siteConfig.colors.offWhite).toBe('#F7F5EF');
-    expect(siteConfig.colors.charcoal).toBe('#202722');
-    expect(siteConfig.colors.white).toBe('#FFFFFF');
-    expect(siteConfig.colors.mutedGray).toBe('#6B746E');
+  it('contains company founders Fayyaz Khan and Abdul Jabbar with real numbers', () => {
+    expect(siteConfig.founders[0].name).toBe('Fayyaz Khan');
+    expect(siteConfig.founders[0].role).toBe('Founder');
+    expect(siteConfig.founders[0].phone).toBe('0342 2643761');
+
+    expect(siteConfig.founders[1].name).toBe('Abdul Jabbar');
+    expect(siteConfig.founders[1].role).toBe('Co-Founder');
+    expect(siteConfig.founders[1].phone).toBe('0346 7366879');
   });
 
-  it('contains all 7 required business services with full details', () => {
-    expect(siteConfig.services.length).toBe(7);
+  it('verifies Orangi Town, Karachi location and working hours (Fri & Sun Off)', () => {
+    expect(siteConfig.contact.address).toContain('Orangi Town, Karachi');
+    expect(siteConfig.contact.officeHours).toContain('9:00 AM – 5:00 PM');
+    expect(siteConfig.contact.offDays).toContain('Friday & Sunday');
+  });
+
+  it('contains the consolidated business services', () => {
+    expect(siteConfig.services.length).toBe(5);
     const serviceIds = siteConfig.services.map((s) => s.id);
+    expect(serviceIds).toContain('custom-pos-systems');
+    expect(serviceIds).toContain('management-systems');
+    expect(serviceIds).toContain('workflow-automation');
     expect(serviceIds).toContain('website-development');
-    expect(serviceIds).toContain('web-application-development');
-    expect(serviceIds).toContain('retail-pos-software');
-    expect(serviceIds).toContain('bakery-pos-software');
-    expect(serviceIds).toContain('madrasa-management-system');
-    expect(serviceIds).toContain('custom-software-development');
     expect(serviceIds).toContain('maintenance-and-support');
 
     siteConfig.services.forEach((s) => {
@@ -36,19 +41,12 @@ describe('Centralized siteConfig Verification', () => {
     });
   });
 
-  it('contains the three required software products with valid statuses', () => {
+  it('contains the software products with valid offline specs', () => {
     expect(siteConfig.products.length).toBe(3);
-    const validStatuses = ['Available', 'In Development', 'Coming Soon'];
     siteConfig.products.forEach((p) => {
-      expect(validStatuses).toContain(p.status);
       expect(p.slug).toBeTruthy();
       expect(p.specs.platform).toBeTruthy();
       expect(p.specs.offlineSupport).toBeTruthy();
     });
-  });
-
-  it('has honest contact placeholders and disabled live backend flag', () => {
-    expect(siteConfig.contact.email).toContain('@');
-    expect(siteConfig.contact.isLiveBackendConfigured).toBe(false);
   });
 });

@@ -5,34 +5,34 @@
     --color-forest: #123B2A;
     --color-forest-dark: #0A2419;
     --color-forest-light: #1A523A;
-    --color-forest-surface: #164632;
-    --color-gold: #D6B46A;
-    --color-gold-hover: #C29E52;
-    --color-gold-subtle: #F6F0DF;
-    --color-gold-muted: #E5D3A3;
-    --color-offwhite: #F7F5EF;
-    --color-offwhite-card: #FAF9F5;
-    --color-offwhite-alt: #EFECE3;
-    --color-charcoal: #202722;
-    --color-charcoal-light: #323C35;
+    --color-forest-surface: #EBF3EE;
+    --color-gold: #C59E3F;
+    --color-gold-hover: #B38C32;
+    --color-gold-subtle: #F9F5EA;
+    --color-gold-muted: #E0C988;
+    --color-offwhite: #F8FAF9;
+    --color-offwhite-card: #FFFFFF;
+    --color-offwhite-alt: #F0F4F2;
+    --color-charcoal: #1A231F;
+    --color-charcoal-light: #2C3832;
     --color-white: #FFFFFF;
-    --color-muted: #6B746E;
-    --color-muted-light: #9AA39D;
-    --color-border: #E3E0D5;
+    --color-muted: #5C6760;
+    --color-muted-light: #8E9C94;
+    --color-border: #E2E8E4;
     --color-border-dark: #224E3A;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: var(--color-offwhite);
-    color: var(--color-charcoal);
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F8FAF9;
+    color: #1A231F;
   }
 
   body {
     min-height: 100vh;
-    background-color: var(--color-offwhite);
-    color: var(--color-charcoal);
+    background-color: #F8FAF9;
+    color: #1A231F;
     margin: 0;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -47,27 +47,28 @@
 
   /* Selection styling */
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-forest-dark);
+    background-color: #F9F5EA;
+    color: #123B2A;
   }
 }
 
 @theme {
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --color-forest: #123B2A;
   --color-forest-dark: #0A2419;
   --color-forest-light: #1A523A;
-  --color-forest-surface: #164632;
-  --color-gold: #D6B46A;
-  --color-gold-hover: #C29E52;
-  --color-gold-subtle: #F6F0DF;
-  --color-gold-muted: #E5D3A3;
-  --color-offwhite: #F7F5EF;
-  --color-offwhite-card: #FAF9F5;
-  --color-offwhite-alt: #EFECE3;
-  --color-charcoal: #202722;
-  --color-charcoal-light: #323C35;
-  --color-muted: #6B746E;
-  --color-muted-light: #9AA39D;
-  --color-border: #E3E0D5;
+  --color-forest-surface: #EBF3EE;
+  --color-gold: #C59E3F;
+  --color-gold-hover: #B38C32;
+  --color-gold-subtle: #F9F5EA;
+  --color-gold-muted: #E0C988;
+  --color-offwhite: #F8FAF9;
+  --color-offwhite-card: #FFFFFF;
+  --color-offwhite-alt: #F0F4F2;
+  --color-charcoal: #1A231F;
+  --color-charcoal-light: #2C3832;
+  --color-muted: #5C6760;
+  --color-muted-light: #8E9C94;
+  --color-border: #E2E8E4;
   --color-border-dark: #224E3A;
 }

@@ -4,94 +4,167 @@ import {
   ArrowRight,
   CheckCircle2,
   ShieldCheck,
-  Code2,
   Sparkles,
-  HelpCircle,
+  Phone,
+  MessageSquare,
+  Clock,
+  MapPin,
+  ShoppingBag,
+  LayoutGrid,
+  Cpu,
+  Globe,
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/common/Button';
 import { Badge } from '../components/common/Badge';
 import { SectionHeader } from '../components/common/SectionHeader';
-import { POSMockup } from '../components/products/POSMockup';
 
 export const HomePage: React.FC = () => {
-  return (
-    <div className="flex flex-col">
-      {/* HERO SECTION */}
-      <section className="relative bg-[#123B2A] text-white pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden border-b border-[#224E3A]">
-        {/* Subtle geometric grid background accent */}
-        <div
-          className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(#D6B46A 1px, transparent 1px)`,
-            backgroundSize: '24px 24px',
-          }}
-          aria-hidden="true"
-        />
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'ShoppingBag':
+        return <ShoppingBag className="w-5 h-5" />;
+      case 'LayoutGrid':
+        return <LayoutGrid className="w-5 h-5" />;
+      case 'Cpu':
+        return <Cpu className="w-5 h-5" />;
+      case 'Globe':
+        return <Globe className="w-5 h-5" />;
+      default:
+        return <ShieldCheck className="w-5 h-5" />;
+    }
+  };
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  return (
+    <div className="flex flex-col font-sans">
+      {/* MODERN LIGHT HERO SECTION */}
+      <section className="relative bg-gradient-to-b from-white via-[#F8FAF9] to-[#F1F6F3] pt-12 pb-20 md:pt-20 md:pb-28 border-b border-[#E2E8E4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Headline and Positioning */}
             <div className="lg:col-span-7 flex flex-col items-start space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#164632] border border-[#224E3A] text-xs font-semibold text-[#D6B46A]">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Software Development & Web Solutions Agency</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF3EE] border border-[#CFE1D6] text-xs font-bold text-[#123B2A]">
+                <Sparkles className="w-3.5 h-3.5 text-[#C59E3F]" />
+                <span>Karachi Software Agency • Founded by Fayyaz Khan &amp; Abdul Jabbar</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
-                Practical Software Solutions for Growing Businesses.
+              <h1 className="text-3xl sm:text-5xl lg:text-5.5xl font-extrabold tracking-tight leading-[1.12] text-[#1A231F]">
+                Custom POS, Management Systems &amp; Business Software for Your Trade.
               </h1>
 
-              <p className="text-lg sm:text-xl text-[#EFECE3]/85 leading-relaxed max-w-2xl">
-                {siteConfig.brand.name} develops business websites, web applications, and custom software that help businesses manage their operations and work more efficiently.
+              <p className="text-base sm:text-lg text-[#5C6760] leading-relaxed max-w-2xl">
+                YUSERTECH builds customized point-of-sale software for all business types (Retail, Marts, Bakeries, Pharmacies &amp; Wholesalers), institutional management systems, and automated workflow tools. 100% offline-ready with zero monthly software traps.
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
-                <Button
-                  to="/contact"
-                  variant="gold"
-                  size="lg"
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
+              {/* Direct Founder Contact Buttons */}
+              <div className="flex flex-wrap items-center gap-3 pt-1 w-full sm:w-auto">
+                <a
+                  href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#123B2A] text-white text-xs sm:text-sm font-bold shadow-xs hover:bg-[#0B251A] transition-all"
                 >
-                  Discuss Your Project
-                </Button>
-                <Button
-                  to="/products"
-                  variant="outline"
-                  size="lg"
-                  className="!text-white !border-[#EFECE3]/40 hover:!bg-white/10"
+                  <MessageSquare className="w-4 h-4 text-[#C59E3F]" />
+                  <span>WhatsApp: Abdul Jabbar (0346 7366879)</span>
+                </a>
+                <a
+                  href={`https://wa.me/${siteConfig.founders[0].phoneClean}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#123B2A] border border-[#CFE1D6] text-xs sm:text-sm font-bold hover:bg-[#EBF3EE] transition-all"
                 >
-                  Explore Our Solutions
-                </Button>
+                  <MessageSquare className="w-4 h-4 text-[#C59E3F]" />
+                  <span>WhatsApp: Fayyaz Khan (0342 2643761)</span>
+                </a>
               </div>
 
-              {/* Trust & Transparency Signals */}
-              <div className="pt-6 border-t border-[#224E3A] w-full grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#EFECE3]/80">
+              {/* Quick Trust Highlights */}
+              <div className="pt-4 border-t border-[#E2E8E4] w-full grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-[#425048]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D6B46A] shrink-0" />
-                  <span>Honest Product Status</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#123B2A] shrink-0" />
+                  <span className="font-medium">All Business POS Types</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D6B46A] shrink-0" />
-                  <span>Maintainable Architecture</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#123B2A] shrink-0" />
+                  <span className="font-medium">100% Offline Resilience</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D6B46A] shrink-0" />
-                  <span>Transparent Deliverables</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#123B2A] shrink-0" />
+                  <span className="font-medium">Direct Founder Support</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Live Software Terminal Preview */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative z-10">
-                <POSMockup />
-              </div>
-              <div className="mt-3 text-center">
-                <span className="text-[11px] text-[#EFECE3]/60 italic">
-                  Interactive Preview: YUSER Retail POS offline billing counter shell
-                </span>
+            {/* Right Column: Modern Light Overview Card (Clean Architecture) */}
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-2xl border border-[#DCE4E0] p-6 sm:p-7 shadow-[0_4px_24px_rgba(18,59,42,0.06)] space-y-5">
+                <div className="flex items-center justify-between pb-3 border-b border-[#EEF2F0]">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#123B2A]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#123B2A]">
+                      YUSERTECH Core Capabilities
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-semibold text-[#C59E3F] bg-[#FDF8EB] px-2.5 py-0.5 rounded-md border border-[#F3E3BC]">
+                    Karachi Based
+                  </span>
+                </div>
+
+                {/* Capability Items */}
+                <div className="space-y-3">
+                  <div className="p-3.5 rounded-xl bg-[#F8FAF9] border border-[#E6EDE8] flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center shrink-0 font-bold">
+                      <ShoppingBag className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#1A231F]">
+                        Customized Point-of-Sale (POS)
+                      </h4>
+                      <p className="text-[11px] text-[#5C6760] mt-0.5">
+                        Retail stores, mini-marts, bakeries, cafes, pharmacies, and wholesale distribution counters with thermal slips.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-[#F8FAF9] border border-[#E6EDE8] flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center shrink-0 font-bold">
+                      <LayoutGrid className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#1A231F]">
+                        Management Systems &amp; Ledgers
+                      </h4>
+                      <p className="text-[11px] text-[#5C6760] mt-0.5">
+                        Madrasa admissions, student fee vouchers, exam tabulation, and business Khata ledgers.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-[#F8FAF9] border border-[#E6EDE8] flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center shrink-0 font-bold">
+                      <Cpu className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-[#1A231F]">
+                        Process Automation &amp; Websites
+                      </h4>
+                      <p className="text-[11px] text-[#5C6760] mt-0.5">
+                        Auto-generated invoice PDFs, daily WhatsApp reports, and fast responsive agency websites.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Founder direct call bar */}
+                <div className="p-3 rounded-xl bg-[#EBF3EE] border border-[#CFE1D6] flex items-center justify-between text-xs">
+                  <div>
+                    <span className="font-bold text-[#123B2A] block">On-Site Consultation in Karachi</span>
+                    <span className="text-[11px] text-[#5C6760]">Based in Orangi Town</span>
+                  </div>
+                  <Button to="/contact" variant="primary" size="sm">
+                    Book Visit
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -99,42 +172,42 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* SECTION 2: SERVICES OVERVIEW */}
-      <section className="py-20 bg-[#F7F5EF]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="What We Build"
-            title="Engineered Services Designed for Business Reality"
-            subtitle="We don't sell bloated templates or unnecessary complexity. We build clear, maintainable tools designed to solve specific operational bottlenecks."
+            title="Practical Software Services Built for Daily Operations"
+            subtitle="We don't sell bloated templates or monthly locked subscriptions. We build clear, custom tools that automate your workflow and secure your cash counter."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {siteConfig.services.slice(0, 6).map((service) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {siteConfig.services.map((service) => (
               <div
                 key={service.id}
-                className="bg-white rounded-xl p-6 sm:p-8 border border-[#E3E0D5] hover:border-[#123B2A] transition-all hover:shadow-md flex flex-col justify-between group"
+                className="bg-[#F8FAF9] rounded-2xl p-6 sm:p-7 border border-[#E2E8E4] hover:border-[#123B2A]/40 transition-all hover:shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-[#FAF3E0] text-[#123B2A] flex items-center justify-center font-bold mb-5 border border-[#E8D49F] group-hover:bg-[#123B2A] group-hover:text-[#D6B46A] transition-colors">
-                    <Code2 className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-xl bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center mb-4 border border-[#CFE1D6]">
+                    {getIcon(service.iconName)}
                   </div>
-                  <h3 className="text-xl font-bold text-[#202722] mb-2">{service.title}</h3>
-                  <p className="text-sm text-[#6B746E] leading-relaxed mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-[#1A231F] mb-2">{service.title}</h3>
+                  <p className="text-xs sm:text-sm text-[#5C6760] leading-relaxed mb-4">
                     {service.shortDescription}
                   </p>
-                  <div className="pt-3 border-t border-[#F7F5EF]">
-                    <span className="text-xs font-semibold text-[#123B2A] block mb-1.5 uppercase tracking-wider">
+                  <div className="pt-3 border-t border-[#E8EFEA]">
+                    <span className="text-[11px] font-bold text-[#123B2A] uppercase tracking-wider block mb-1">
                       Key Benefit
                     </span>
-                    <p className="text-xs text-[#202722]/80">{service.benefits[0]}</p>
+                    <p className="text-xs text-[#2C3832]">{service.benefits[0]}</p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E3E0D5]">
+                <div className="mt-6 pt-4 border-t border-[#E2E8E4]">
                   <Link
                     to={`/services#${service.id}`}
-                    className="text-xs font-bold text-[#123B2A] hover:text-[#D6B46A] inline-flex items-center gap-1 transition-colors"
+                    className="text-xs font-bold text-[#123B2A] hover:text-[#C59E3F] inline-flex items-center gap-1 transition-colors"
                   >
-                    <span>View Specifications & Deliverables</span>
+                    <span>Read Details &amp; Deliverables</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -142,66 +215,163 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <Button to="/services" variant="secondary" size="lg">
-              Explore All 7 Service Offerings
+          <div className="mt-10 text-center">
+            <Button to="/services" variant="primary" size="md">
+              View All Services &amp; Hardware Support
             </Button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: FEATURED SOFTWARE PRODUCTS */}
-      <section className="py-20 bg-white border-y border-[#E3E0D5]">
+      {/* SECTION 3: FOUNDERS & LEADERSHIP */}
+      <section className="py-20 bg-[#F4F7F5] border-y border-[#E2E8E4]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            badge="Leadership"
+            title="Meet the Founders Behind YUSERTECH"
+            subtitle="Direct communication with the actual minds engineering your software. No call centers, no outsourced contractors."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Fayyaz Khan */}
+            <div className="bg-white rounded-2xl border border-[#DCE4E0] p-6 sm:p-8 flex flex-col justify-between shadow-2xs">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center font-bold text-lg">
+                    FK
+                  </div>
+                  <Badge variant="forest">Founder</Badge>
+                </div>
+                <h3 className="text-xl font-bold text-[#1A231F]">Fayyaz Khan</h3>
+                <span className="text-xs text-[#C59E3F] font-bold block mb-3">Founder &amp; Business Strategist</span>
+                <p className="text-xs sm:text-sm text-[#5C6760] leading-relaxed mb-6">
+                  {siteConfig.founders[0].bio} Fayyaz works directly with business owners across Karachi to understand counter workflows, pricing, and project milestones.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#EEF2F0] space-y-2">
+                <a
+                  href={`tel:${siteConfig.founders[0].phoneClean}`}
+                  className="flex items-center gap-2 text-xs font-semibold text-[#1A231F] hover:text-[#123B2A]"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#C59E3F]" />
+                  <span>Call: {siteConfig.founders[0].phone}</span>
+                </a>
+                <a
+                  href={siteConfig.founders[0].whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123B2A] hover:underline"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Message on WhatsApp →</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Abdul Jabbar */}
+            <div className="bg-white rounded-2xl border border-[#DCE4E0] p-6 sm:p-8 flex flex-col justify-between shadow-2xs">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center font-bold text-lg">
+                    AJ
+                  </div>
+                  <Badge variant="gold">Co-Founder</Badge>
+                </div>
+                <h3 className="text-xl font-bold text-[#1A231F]">Abdul Jabbar</h3>
+                <span className="text-xs text-[#123B2A] font-bold block mb-3">Co-Founder &amp; Lead Systems Engineer</span>
+                <p className="text-xs sm:text-sm text-[#5C6760] leading-relaxed mb-6">
+                  {siteConfig.founders[1].bio} Abdul Jabbar handles database architecture, offline POS reliability, thermal printer protocols, and automation scripts.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#EEF2F0] space-y-2">
+                <a
+                  href={`tel:${siteConfig.founders[1].phoneClean}`}
+                  className="flex items-center gap-2 text-xs font-semibold text-[#1A231F] hover:text-[#123B2A]"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#C59E3F]" />
+                  <span>Call: {siteConfig.founders[1].phone}</span>
+                </a>
+                <a
+                  href={siteConfig.founders[1].whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123B2A] hover:underline"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Message on WhatsApp →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Operating hours & location notice */}
+          <div className="mt-8 p-4 rounded-xl bg-white border border-[#DCE4E0] max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#5C6760]">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-[#C59E3F] shrink-0" />
+              <span>Based in <strong>Orangi Town, Karachi</strong> (Remote &amp; Client On-Site Operations).</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#C59E3F] shrink-0" />
+              <span><strong>9:00 AM – 5:00 PM</strong> (Mon–Thu &amp; Sat) • <em>Friday &amp; Sunday Off</em></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: FEATURED PRODUCTS */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Dedicated Products"
-            title="Purpose-Built Business Software"
-            subtitle="In addition to custom client projects, YUSERTECH develops focused software products for retailers, bakeries, and educational institutions."
+            badge="Software Solutions"
+            title="Dedicated Systems Built for Local Business Conditions"
+            subtitle="Engineered to eliminate paperwork chaos, checkout queues, and unrecorded cash discrepancies."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {siteConfig.products.map((product) => (
               <div
                 key={product.id}
-                className="bg-[#FAF9F5] border border-[#E3E0D5] rounded-xl overflow-hidden flex flex-col justify-between hover:border-[#123B2A] transition-colors"
+                className="bg-[#F8FAF9] border border-[#E2E8E4] rounded-2xl overflow-hidden flex flex-col justify-between hover:border-[#123B2A]/50 transition-colors"
               >
-                <div className="p-6 sm:p-8">
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-xs font-mono uppercase text-[#6B746E]">
+                <div className="p-6 sm:p-7">
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#5C6760]">
                       {product.category}
                     </span>
                     <Badge variant={product.status}>{product.status}</Badge>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#202722] mb-3">{product.name}</h3>
-                  <p className="text-sm text-[#6B746E] leading-relaxed mb-6">
+                  <h3 className="text-xl font-bold text-[#1A231F] mb-2">{product.name}</h3>
+                  <p className="text-xs sm:text-sm text-[#5C6760] leading-relaxed mb-5">
                     {product.shortDescription}
                   </p>
 
-                  <div className="space-y-2.5 pt-4 border-t border-[#E3E0D5]">
-                    <span className="text-xs font-bold text-[#123B2A] uppercase tracking-wider block">
-                      Core Capabilities
+                  <div className="space-y-2 pt-3 border-t border-[#E2E8E4]">
+                    <span className="text-xs font-bold text-[#123B2A] uppercase tracking-wider block mb-1">
+                      Key Capabilities:
                     </span>
                     {product.keyFeatures.slice(0, 3).map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-[#202722]">
+                      <div key={idx} className="flex items-start gap-2 text-xs text-[#2C3832]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#123B2A] shrink-0 mt-0.5" />
                         <span>{feat.title}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-6 p-3 rounded-lg bg-white border border-[#E3E0D5] text-xs text-[#6B746E]">
-                    <span className="font-semibold text-[#202722] block mb-0.5">Deployment:</span>
+                  <div className="mt-5 p-3 rounded-xl bg-white border border-[#E2E8E4] text-xs text-[#5C6760]">
+                    <span className="font-semibold text-[#1A231F] block text-[11px]">Hardware / Platform:</span>
                     <span>{product.deploymentType}</span>
                   </div>
                 </div>
 
-                <div className="p-6 bg-white border-t border-[#E3E0D5] flex items-center justify-between gap-3">
+                <div className="p-5 bg-white border-t border-[#E2E8E4] flex items-center justify-between gap-3">
                   <Link
                     to={`/products/${product.slug}`}
-                    className="text-xs font-bold text-[#123B2A] hover:text-[#D6B46A] inline-flex items-center gap-1 transition-colors"
+                    className="text-xs font-bold text-[#123B2A] hover:text-[#C59E3F] inline-flex items-center gap-1 transition-colors"
                   >
-                    <span>Read Full Details</span>
+                    <span>View Specifications</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <Button to="/contact" variant="secondary" size="sm">
@@ -211,231 +381,68 @@ export const HomePage: React.FC = () => {
               </div>
             ))}
           </div>
-
-          <div className="mt-12 p-6 rounded-xl bg-[#FAF3E0]/70 border border-[#E8D49F] max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-left">
-              <h4 className="text-sm font-bold text-[#123B2A]">
-                Honest Product Status Commitment
-              </h4>
-              <p className="text-xs text-[#202722]/80 mt-0.5">
-                We clearly disclose development status for all solutions. No fabricated client counts or unverified claims.
-              </p>
-            </div>
-            <Link
-              to="/products"
-              className="text-xs font-bold text-[#123B2A] underline underline-offset-4 shrink-0"
-            >
-              Learn about our verification standards →
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* SECTION 4: SELECTED PORTFOLIO & PROTOTYPES */}
-      <section className="py-20 bg-[#F7F5EF]">
+      {/* SECTION 5: WHY CHOOSE YUSERTECH */}
+      <section className="py-20 bg-[#F4F7F5] border-t border-[#E2E8E4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Engineering Work"
-            title="Prototypes, Blueprints & Case Studies"
-            subtitle="Transparent demonstrations of our architectural decisions, code prototypes, and software solutions."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {siteConfig.portfolio.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-xl border border-[#E3E0D5] p-6 sm:p-7 flex flex-col justify-between hover:shadow-md transition-shadow"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-mono text-[#6B746E] uppercase">
-                      {item.category}
-                    </span>
-                    <Badge variant={item.status}>{item.status}</Badge>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#202722] mb-2">{item.title}</h3>
-                  <div className="text-xs text-[#123B2A] font-semibold mb-3">
-                    Type: {item.type}
-                  </div>
-                  <p className="text-xs text-[#6B746E] leading-relaxed mb-4">
-                    {item.problemStatement}
-                  </p>
-
-                  <div className="space-y-1.5 pt-3 border-t border-[#F7F5EF]">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#202722] block mb-1">
-                      Architecture Highlights
-                    </span>
-                    {item.highlights.map((h, i) => (
-                      <p key={i} className="text-xs text-[#202722]/80 flex items-start gap-1.5">
-                        <span className="text-[#D6B46A] font-bold">•</span>
-                        <span>{h}</span>
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#E3E0D5]">
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {item.technologies.slice(0, 3).map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#FAF9F5] border border-[#E3E0D5] text-[#202722]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <Link
-                    to="/portfolio"
-                    className="text-xs font-bold text-[#123B2A] hover:text-[#D6B46A] inline-flex items-center gap-1 transition-colors"
-                  >
-                    <span>View Architectural Blueprint</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Button to="/portfolio" variant="secondary" size="md">
-              View Portfolio & Technical Blueprints
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: DEVELOPMENT PROCESS */}
-      <section className="py-20 bg-[#123B2A] text-white border-t border-[#224E3A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="How We Work"
-            title="A Structured, Transparent Engineering Process"
-            subtitle="Every project follows a defined lifecycle so you always know what is being built, when milestones are delivered, and how your software is verified."
-            theme="dark"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {siteConfig.processSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-[#164632] border border-[#224E3A] rounded-xl p-5 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-2xl font-extrabold text-[#D6B46A] font-mono block mb-3">
-                    {step.step}
-                  </span>
-                  <h4 className="text-base font-bold text-white mb-2">{step.title}</h4>
-                  <p className="text-xs text-[#EFECE3]/80 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: WHY CHOOSE YUSERTECH */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Core Standards"
-            title="Why Business Owners Choose YUSERTECH"
-            subtitle="We prioritize long-term software maintainability, accessible code, and authentic business outcomes over buzzwords."
+            badge="Why Us"
+            title="Why Business Owners in Karachi Choose YUSERTECH"
+            subtitle="Straightforward accountability, reliable offline performance, and real business ownership."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {siteConfig.whyChooseUs.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-[#FAF9F5] border border-[#E3E0D5] rounded-xl p-6 flex flex-col justify-start"
+                className="bg-white border border-[#E2E8E4] rounded-2xl p-6 flex flex-col justify-start shadow-2xs"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#FAF3E0] text-[#123B2A] flex items-center justify-center font-bold mb-4 border border-[#E8D49F]">
+                <div className="w-10 h-10 rounded-xl bg-[#EBF3EE] text-[#123B2A] flex items-center justify-center font-bold mb-4 border border-[#CFE1D6]">
                   <ShieldCheck className="w-5 h-5 text-[#123B2A]" />
                 </div>
-                <h3 className="text-base font-bold text-[#202722] mb-2">{item.title}</h3>
-                <p className="text-xs text-[#6B746E] leading-relaxed">{item.description}</p>
+                <h3 className="text-base font-bold text-[#1A231F] mb-2">{item.title}</h3>
+                <p className="text-xs text-[#5C6760] leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 7: FAQ PREVIEW */}
-      <section className="py-20 bg-[#F7F5EF] border-t border-[#E3E0D5]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Got Questions?"
-            title="Practical Answers for Business Clients"
-            subtitle="Straight answers on project pricing, ownership, technical support, and offline capabilities."
-          />
-
-          <div className="space-y-4">
-            {siteConfig.faqs.slice(0, 4).map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-xl p-6 border border-[#E3E0D5] shadow-2xs"
-              >
-                <h3 className="text-base font-bold text-[#202722] flex items-start gap-2.5">
-                  <HelpCircle className="w-5 h-5 text-[#123B2A] shrink-0 mt-0.5" />
-                  <span>{faq.question}</span>
-                </h3>
-                <p className="mt-3 text-sm text-[#6B746E] leading-relaxed pl-7">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link
-              to="/faq"
-              className="text-sm font-bold text-[#123B2A] hover:text-[#D6B46A] inline-flex items-center gap-1.5 transition-colors underline underline-offset-4"
-            >
-              <span>View all frequently asked questions</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: PROJECT INQUIRY CTA BANNER */}
-      <section className="py-20 bg-[#123B2A] text-white">
+      {/* SECTION 6: INQUIRY BANNER */}
+      <section className="py-16 bg-[#123B2A] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#164632] border border-[#224E3A] text-xs font-semibold text-[#D6B46A] mb-4">
-            <span>Direct Client Consultation</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-            Ready to Build Digital Tools That Actually Work?
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+            Want to Automate Your Shop or Organization?
           </h2>
-
-          <p className="text-base sm:text-lg text-[#EFECE3]/85 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Whether you need a high-converting business website, an offline POS billing setup, or a custom management system, let’s review your exact operational requirements.
+          <p className="text-xs sm:text-sm text-[#E2EAE5]/85 max-w-xl mx-auto mb-6 leading-relaxed">
+            Contact Abdul Jabbar or Fayyaz Khan directly to review your shop counter setup, printer requirements, or software specifications.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button
-              to="/contact"
-              variant="gold"
-              size="lg"
-              rightIcon={<ArrowRight className="w-4 h-4" />}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#C59E3F] hover:bg-[#B38C32] text-[#123B2A] text-xs sm:text-sm font-bold shadow-xs transition-all"
             >
-              Discuss Your Project
-            </Button>
-            <Button
-              to="/services"
-              variant="outline"
-              size="lg"
-              className="!text-white !border-white/30 hover:!bg-white/10"
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp Abdul Jabbar (0346 7366879)</span>
+            </a>
+            <a
+              href={`https://wa.me/${siteConfig.founders[0].phoneClean}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold border border-white/20 transition-all"
             >
-              Browse Services
-            </Button>
+              <Phone className="w-4 h-4 text-[#C59E3F]" />
+              <span>Call Fayyaz Khan (0342 2643761)</span>
+            </a>
           </div>
 
-          <p className="text-xs text-[#EFECE3]/60 mt-6">
-            No sales pressure • Clear proposal with milestones • Direct technical consultation
+          <p className="text-[11px] text-[#A6BCB0] mt-4">
+            Office Timing: 9:00 AM – 5:00 PM (Monday to Thursday &amp; Saturday • Friday &amp; Sunday Off)
           </p>
         </div>
       </section>
