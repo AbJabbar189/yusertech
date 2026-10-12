@@ -83,7 +83,7 @@ export const ContactPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const formattedInquiryText = `YUSERTECH Inquiry:
+  const formattedInquiryText = `FAYJEXTECH Inquiry:
 Name: ${formData.fullName}
 Business: ${formData.businessName || 'N/A'}
 Email: ${formData.email}
@@ -135,17 +135,17 @@ ${formData.projectDescription}`;
   };
 
   return (
-    <div className="bg-[#F8FAF9] py-14 sm:py-20 font-sans">
+    <div className="bg-[#F8FAFC] py-14 sm:py-20 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Direct Contact"
-          title="Discuss Your Software Project With Our Founders"
-          subtitle="Speak directly with Abdul Jabbar (Co-Founder) or Fayyaz Khan (Founder). We provide honest scoping, on-site shop visits in Karachi, and clear proposals."
+          title="Discuss Your Software & PC Setup With Our Founders"
+          subtitle="Speak directly with Abdul Jabbar (Co-Founder) or Fayyaz Khan (Founder). We provide honest scoping, on-site shop visits across Karachi, and transparent proposals."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Inquiry Form */}
-          <div className="lg:col-span-7 bg-white rounded-2xl border border-[#DCE4E0] p-6 sm:p-9 shadow-2xs">
+          <div className="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 sm:p-9 hover-lift">
             {submissionCompleted ? (
               <div className="space-y-6">
                 <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-start gap-3">
@@ -161,21 +161,21 @@ ${formData.projectDescription}`;
                 </div>
 
                 {/* Pre-formatted message */}
-                <div className="bg-[#F8FAF9] p-4 rounded-xl border border-[#E2E8E4]">
-                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E2E8E4]">
-                    <span className="text-xs font-bold text-[#123B2A] uppercase">
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                    <span className="text-xs font-bold text-[#0056D2] uppercase">
                       Inquiry Summary
                     </span>
                     <button
                       type="button"
                       onClick={handleCopy}
-                      className="text-xs text-[#123B2A] hover:text-[#C59E3F] flex items-center gap-1 font-semibold"
+                      className="text-xs text-[#0056D2] hover:text-[#00B050] flex items-center gap-1 font-semibold"
                     >
                       <Copy className="w-3.5 h-3.5" />
                       <span>{copied ? 'Copied!' : 'Copy Text'}</span>
                     </button>
                   </div>
-                  <pre className="text-xs text-[#1A231F] font-mono whitespace-pre-wrap leading-relaxed">
+                  <pre className="text-xs text-[#0F172A] font-mono whitespace-pre-wrap leading-relaxed">
                     {formattedInquiryText}
                   </pre>
                 </div>
@@ -185,17 +185,17 @@ ${formData.projectDescription}`;
                   <button
                     type="button"
                     onClick={handleWhatsAppAbdulJabbar}
-                    className="p-3 rounded-xl bg-[#123B2A] text-white hover:bg-[#0B251A] text-xs font-bold flex items-center justify-center gap-2 transition-colors"
+                    className="p-3.5 rounded-xl bg-[#00B050] text-white hover:bg-[#009644] text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all transform hover:-translate-y-0.5"
                   >
-                    <MessageSquare className="w-4 h-4 text-[#C59E3F]" />
+                    <MessageSquare className="w-4 h-4 text-white" />
                     <span>WhatsApp Abdul Jabbar</span>
                   </button>
                   <button
                     type="button"
                     onClick={handleWhatsAppFayyazKhan}
-                    className="p-3 rounded-xl bg-[#C59E3F] text-[#123B2A] hover:bg-[#B38C32] text-xs font-bold flex items-center justify-center gap-2 transition-colors"
+                    className="p-3.5 rounded-xl bg-[#0056D2] text-white hover:bg-[#0047B3] text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all transform hover:-translate-y-0.5"
                   >
-                    <MessageSquare className="w-4 h-4 text-[#123B2A]" />
+                    <MessageSquare className="w-4 h-4 text-white" />
                     <span>WhatsApp Fayyaz Khan</span>
                   </button>
                 </div>

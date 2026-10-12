@@ -67,15 +67,15 @@ export interface FaqItem {
 
 export const siteConfig = {
   brand: {
-    name: 'YUSERTECH',
-    legalName: 'YUSERTECH Software Solutions',
-    tagline: 'Technology That Works for Your Business.',
-    category: 'Software Development & Business Solutions Agency',
+    name: 'FAYJEXTECH',
+    legalName: 'FAYJEXTECH Software & IT Solutions',
+    tagline: 'Your Ideas. Our Technology.',
+    category: 'Software Development & Business Technology Agency',
     missionStatement:
-      'YUSERTECH designs and builds customized POS software, business management systems, workflow automation, and high-performance websites for businesses across Karachi and beyond.',
+      'FAYJEXTECH brings your ideas to reality through cutting-edge technology: custom POS software, business management systems, workflow automation, and high-performance web applications built for Pakistani businesses and beyond.',
     philosophy:
-      'We believe in straightforward, reliable software that solves real operational bottlenecks without bloated subscriptions or unnecessary complexity.',
-    locationSummary: 'Based in Orangi Town, Karachi (Remote & On-Site Client Consultations)',
+      'Your Ideas. Our Technology. We believe in crafting robust, reliable software and PC hardware-ready solutions that solve actual business challenges with zero recurring subscription burdens.',
+    locationSummary: 'Based in Orangi Town, Karachi (Remote & On-Site Client Consultations Across Karachi)',
   },
 
   founders: [
@@ -84,7 +84,7 @@ export const siteConfig = {
       role: 'Founder',
       phone: '0342 2643761',
       phoneClean: '923422643761',
-      whatsappUrl: 'https://wa.me/923422643761?text=Salam%20Fayyaz%20bhai%2C%20mujhe%20YUSERTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
+      whatsappUrl: 'https://wa.me/923422643761?text=Salam%20Fayyaz%20bhai%2C%20mujhe%20FAYJEXTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
       bio: 'Visionary leadership, project scoping, client strategy, and business solution architecture.',
     },
     {
@@ -92,22 +92,25 @@ export const siteConfig = {
       role: 'Co-Founder',
       phone: '0346 7366879',
       phoneClean: '923467366879',
-      whatsappUrl: 'https://wa.me/923467366879?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20YUSERTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
-      bio: 'Technical development, system engineering, POS software customization, and workflow automation.',
+      whatsappUrl: 'https://wa.me/923467366879?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20FAYJEXTECH%20se%20software%20k%20baare%20mein%20baat%20karni%20hai.',
+      bio: 'Technical development, system engineering, POS software customization, PC hardware setup, and workflow automation.',
     },
   ],
 
   colors: {
-    forestGreen: '#123B2A',
-    warmGold: '#C59E3F',
-    offWhite: '#F8FAF9',
-    charcoal: '#1A231F',
+    primaryBlue: '#0056D2',
+    primaryBlueDark: '#003E9A',
+    emeraldGreen: '#00B050',
+    emeraldGreenDark: '#00873D',
+    cyanAccent: '#00C4FF',
+    offWhite: '#F8FAFC',
+    charcoal: '#0F172A',
     white: '#FFFFFF',
-    mutedGray: '#5C6760',
+    mutedGray: '#64748B',
   },
 
   contact: {
-    email: 'contact@yusertech.com',
+    email: 'contact@fayjextech.com',
     primaryPhone: '0346 7366879 (Abdul Jabbar) / 0342 2643761 (Fayyaz Khan)',
     abdulJabbarPhone: '0346 7366879',
     fayyazKhanPhone: '0342 2643761',
@@ -115,7 +118,7 @@ export const siteConfig = {
     officeHours: 'Monday – Thursday & Saturday: 9:00 AM – 5:00 PM (PKT)',
     offDays: 'Friday & Sunday: Closed (Jumma & Itwar Off)',
     whatsapp: '923467366879',
-    whatsappMessageDefault: 'Salam YUSERTECH, mujhe apne business k liye software / website k baare mein baat karni hai.',
+    whatsappMessageDefault: 'Salam FAYJEXTECH, mujhe apne business k liye software / PC setup / website k baare mein baat karni hai.',
     isLiveBackendConfigured: false,
   },
 
@@ -127,11 +130,11 @@ export const siteConfig = {
 
   seo: {
     siteUrl: 'https://abjabbar189.github.io/yusertech',
-    defaultTitle: 'YUSERTECH — Custom POS, Management Systems & Web Solutions',
-    titleTemplate: '%s | YUSERTECH',
+    defaultTitle: 'FAYJEXTECH — Your Ideas. Our Technology.',
+    titleTemplate: '%s | FAYJEXTECH',
     defaultDescription:
-      'Founded by Fayyaz Khan & Abdul Jabbar. We build custom POS software for all business types, management systems, workflow automation, and websites.',
-    author: 'YUSERTECH (Fayyaz Khan & Abdul Jabbar)',
+      'Founded by Fayyaz Khan & Abdul Jabbar. We build custom POS software for all business types, PC setups, management systems, workflow automation, and websites.',
+    author: 'FAYJEXTECH (Fayyaz Khan & Abdul Jabbar)',
   },
 
   services: [

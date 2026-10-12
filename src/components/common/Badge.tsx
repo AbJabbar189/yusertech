@@ -9,6 +9,8 @@ export interface BadgeProps {
     | 'Coming Soon'
     | 'Prototype Ready'
     | 'Production Deployed'
+    | 'primary'
+    | 'accent'
     | 'forest'
     | 'gold'
     | 'neutral';
@@ -23,20 +25,22 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const sizeClasses = {
-    sm: 'px-2 py-0.5 text-[11px] font-medium tracking-wide',
-    md: 'px-2.5 py-1 text-xs font-medium tracking-wide',
+    sm: 'px-2.5 py-0.5 text-[11px] font-semibold tracking-wide',
+    md: 'px-3 py-1 text-xs font-semibold tracking-wide',
   };
 
   const variantClasses = {
-    Available: 'bg-emerald-50 text-emerald-800 border border-emerald-200',
-    'In Development': 'bg-[#FAF3E0] text-[#8C6D1F] border border-[#E8D49F]',
-    'In Active Development': 'bg-[#FAF3E0] text-[#8C6D1F] border border-[#E8D49F]',
-    'Coming Soon': 'bg-stone-100 text-stone-700 border border-stone-200',
-    'Prototype Ready': 'bg-[#EBF2EE] text-[#123B2A] border border-[#B8D3C4]',
-    'Production Deployed': 'bg-emerald-50 text-emerald-800 border border-emerald-200',
-    forest: 'bg-[#123B2A] text-white border border-[#123B2A]',
-    gold: 'bg-[#FAF3E0] text-[#7A5B12] border border-[#D6B46A]',
-    neutral: 'bg-[#EFECE3] text-[#202722] border border-[#E3E0D5]',
+    Available: 'bg-emerald-50 text-[#00873D] border border-emerald-200',
+    'In Development': 'bg-blue-50 text-[#0056D2] border border-blue-200',
+    'In Active Development': 'bg-blue-50 text-[#0056D2] border border-blue-200',
+    'Coming Soon': 'bg-slate-100 text-slate-700 border border-slate-200',
+    'Prototype Ready': 'bg-blue-50 text-[#0056D2] border border-blue-200',
+    'Production Deployed': 'bg-emerald-50 text-[#00873D] border border-emerald-200',
+    primary: 'bg-[#0056D2] text-white border border-[#0056D2]',
+    accent: 'bg-[#00B050] text-white border border-[#00B050]',
+    forest: 'bg-[#0056D2] text-white border border-[#0056D2]',
+    gold: 'bg-emerald-50 text-[#00873D] border border-emerald-200',
+    neutral: 'bg-slate-100 text-slate-700 border border-slate-200',
   };
 
   return (
@@ -45,13 +49,11 @@ export const Badge: React.FC<BadgeProps> = ({
     >
       <span
         className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-          variant === 'Available' || variant === 'Production Deployed'
-            ? 'bg-emerald-600'
-            : variant === 'In Development' || variant === 'In Active Development' || variant === 'gold'
-            ? 'bg-[#D6B46A]'
-            : variant === 'forest'
-            ? 'bg-[#D6B46A]'
-            : 'bg-[#6B746E]'
+          variant === 'Available' || variant === 'Production Deployed' || variant === 'accent'
+            ? 'bg-[#00B050]'
+            : variant === 'In Development' || variant === 'In Active Development' || variant === 'primary'
+            ? 'bg-[#0056D2]'
+            : 'bg-slate-400'
         }`}
       />
       {children}

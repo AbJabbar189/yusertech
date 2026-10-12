@@ -5,15 +5,16 @@ import { Button } from '../components/common/Button';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Logo Component', () => {
-  it('renders exact YUSERTECH brand wordmark', () => {
+  it('renders exact FAYJEXTECH brand wordmark and tagline', () => {
     render(<Logo variant="full" />);
-    expect(screen.getByText('YUSERTECH')).toBeInTheDocument();
-    expect(screen.getByText('Software & Web')).toBeInTheDocument();
+    expect(screen.getByText('FAYJEX')).toBeInTheDocument();
+    expect(screen.getByText('TECH')).toBeInTheDocument();
+    expect(screen.getByText('Your Ideas. Our Technology.')).toBeInTheDocument();
   });
 
   it('supports mark-only variant without text', () => {
     render(<Logo variant="mark-only" />);
-    expect(screen.queryByText('YUSERTECH')).not.toBeInTheDocument();
+    expect(screen.queryByText('FAYJEX')).not.toBeInTheDocument();
   });
 });
 

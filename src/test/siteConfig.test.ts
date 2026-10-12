@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { siteConfig } from '../config/siteConfig';
 
 describe('Centralized siteConfig Verification', () => {
-  it('has exact brand name YUSERTECH and correct tagline', () => {
-    expect(siteConfig.brand.name).toBe('YUSERTECH');
-    expect(siteConfig.brand.tagline).toBe('Technology That Works for Your Business.');
+  it('has exact brand name FAYJEXTECH and correct tagline', () => {
+    expect(siteConfig.brand.name).toBe('FAYJEXTECH');
+    expect(siteConfig.brand.tagline).toBe('Your Ideas. Our Technology.');
   });
 
   it('contains company founders Fayyaz Khan and Abdul Jabbar with real numbers', () => {

@@ -12,58 +12,44 @@ export const Logo: React.FC<LogoProps> = ({
   variant = 'full',
   theme = 'auto',
   className = '',
-  iconSize = 34,
+  iconSize = 38,
 }) => {
-  // Theme dictates text and accent colors
-  const isLight = theme === 'light'; // Light background (Dark text)
-  const isDark = theme === 'dark';   // Dark background (Light text)
-
-  const textColor = isDark ? 'text-white' : isLight ? 'text-[#202722]' : 'text-[#202722]';
-  const subTextColor = isDark ? 'text-[#D6B46A]' : 'text-[#6B746E]';
+  const isDark = theme === 'dark';
+  const textColor = isDark ? 'text-white' : 'text-[#0F172A]';
+  const tagColor = isDark ? 'text-[#00C4FF]' : 'text-[#0056D2]';
 
   return (
     <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      {/* Geometric Symbol Icon */}
-      <svg
-        width={iconSize}
-        height={iconSize}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="shrink-0 transition-transform duration-200 hover:scale-105"
-        aria-hidden="true"
+      {/* Brand Logo Symbol */}
+      <div
+        className="relative shrink-0 overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105"
+        style={{ width: iconSize, height: iconSize }}
       >
-        <rect width="48" height="48" rx="10" fill="#123B2A" />
-        {/* Geometric connected network node forming 'Y' and growth axis */}
-        <path
-          d="M13 13L24 24L35 13"
-          stroke="#D6B46A"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        <img
+          src="./logo.png"
+          alt="FAYJEXTECH"
+          className="w-full h-full object-contain"
+          onError={(e) => {
+            // Fallback if image fails to load
+            (e.currentTarget as HTMLImageElement).src = './logo.jpg';
+          }}
         />
-        <path
-          d="M24 24V36"
-          stroke="#FFFFFF"
-          strokeWidth="4"
-          strokeLinecap="round"
-        />
-        {/* Connection nodes */}
-        <circle cx="24" cy="24" r="3.2" fill="#D6B46A" />
-        <circle cx="13" cy="13" r="2.8" fill="#FFFFFF" />
-        <circle cx="35" cy="13" r="2.8" fill="#FFFFFF" />
-        <circle cx="24" cy="36" r="2.8" fill="#D6B46A" />
-      </svg>
+      </div>
 
-      {/* Wordmark */}
+      {/* Wordmark & Tagline */}
       {variant !== 'mark-only' && (
         <div className="flex flex-col leading-none">
-          <span className={`font-bold tracking-tight text-xl ${textColor} font-sans`}>
-            {siteConfig.brand.name}
-          </span>
+          <div className="flex items-center">
+            <span className={`font-extrabold tracking-tight text-xl ${textColor} font-sans`}>
+              FAYJEX
+            </span>
+            <span className="font-extrabold tracking-tight text-xl text-[#00B050] font-sans">
+              TECH
+            </span>
+          </div>
           {variant === 'full' && (
-            <span className={`text-[10px] tracking-wider uppercase font-medium mt-0.5 ${subTextColor}`}>
-              Software & Web
+            <span className={`text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${tagColor}`}>
+              {siteConfig.brand.tagline}
             </span>
           )}
         </div>

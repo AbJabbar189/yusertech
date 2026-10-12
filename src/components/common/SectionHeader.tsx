@@ -31,10 +31,10 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     <div className={`flex flex-col max-w-3xl mb-12 sm:mb-16 ${alignClasses[align]} ${className}`}>
       {badge && (
         <span
-          className={`inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full ${
+          className={`inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3.5 py-1.5 rounded-full ${
             isDark
-              ? 'bg-[#164632] text-[#D6B46A] border border-[#224E3A]'
-              : 'bg-[#FAF3E0] text-[#7A5B12] border border-[#E8D49F]'
+              ? 'bg-[#1E3A8A]/50 text-[#00C4FF] border border-[#2563EB]/40'
+              : 'bg-[#EEF4FF] text-[#0056D2] border border-[#BFDBFE]'
           }`}
         >
           {badge}
@@ -43,7 +43,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       <h2
         className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight ${
-          isDark ? 'text-white' : 'text-[#202722]'
+          isDark ? 'text-white' : 'text-[#0F172A]'
         }`}
       >
         {title}
@@ -52,7 +52,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       {subtitle && (
         <p
           className={`mt-4 text-base sm:text-lg leading-relaxed ${
-            isDark ? 'text-[#EFECE3]/80' : 'text-[#6B746E]'
+            isDark ? 'text-slate-300' : 'text-[#64748B]'
           }`}
         >
           {subtitle}

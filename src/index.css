@@ -2,37 +2,43 @@
 
 @layer base {
   :root {
-    --color-forest: #123B2A;
-    --color-forest-dark: #0A2419;
-    --color-forest-light: #1A523A;
-    --color-forest-surface: #EBF3EE;
-    --color-gold: #C59E3F;
-    --color-gold-hover: #B38C32;
-    --color-gold-subtle: #F9F5EA;
-    --color-gold-muted: #E0C988;
-    --color-offwhite: #F8FAF9;
+    /* FAYJEXTECH Brand Palette (Royal Blue & Emerald Green) */
+    --color-primary: #0056D2;
+    --color-primary-dark: #003E9A;
+    --color-primary-light: #2A7BFF;
+    --color-primary-surface: #EEF4FF;
+
+    --color-accent: #00B050;
+    --color-accent-dark: #00873D;
+    --color-accent-light: #22C55E;
+    --color-accent-surface: #E8F8EE;
+
+    --color-cyan: #00C4FF;
+
+    --color-offwhite: #F8FAFC;
     --color-offwhite-card: #FFFFFF;
-    --color-offwhite-alt: #F0F4F2;
-    --color-charcoal: #1A231F;
-    --color-charcoal-light: #2C3832;
+    --color-offwhite-alt: #F1F5F9;
+
+    --color-charcoal: #0F172A;
+    --color-charcoal-light: #1E293B;
     --color-white: #FFFFFF;
-    --color-muted: #5C6760;
-    --color-muted-light: #8E9C94;
-    --color-border: #E2E8E4;
-    --color-border-dark: #224E3A;
+    --color-muted: #64748B;
+    --color-muted-light: #94A3B8;
+    --color-border: #E2E8F0;
+    --color-border-dark: #1E3A8A;
   }
 
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #F8FAF9;
-    color: #1A231F;
+    background-color: #F8FAFC;
+    color: #0F172A;
   }
 
   body {
     min-height: 100vh;
-    background-color: #F8FAF9;
-    color: #1A231F;
+    background-color: #F8FAFC;
+    color: #0F172A;
     margin: 0;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -41,34 +47,86 @@
 
   /* Accessible focus indicators */
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
   /* Selection styling */
   ::selection {
-    background-color: #F9F5EA;
-    color: #123B2A;
+    background-color: #0056D2;
+    color: #FFFFFF;
   }
 }
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-  --color-forest: #123B2A;
-  --color-forest-dark: #0A2419;
-  --color-forest-light: #1A523A;
-  --color-forest-surface: #EBF3EE;
-  --color-gold: #C59E3F;
-  --color-gold-hover: #B38C32;
-  --color-gold-subtle: #F9F5EA;
-  --color-gold-muted: #E0C988;
-  --color-offwhite: #F8FAF9;
+  --color-primary: #0056D2;
+  --color-primary-dark: #003E9A;
+  --color-primary-light: #2A7BFF;
+  --color-primary-surface: #EEF4FF;
+  --color-accent: #00B050;
+  --color-accent-dark: #00873D;
+  --color-accent-light: #22C55E;
+  --color-accent-surface: #E8F8EE;
+  --color-cyan: #00C4FF;
+  --color-offwhite: #F8FAFC;
   --color-offwhite-card: #FFFFFF;
-  --color-offwhite-alt: #F0F4F2;
-  --color-charcoal: #1A231F;
-  --color-charcoal-light: #2C3832;
-  --color-muted: #5C6760;
-  --color-muted-light: #8E9C94;
-  --color-border: #E2E8E4;
-  --color-border-dark: #224E3A;
+  --color-offwhite-alt: #F1F5F9;
+  --color-charcoal: #0F172A;
+  --color-charcoal-light: #1E293B;
+  --color-muted: #64748B;
+  --color-muted-light: #94A3B8;
+  --color-border: #E2E8F0;
+  --color-border-dark: #1E3A8A;
+}
+
+/* Custom Keyframe Animations for Modern Interactive Feel */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 86, 210, 0.15), 0 0 30px rgba(0, 176, 80, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 86, 210, 0.3), 0 0 45px rgba(0, 176, 80, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(0, 86, 210, 0.08) 0%, rgba(0, 176, 80, 0.15) 50%, rgba(0, 86, 210, 0.08) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Card hover animation enhancements */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 86, 210, 0.15), 0 4px 12px -2px rgba(0, 176, 80, 0.08);
 }
