@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { Logo } from '../common/Logo';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../data/translations';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export const Footer: React.FC = () => {
+  const { lang, isUrdu } = useLanguage();
+  const t = translations[lang];
+
   return (
     <footer className="bg-[#0A1628] text-white border-t border-[#1E293B] pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,14 +23,14 @@ export const Footer: React.FC = () => {
               <Logo variant="full" theme="dark" iconSize={42} />
             </Link>
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Founded by <strong>Fayyaz Khan</strong> (Founder) &amp; <strong>Abdul Jabbar</strong> (Co-Founder) in Orangi Town, Karachi. We engineer custom POS systems for all business types, complete PC setups, management systems, and workflow automation.
+              {t.footerAbout}
             </p>
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <span className="px-3 py-1 rounded-md bg-[#1E293B] text-[#00C4FF] border border-[#334155] font-semibold">
-                Founder: Fayyaz Khan
+                {isUrdu ? 'بانی: فیاض خان' : 'Founder: Fayyaz Khan'}
               </span>
               <span className="px-3 py-1 rounded-md bg-[#1E293B] text-[#22C55E] border border-[#334155] font-semibold">
-                Co-Founder: Abdul Jabbar
+                {isUrdu ? 'شریک بانی: عبدالجبار' : 'Co-Founder: Abdul Jabbar'}
               </span>
             </div>
           </div>

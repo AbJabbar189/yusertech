@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X, Phone, MessageSquare, Clock, MapPin, ChevronDown, Sparkles, ShoppingBag } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, Clock, MapPin, ChevronDown, Sparkles, ShoppingBag, Languages } from 'lucide-react';
 import { Logo } from '../common/Logo';
 import { Button } from '../common/Button';
 import { siteConfig } from '../../config/siteConfig';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../data/translations';
 
 export const Navbar: React.FC = () => {
+  const { lang, toggleLang, isUrdu } = useLanguage();
+  const t = translations[lang];
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
@@ -30,12 +34,12 @@ export const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const navLinks = [
-    { label: 'Home', to: '/' },
-    { label: 'Products & POS', to: '/products' },
-    { label: 'Portfolio', to: '/portfolio' },
-    { label: 'About & Team', to: '/about' },
-    { label: 'FAQ', to: '/faq' },
-    { label: 'Contact Us', to: '/contact' },
+    { label: t.navHome, to: '/' },
+    { label: t.navProducts, to: '/products' },
+    { label: t.navPortfolio, to: '/portfolio' },
+    { label: t.navAbout, to: '/about' },
+    { label: t.navFaq, to: '/faq' },
+    { label: t.navContact, to: '/contact' },
   ];
 
   return (
@@ -46,15 +50,30 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-4 text-slate-200">
             <span className="flex items-center gap-1">
               <MapPin className="w-3 h-3 text-[#00C4FF]" />
-              <span>Orangi Town, Karachi</span>
+              <span>{t.topLocation}</span>
             </span>
             <span className="hidden sm:flex items-center gap-1 text-slate-300">
               <Clock className="w-3 h-3 text-[#00C4FF]" />
-              <span>Mon–Thu &amp; Sat: 9:00 AM – 5:00 PM (Fri &amp; Sun Off)</span>
+              <span>{t.topTimings}</span>
             </span>
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Language Mode Toggle Button */}
+            <button
+              onClick={toggleLang}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold bg-white/15 hover:bg-white/25 text-white border border-white/20 transition-all cursor-pointer shadow-xs"
+              title="Switch language between Nastaleeq Urdu and English/Roman Urdu"
+            >
+              <Languages className="w-3.5 h-3.5 text-[#00C4FF]" />
+              <span>{isUrdu ? 'اردو نستعلیق (آن)' : 'Roman / English'}</span>
+              <span className="text-[10px] bg-[#00B050] px-1.5 py-0.2 rounded text-white font-mono">
+                {isUrdu ? 'ENG' : 'اردو'}
+              </span>
+            </button>
+
+            <span className="text-[#0047B3]">|</span>
+
             <a
               href={`https://wa.me/${siteConfig.contact.phoneClean}`}
               target="_blank"
@@ -64,7 +83,7 @@ export const Navbar: React.FC = () => {
               <MessageSquare className="w-3 h-3" />
               <span>WhatsApp: {siteConfig.contact.phone}</span>
             </a>
-            <span className="text-[#0047B3]">|</span>
+            <span className="text-[#0047B3] hidden md:inline">|</span>
             <a
               href={`tel:${siteConfig.contact.phoneClean}`}
               className="text-[#22C55E] hover:text-white transition-colors hidden md:flex items-center gap-1 font-semibold"
@@ -257,8 +276,25 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={() => {
+                toggleLang();
+                setIsOpen(false);
+              }}
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50 text-[#0056D2] font-bold text-sm border border-blue-200"
+            >
+              <span className="flex items-center gap-2">
+                <Languages className="w-4 h-4 text-[#00B050]" />
+                <span>{isUrdu ? 'Switch to English / Roman Urdu' : 'اردو نستعلیق موڈ آن کریں'}</span>
+              </span>
+              <span className="text-xs bg-[#00B050] text-white px-2 py-0.5 rounded font-mono">
+                {isUrdu ? 'ENG' : 'اردو'}
+              </span>
+            </button>
+
             <Button to="/contact" variant="primary" size="lg" className="w-full">
-              Hire a Pro / Book Visit
+              {isUrdu ? 'ابھی رابطہ کریں / مفت مشورہ' : 'Free Consultation / Rabta Karein'}
             </Button>
           </div>
         </div>

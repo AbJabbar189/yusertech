@@ -21,9 +21,13 @@ import {
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/common/Button';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const { lang, isUrdu } = useLanguage();
+  const t = translations[lang];
   const [quickEmail, setQuickEmail] = useState('');
   const [quickService, setQuickService] = useState('Custom POS Systems (All Business Types)');
   const [activeIndustryTab, setActiveIndustryTab] = useState(0);
@@ -162,20 +166,36 @@ export const HomePage: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-200 shadow-xs shimmer-badge mb-6">
             <Sparkles className="w-4 h-4 text-[#0056D2]" />
             <span className="text-xs font-bold text-[#0056D2]">
-              {siteConfig.brand.name} • <span className="text-[#00B050]">{siteConfig.brand.tagline}</span>
+              {siteConfig.brand.name} • <span className="text-[#00B050]">{t.tagline}</span>
             </span>
           </div>
 
           {/* Headline (Nanosoft Inspired Headline Structure) */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-[#0B132B]">
-            Hire Dedicated Software Engineers &amp; <br />
-            <span className="shimmer-gradient-text">Complete PC Counter Setups</span> in Karachi
+          <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.2] text-[#0B132B] ${isUrdu ? 'font-nastaliq' : ''}`}>
+            {t.heroTitleLead} <br />
+            <span className="shimmer-gradient-text">{t.heroTitleHighlight}</span> {t.heroTitleEnd}
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            <strong>SKIP THE MONTHLY CLUTTER!</strong> Partner directly with founders <strong>Fayyaz Khan</strong> &amp; <strong>Abdul Jabbar</strong> for customized Point-of-Sale (POS) systems, PC billing counters, thermal printing, and workflow automation. 100% offline-ready across Karachi.
+          <p className={`mt-5 text-base sm:text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-nastaliq' : ''}`}>
+            {t.heroDescription}
           </p>
+
+          {/* Key Quick Guarantees Pill Badges */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-slate-700">
+            <span className="px-3 py-1.5 rounded-full bg-blue-50 text-[#0056D2] border border-blue-200 flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#00B050]" />
+              <span>{t.heroOfflineGuarantee}</span>
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-emerald-50 text-[#00873D] border border-emerald-200 flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#00B050]" />
+              <span>{t.heroLocalHardware}</span>
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+              <span>{t.heroFreeConsult}</span>
+            </span>
+          </div>
 
           {/* Interactive Fast Scoping Form (Nanosoft Style Top Banner Form) */}
           <form
@@ -185,12 +205,12 @@ export const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
               <div className="sm:col-span-4 text-left">
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ml-1">
-                  Your Phone / WhatsApp
+                  {isUrdu ? 'آپ کا موبائل / واٹس ایپ نمبر' : 'Phone / WhatsApp Number'}
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. 0345 1234567"
+                  placeholder={isUrdu ? 'مثلاً: 03451234567' : '0345 1234567'}
                   value={quickEmail}
                   onChange={(e) => setQuickEmail(e.target.value)}
                   className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors"
@@ -199,27 +219,37 @@ export const HomePage: React.FC = () => {
 
               <div className="sm:col-span-5 text-left">
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ml-1">
-                  What Solution Do You Need?
+                  {isUrdu ? 'آپ کو کس چیز کی ضرورت ہے؟' : 'Select Solution / Service'}
                 </label>
                 <select
                   value={quickService}
                   onChange={(e) => setQuickService(e.target.value)}
                   className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors font-medium"
                 >
-                  <option value="Custom POS Systems (All Business Types)">Custom POS Systems (Marts, Retail, Bakeries)</option>
-                  <option value="Complete PC Counter Hardware Setup">Complete PC Counter Hardware (PC + Thermal + Scanner)</option>
-                  <option value="Management Systems & Ledgers">Institutional / Madrasa & Khata Ledgers</option>
-                  <option value="Workflow Automation & Web">Workflow Automation & High-Performance Web</option>
-                  <option value="System Maintenance & Hardware Setup">System Maintenance & On-Site Karachi Visit</option>
+                  <option value="Custom POS Systems (All Business Types)">
+                    {isUrdu ? 'ہر قسم کا پی او ایس (مارٹ، جنرل اسٹور، بیکری)' : 'Custom POS (Retail Marts, Bakeries, Medical)'}
+                  </option>
+                  <option value="Complete PC Counter Hardware Setup">
+                    {isUrdu ? 'مکمل کمپیوٹر کاؤنٹر سیٹ اپ (پی سی + پرنٹر + اسکینر)' : 'Complete PC Counter Setup (PC + Thermal + Scanner)'}
+                  </option>
+                  <option value="Management Systems & Ledgers">
+                    {isUrdu ? 'ادارہ جاتی / مدرسہ و اسکول کھاتہ مینجمنٹ' : 'Institutional / Madrasa & Khata Ledgers'}
+                  </option>
+                  <option value="Workflow Automation & Web">
+                    {isUrdu ? 'ورک فلو آٹومیشن اور جدید ویب سائٹ' : 'Workflow Automation & Fast Business Website'}
+                  </option>
+                  <option value="System Maintenance & Hardware Setup">
+                    {isUrdu ? 'موجودہ سسٹم کی مرمت اور دکان پر وزٹ' : 'On-Site Karachi Shop Visit & Maintenance'}
+                  </option>
                 </select>
               </div>
 
-              <div className="sm:col-span-3 pt-4 sm:pt-4">
+              <div className="sm:col-span-3 pt-2 sm:pt-4">
                 <button
                   type="submit"
                   className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#0056D2] to-[#00388F] text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 hover:scale-[1.02] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <span>Hire Pro Team</span>
+                  <span>{t.heroPrimaryCta}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -235,7 +265,7 @@ export const HomePage: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md shadow-green-600/20 hover:-translate-y-0.5 transition-all"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>WhatsApp Official: {siteConfig.contact.phone}</span>
+              <span>{t.heroSecondaryCta}</span>
             </a>
 
             <a
@@ -243,7 +273,7 @@ export const HomePage: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[#0056D2] border border-blue-200 text-xs sm:text-sm font-bold hover:bg-blue-50 hover:-translate-y-0.5 transition-all shadow-xs"
             >
               <Phone className="w-4 h-4 text-[#0056D2]" />
-              <span>Call Helpline: {siteConfig.contact.phone}</span>
+              <span>{isUrdu ? `کال ہیلپ لائن: ${siteConfig.contact.phone}` : `Call Helpline: ${siteConfig.contact.phone}`}</span>
             </a>
           </div>
         </div>
@@ -296,9 +326,9 @@ export const HomePage: React.FC = () => {
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeader
-            badge="Simple 3-Step Process"
-            title="You Are Three Steps Away From Modernizing Your Shop"
-            subtitle="No lengthy agency bureaucracy. Connect directly with the founders, inspect real hardware counters, and deploy in hours."
+            badge={t.processBadge}
+            title={t.processTitle}
+            subtitle={t.processSubtitle}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
@@ -308,13 +338,13 @@ export const HomePage: React.FC = () => {
                 01
               </div>
               <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                1. Talk to Our Founders
+                {t.step1Title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Contact Fayyaz Khan or Abdul Jabbar directly on WhatsApp. Explain your shop counter, items volume, thermal printer requirements, and current bottlenecks.
+              <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                {t.step1Desc}
               </p>
               <div className="mt-5 pt-4 border-t border-slate-200 w-full text-xs font-bold text-[#0056D2]">
-                Instant Response Guaranteed
+                {isUrdu ? 'فوری رابطہ اور مشورہ' : 'Instant Response Guaranteed'}
               </div>
             </div>
 
@@ -324,13 +354,13 @@ export const HomePage: React.FC = () => {
                 02
               </div>
               <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                2. On-Site Hardware &amp; Demo
+                {t.step2Title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                We inspect your counter in Karachi, calibrate the thermal receipt printer, configure barcode scanners, and tailor Urdu/English billing software to your trade.
+              <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                {t.step2Desc}
               </p>
               <div className="mt-5 pt-4 border-t border-slate-200 w-full text-xs font-bold text-[#00B050]">
-                Karachi-Wide On-Site Visits
+                {isUrdu ? 'پورے کراچی میں وزٹ کی سہولت' : 'Karachi-Wide On-Site Visits'}
               </div>
             </div>
 
@@ -340,20 +370,20 @@ export const HomePage: React.FC = () => {
                 03
               </div>
               <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                3. Go Live &amp; Staff Training
+                {t.step3Title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Your cashiers are trained within hours. You receive lifetime ownership without recurring monthly subscriptions, plus direct WhatsApp support anytime.
+              <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                {t.step3Desc}
               </p>
               <div className="mt-5 pt-4 border-t border-slate-200 w-full text-xs font-bold text-[#0056D2]">
-                Permanent Software Ownership
+                {isUrdu ? 'لائف ٹائم ملکیت — زیرو منتھلی فیس' : 'Permanent Software Ownership'}
               </div>
             </div>
           </div>
 
           <div className="mt-12">
             <Button to="/contact" variant="primary" size="lg">
-              Start Step 1: Talk With Founders
+              {isUrdu ? 'پہلا مرحلہ شروع کریں: بانیان سے رابطہ' : 'Start Step 1: Talk With Founders'}
             </Button>
           </div>
         </div>
@@ -368,47 +398,51 @@ export const HomePage: React.FC = () => {
             {/* Left Content & Stats Counters */}
             <div className="lg:col-span-7 space-y-6">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0056D2] bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200 inline-block">
-                Turnkey Hardware &amp; Software
+                {isUrdu ? 'مکمل کمپیوٹر و کاؤنٹر ہارڈ ویئر' : 'Turnkey Hardware & Software'}
               </span>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] tracking-tight leading-tight">
-                Complete PC Billing Counters &amp; Systems Engineered for Daily Rigor
+              <h2 className={`text-3xl sm:text-4xl font-extrabold text-[#0B132B] tracking-tight leading-tight ${isUrdu ? 'font-nastaliq' : ''}`}>
+                {isUrdu
+                  ? 'دکان کے روزمرہ رش کے لیے خاص تیار کردہ کمپیوٹر بلنگ کاؤنٹر'
+                  : 'Complete PC Billing Counters & Systems Engineered for Daily Rigor'}
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                FAYJEXTECH pairs customized offline POS software with dependable PC hardware. From Core i3/i5 desktop units to high-speed 80mm thermal receipt printers and heavy-duty cash drawers, we make sure your cash counter runs uninterrupted during power cuts and load shedding.
+              <p className={`text-sm sm:text-base text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                {isUrdu
+                  ? 'فایجیکس ٹیک آپ کی دکان کے لیے آف لائن پی او ایس سافٹ ویئر اور مضبوط کمپیوٹر ہارڈ ویئر کا مکمل سیٹ اپ لگاتی ہے۔ کور آئی ۳ یا آئی ۵ ڈیسک ٹاپ، تیز رفتار تھرمل رسید پرنٹر اور کیش دراز کے ساتھ آپ کا کاؤنٹر لائٹ یا نیٹ کے بغیر بھی بلا تعطل چلتا ہے۔'
+                  : 'FAYJEXTECH pairs customized offline POS software with dependable PC hardware. From Core i3/i5 desktop units to high-speed 80mm thermal receipt printers and heavy-duty cash drawers, we make sure your cash counter runs uninterrupted during power cuts and load shedding.'}
               </p>
 
               {/* Nanosoft Style 4 Stat Counters */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-200">
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">100%</span>
-                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">Offline Guarantee</span>
-                  <span className="text-[11px] text-slate-500">Zero Cloud Freeze</span>
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric1Label}</span>
+                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'آف لائن گارنٹی' : 'Offline Guarantee'}</span>
+                  <span className="text-[11px] text-slate-500">{t.metric1Sub}</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">0.1s</span>
-                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">Thermal Print</span>
-                  <span className="text-[11px] text-slate-500">Urdu &amp; English</span>
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric2Label}</span>
+                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'ماہانہ فیس صفر' : 'Zero Monthly Fee'}</span>
+                  <span className="text-[11px] text-slate-500">{t.metric2Sub}</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">24/7</span>
-                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">Founder Line</span>
-                  <span className="text-[11px] text-slate-500">No Call Center</span>
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric3Label}</span>
+                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'تیز رفتار بلنگ' : 'Ultra Fast Billing'}</span>
+                  <span className="text-[11px] text-slate-500">{t.metric3Sub}</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">Rs. 0</span>
-                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">Monthly Rental</span>
-                  <span className="text-[11px] text-slate-500">You Own System</span>
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric4Label}</span>
+                  <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'لوکل سپورٹ' : 'Local Support'}</span>
+                  <span className="text-[11px] text-slate-500">{t.metric4Sub}</span>
                 </div>
               </div>
 
               <div className="pt-2">
                 <Button to="/products/al-tijarah-pos" variant="primary" size="md">
-                  View Full POS Hardware Specifications
+                  {isUrdu ? 'پی او ایس ہارڈ ویئر اور تفصیلات دیکھیں' : 'View Full POS Hardware Specifications'}
                 </Button>
               </div>
             </div>
@@ -516,9 +550,9 @@ export const HomePage: React.FC = () => {
       <section className="py-20 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Ground Reality & Leadership"
-            title="Real Deployments, Real Hardware & Dedicated Leadership"
-            subtitle="Explore our active touch-point setups, retail counter hardware, and the founders behind FAYJEXTECH delivering solutions across Karachi."
+            badge={t.galleryBadge}
+            title={t.galleryTitle}
+            subtitle={t.gallerySubtitle}
           />
 
           {/* Founders Spotlight Cards */}
@@ -545,13 +579,13 @@ export const HomePage: React.FC = () => {
 
                 <div className="flex-1 text-center sm:text-left space-y-2">
                   <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#0056D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
-                    {founder.role}
+                    {idx === 0 ? t.founder1Role : t.founder2Role}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight">
                     {founder.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {founder.bio}
+                  <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                    {idx === 0 ? t.founder1Bio : t.founder2Bio}
                   </p>
                   <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
                     <a
@@ -653,27 +687,29 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-28 space-y-5">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0056D2] bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200 inline-block">
-                  Why Work With Us
+                  {t.whyBadge}
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] tracking-tight leading-tight">
-                  Why Karachi Businesses Choose FAYJEXTECH Over Generic Agencies
+                <h2 className={`text-3xl sm:text-4xl font-extrabold text-[#0B132B] tracking-tight leading-tight ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {t.whyTitle}
                 </h2>
 
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  We don&apos;t just sell you software and vanish. Our founders visit your shop, configure your counter cables, test print receipt slips with your phone number, and provide direct emergency assistance.
+                <p className={`text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {t.whySubtitle}
                 </p>
 
                 <div className="p-5 rounded-2xl bg-[#002B66] text-white space-y-3">
                   <h4 className="text-sm font-bold text-[#00C4FF] flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
-                    <span>Direct Accountability</span>
+                    <span>{isUrdu ? 'براہ راست بانیان سے بات' : 'Direct Accountability'}</span>
                   </h4>
-                  <p className="text-xs text-slate-200 leading-relaxed">
-                    You have direct phone numbers for Abdul Jabbar (Co-Founder) and Fayyaz Khan (Founder). No call tickets or automated replies.
+                  <p className={`text-xs text-slate-200 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                    {isUrdu
+                      ? 'عبدالجبار (شریک بانی) اور فیاض خان (بانی) کا براہ راست نمبر آپ کے پاس ہو گا، بغیر کسی کال سینٹر یا خودکار سسٹم کے چکر کے۔'
+                      : 'You have direct contact with Abdul Jabbar (Co-Founder) and Fayyaz Khan (Founder). No call tickets or automated robot replies.'}
                   </p>
                   <Button to="/contact" variant="accent" size="sm" className="w-full justify-center">
-                    Speak Directly With Us
+                    {t.whyCta}
                   </Button>
                 </div>
               </div>
@@ -770,12 +806,12 @@ export const HomePage: React.FC = () => {
         <div className="nanosoft-ellipse-green w-96 h-96 -bottom-20 -right-10" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Find Technology. Your Way.
+          <h2 className={`text-3xl sm:text-5xl font-extrabold tracking-tight text-white ${isUrdu ? 'font-nastaliq' : ''}`}>
+            {t.bannerTitle}
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
-            Join growing retailers, bakeries, pharmacies, and institutions across Karachi. Work directly with <strong>FAYJEXTECH</strong> to scale your shop billing counters with zero headache.
+          <p className={`text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+            {t.bannerDesc}
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
@@ -783,7 +819,7 @@ export const HomePage: React.FC = () => {
               to="/contact"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-sm sm:text-base font-bold shadow-xl shadow-green-600/30 hover:scale-105 transition-all cursor-pointer"
             >
-              <span>Hire Top Talent Now</span>
+              <span>{t.bannerPrimaryCta}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -794,12 +830,12 @@ export const HomePage: React.FC = () => {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold border border-white/20 hover:scale-105 transition-all"
             >
               <MessageSquare className="w-4 h-4 text-[#00C4FF]" />
-              <span>WhatsApp Helpline: {siteConfig.contact.phone}</span>
+              <span>{t.bannerSecondaryCta}</span>
             </a>
           </div>
 
           <p className="text-xs text-slate-400 pt-2">
-            Based in Orangi Town, Karachi • 9:00 AM – 5:00 PM (Monday–Thursday &amp; Saturday • Friday &amp; Sunday Off)
+            {t.bannerOfficeNote}
           </p>
         </div>
       </section>

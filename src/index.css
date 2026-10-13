@@ -61,6 +61,7 @@
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
   --color-primary: #0056D2;
   --color-primary-dark: #00388F;
   --color-primary-light: #2A7BFF;
@@ -229,3 +230,19 @@
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 10px 25px -5px rgba(0, 86, 210, 0.15);
 }
+
+/* Nastaliq Urdu Typography Helpers */
+.font-nastaliq {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
+  line-height: 2.1;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
