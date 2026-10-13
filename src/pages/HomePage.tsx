@@ -172,27 +172,27 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Headline (Nanosoft Inspired Headline Structure) */}
-          <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.2] text-[#0B132B] ${isUrdu ? 'font-nastaliq' : ''}`}>
+          <h1 className={`text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.3] sm:leading-[1.2] text-[#0B132B] ${isUrdu ? 'font-nastaliq' : ''}`}>
             {t.heroTitleLead} <br />
             <span className="shimmer-gradient-text">{t.heroTitleHighlight}</span> {t.heroTitleEnd}
           </h1>
 
           {/* Subtitle */}
-          <p className={`mt-5 text-base sm:text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-nastaliq' : ''}`}>
+          <p className={`mt-4 sm:mt-5 text-sm sm:text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto ${isUrdu ? 'font-nastaliq' : ''}`}>
             {t.heroDescription}
           </p>
 
           {/* Key Quick Guarantees Pill Badges */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-slate-700">
-            <span className="px-3 py-1.5 rounded-full bg-blue-50 text-[#0056D2] border border-blue-200 flex items-center gap-1.5">
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
+            <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-blue-50 text-[#0056D2] border border-blue-200 flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#00B050]" />
               <span>{t.heroOfflineGuarantee}</span>
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-emerald-50 text-[#00873D] border border-emerald-200 flex items-center gap-1.5">
+            <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-50 text-[#00873D] border border-emerald-200 flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#00B050]" />
               <span>{t.heroLocalHardware}</span>
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1.5">
+            <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
               <span>{t.heroFreeConsult}</span>
             </span>
@@ -201,11 +201,11 @@ export const HomePage: React.FC = () => {
           {/* Interactive Fast Scoping Form (Nanosoft Style Top Banner Form) */}
           <form
             onSubmit={handleHeroFormSubmit}
-            className="mt-8 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-2xl max-w-3xl mx-auto"
+            className="mt-6 sm:mt-8 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-2xl max-w-3xl mx-auto"
           >
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-              <div className="sm:col-span-4 text-left">
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ml-1">
+              <div className="sm:col-span-4 text-start">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ms-1">
                   {isUrdu ? 'آپ کا موبائل / واٹس ایپ نمبر' : 'Phone / WhatsApp Number'}
                 </label>
                 <input
@@ -214,18 +214,18 @@ export const HomePage: React.FC = () => {
                   placeholder={isUrdu ? 'مثلاً: 03451234567' : '0345 1234567'}
                   value={quickEmail}
                   onChange={(e) => setQuickEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors"
                 />
               </div>
 
-              <div className="sm:col-span-5 text-left">
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ml-1">
+              <div className="sm:col-span-5 text-start">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1 ms-1">
                   {isUrdu ? 'آپ کو کس چیز کی ضرورت ہے؟' : 'Select Solution / Service'}
                 </label>
                 <select
                   value={quickService}
                   onChange={(e) => setQuickService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors font-medium"
+                  className="w-full px-3.5 py-2.5 text-base sm:text-sm rounded-xl bg-slate-50 border border-slate-200 text-[#0F172A] focus:bg-white focus:border-[#0056D2] focus:outline-none transition-colors font-medium"
                 >
                   <option value="Custom POS Systems (All Business Types)">
                     {isUrdu ? 'ہر قسم کا پی او ایس (مارٹ، جنرل اسٹور، بیکری)' : 'Custom POS (Retail Marts, Bakeries, Medical)'}
@@ -245,25 +245,25 @@ export const HomePage: React.FC = () => {
                 </select>
               </div>
 
-              <div className="sm:col-span-3 pt-2 sm:pt-4">
+              <div className="sm:col-span-3 pt-1 sm:pt-4">
                 <button
                   type="submit"
                   className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#0056D2] to-[#00388F] text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 hover:scale-[1.02] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>{t.heroPrimaryCta}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 rtl-flip" />
                 </button>
               </div>
             </div>
           </form>
 
           {/* Direct Founders Contact Ribbon */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md sm:max-w-none mx-auto">
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md shadow-green-600/20 hover:-translate-y-0.5 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md shadow-green-600/20 hover:-translate-y-0.5 transition-all"
             >
               <MessageSquare className="w-4 h-4 text-white" />
               <span>{t.heroSecondaryCta}</span>
@@ -271,7 +271,8 @@ export const HomePage: React.FC = () => {
 
             <a
               href={`tel:${siteConfig.contact.phoneClean}`}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[#0056D2] border border-blue-200 text-xs sm:text-sm font-bold hover:bg-blue-50 hover:-translate-y-0.5 transition-all shadow-xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-[#0056D2] border border-blue-200 text-xs sm:text-sm font-bold hover:bg-blue-50 hover:-translate-y-0.5 transition-all shadow-xs"
+              dir="ltr"
             >
               <Phone className="w-4 h-4 text-[#0056D2]" />
               <span>{isUrdu ? `کال ہیلپ لائن: ${siteConfig.contact.phone}` : `Call Helpline: ${siteConfig.contact.phone}`}</span>
@@ -415,29 +416,29 @@ export const HomePage: React.FC = () => {
               </p>
 
               {/* Nanosoft Style 4 Stat Counters */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-200">
-                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric1Label}</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 pt-4 border-t border-slate-200">
+                <div className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric1Label}</span>
                   <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'آف لائن گارنٹی' : 'Offline Guarantee'}</span>
-                  <span className="text-[11px] text-slate-500">{t.metric1Sub}</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500">{t.metric1Sub}</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric2Label}</span>
+                <div className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric2Label}</span>
                   <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'ماہانہ فیس صفر' : 'Zero Monthly Fee'}</span>
-                  <span className="text-[11px] text-slate-500">{t.metric2Sub}</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500">{t.metric2Sub}</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric3Label}</span>
+                <div className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-xl sm:text-3xl font-extrabold text-[#0056D2] block">{t.metric3Label}</span>
                   <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'تیز رفتار بلنگ' : 'Ultra Fast Billing'}</span>
-                  <span className="text-[11px] text-slate-500">{t.metric3Sub}</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500">{t.metric3Sub}</span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric4Label}</span>
+                <div className="p-3 sm:p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <span className="text-xl sm:text-3xl font-extrabold text-[#00B050] block">{t.metric4Label}</span>
                   <span className="text-xs font-bold text-[#0F172A] mt-1 block">{isUrdu ? 'لوکل سپورٹ' : 'Local Support'}</span>
-                  <span className="text-[11px] text-slate-500">{t.metric4Sub}</span>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500">{t.metric4Sub}</span>
                 </div>
               </div>
 
@@ -598,7 +599,7 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex-1 text-center sm:text-left space-y-2">
+                <div className="flex-1 text-center sm:text-start space-y-2">
                   <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#0056D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
                     {idx === 0 ? t.founder1Role : t.founder2Role}
                   </span>
@@ -815,7 +816,7 @@ export const HomePage: React.FC = () => {
             {testimonials.map((testim, idx) => (
               <div
                 key={idx}
-                className="bg-[#F8FAFC] rounded-2xl p-6 sm:p-7 border border-slate-200 hover-lift text-left flex flex-col justify-between"
+                className="bg-[#F8FAFC] rounded-2xl p-6 sm:p-7 border border-slate-200 hover-lift text-start flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-1 text-amber-400 mb-3">
@@ -871,20 +872,20 @@ export const HomePage: React.FC = () => {
             {t.bannerDesc}
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-sm sm:text-base font-bold shadow-xl shadow-green-600/30 hover:scale-105 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-sm sm:text-base font-bold shadow-xl shadow-green-600/30 hover:scale-105 transition-all cursor-pointer text-center"
             >
               <span>{t.bannerPrimaryCta}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 rtl-flip" />
             </Link>
 
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold border border-white/20 hover:scale-105 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold border border-white/20 hover:scale-105 transition-all text-center"
             >
               <MessageSquare className="w-4 h-4 text-[#00C4FF]" />
               <span>{t.bannerSecondaryCta}</span>

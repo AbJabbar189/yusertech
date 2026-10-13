@@ -305,7 +305,7 @@ ${formData.projectDescription}`;
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. 0346 0000000"
+                      placeholder="e.g. 0348 1234567"
                       className={`w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#F8FAF9] border text-[#1A231F] focus:bg-white transition-colors ${
                         errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-[#DCE4E0]'
                       }`}

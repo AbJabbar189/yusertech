@@ -163,7 +163,7 @@ export const siteConfig = {
         'Cashier shift closing and daily cash reconciliation reports',
         'Staff training and on-site testing in Karachi',
       ],
-      nextStep: 'Contact Abdul Jabbar (0346-7366879) or Fayyaz Khan (0342-2643761) to demo a POS customized for your shop.',
+      nextStep: 'Contact Abdul Jabbar or Fayyaz Khan at 0348-9133738 to demo a POS customized for your shop.',
       iconName: 'ShoppingBag',
     },
     {
@@ -538,7 +538,7 @@ export const siteConfig = {
       category: 'Process & Pricing',
       question: 'How can we contact the founders directly?',
       answer:
-        'You can call or WhatsApp Abdul Jabbar (Co-Founder) at 0346-7366879 or Fayyaz Khan (Founder) at 0342-2643761 during working hours (9:00 AM – 5:00 PM).',
+        'You can call or WhatsApp our official helpline at 0348-9133738 to speak directly with Abdul Jabbar (Co-Founder) or Fayyaz Khan (Founder) during working hours (9:00 AM – 5:00 PM).',
     },
     {
       category: 'Process & Pricing',

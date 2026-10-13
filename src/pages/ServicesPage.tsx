@@ -173,22 +173,21 @@ export const ServicesPage: React.FC = () => {
           <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto mb-6">
             We visit shops across Orangi Town, Nazimabad, Saddar, and all Karachi zones to inspect receipt printers, scanners, PC hardware, and counter layout.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white font-bold text-xs shadow-md transition-all"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white font-bold text-xs sm:text-sm shadow-md transition-all text-center flex items-center justify-center gap-2"
             >
-              WhatsApp Abdul Jabbar (0346 7366879)
+              <MessageSquare className="w-4 h-4 text-white" />
+              <span>WhatsApp Helpline ({siteConfig.contact.phone})</span>
             </a>
             <a
-              href={`https://wa.me/${siteConfig.founders[0].phoneClean}`}
-              target="_blank"
-              rel="noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all"
+              href={`tel:${siteConfig.contact.phoneClean}`}
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all text-center"
             >
-              WhatsApp Fayyaz Khan (0342 2643761)
+              Call Helpline: {siteConfig.contact.phone}
             </a>
           </div>
         </div>

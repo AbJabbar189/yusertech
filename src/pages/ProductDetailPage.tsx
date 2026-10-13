@@ -62,13 +62,13 @@ export const ProductDetailPage: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href={`https://wa.me/${siteConfig.founders[1].phoneClean}?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20${encodeURIComponent(product.name)}%20k%20baare%20mein%20baat%20karni%20hai.`}
+                href={`https://wa.me/${siteConfig.contact.phoneClean}?text=Salam%20FAYJEXTECH%2C%20mujhe%20${encodeURIComponent(product.name)}%20k%20baare%20mein%20baat%20karni%20hai.`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md transition-all"
               >
                 <MessageSquare className="w-4 h-4 text-white" />
-                <span>WhatsApp Abdul Jabbar (0346 7366879)</span>
+                <span>WhatsApp Helpline: {siteConfig.contact.phone}</span>
               </a>
               <span className="text-xs text-slate-600 flex items-center gap-1.5">
                 <Monitor className="w-4 h-4 text-[#0056D2]" />
@@ -210,18 +210,18 @@ export const ProductDetailPage: React.FC = () => {
             Interested in {product.name}?
           </h2>
           <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto mb-6">
-            Call or WhatsApp Abdul Jabbar (0346 7366879) or Fayyaz Khan (0342 2643761) to arrange a customized PC hardware and software demo for your business.
+            Call or WhatsApp our helpline ({siteConfig.contact.phone}) to speak directly with Abdul Jabbar (Co-Founder) or Fayyaz Khan (Founder) and arrange a customized demo.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}?text=Salam%20Abdul%20Jabbar%20bhai%2C%20mujhe%20${encodeURIComponent(product.name)}%20k%20baare%20mein%20puchna%20hai.`}
+              href={`https://wa.me/${siteConfig.contact.phoneClean}?text=Salam%20FAYJEXTECH%2C%20mujhe%20${encodeURIComponent(product.name)}%20k%20baare%20mein%20puchna%20hai.`}
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white font-bold text-xs shadow-md transition-all"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white font-bold text-xs sm:text-sm shadow-md transition-all text-center"
             >
-              WhatsApp Abdul Jabbar
+              WhatsApp Helpline: {siteConfig.contact.phone}
             </a>
-            <Button to="/contact" variant="outline" size="md" className="!text-white !border-white/30">
+            <Button to="/contact" variant="outline" size="md" className="w-full sm:w-auto !text-white !border-white/30 text-center justify-center">
               Submit Inquiry Form
             </Button>
           </div>

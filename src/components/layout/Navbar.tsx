@@ -35,6 +35,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: t.navHome, to: '/' },
+    { label: isUrdu ? 'ہماری خدمات' : 'Services', to: '/services' },
     { label: t.navProducts, to: '/products' },
     { label: t.navPortfolio, to: '/portfolio' },
     { label: t.navAbout, to: '/about' },
@@ -45,29 +46,30 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full font-sans shadow-xs">
       {/* Top Founder & Timings Strip */}
-      <div className="bg-[#002B66] text-white text-[11px] py-1.5 px-4 border-b border-[#003E9A]">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-4 text-slate-200">
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-[#00C4FF]" />
-              <span>{t.topLocation}</span>
+      <div className="bg-[#002B66] text-white text-[11px] py-1.5 px-3 sm:px-4 border-b border-[#003E9A]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-2 sm:gap-4 text-slate-200 min-w-0">
+            <span className="flex items-center gap-1 shrink-0 text-[10px] sm:text-[11px]">
+              <MapPin className="w-3 h-3 text-[#00C4FF] shrink-0" />
+              <span className="hidden sm:inline">{t.topLocation}</span>
+              <span className="sm:hidden">{isUrdu ? 'کراچی و پاکستان' : 'Karachi, PK'}</span>
             </span>
-            <span className="hidden sm:flex items-center gap-1 text-slate-300">
+            <span className="hidden md:flex items-center gap-1 text-slate-300 text-[11px]">
               <Clock className="w-3 h-3 text-[#00C4FF]" />
               <span>{t.topTimings}</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Language Mode Toggle Button */}
             <button
               onClick={toggleLang}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold bg-white/15 hover:bg-white/25 text-white border border-white/20 transition-all cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-bold bg-white/15 hover:bg-white/25 text-white border border-white/20 transition-all cursor-pointer shadow-xs"
               title="Switch language between Nastaleeq Urdu and English/Roman Urdu"
             >
-              <Languages className="w-3.5 h-3.5 text-[#00C4FF]" />
-              <span>{isUrdu ? 'اردو نستعلیق (آن)' : 'Roman / English'}</span>
-              <span className="text-[10px] bg-[#00B050] px-1.5 py-0.2 rounded text-white font-mono">
+              <Languages className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00C4FF]" />
+              <span className="hidden xs:inline">{isUrdu ? 'اردو' : 'Roman'}</span>
+              <span className="text-[9px] sm:text-[10px] bg-[#00B050] px-1 sm:px-1.5 py-0.2 rounded text-white font-mono font-bold">
                 {isUrdu ? 'ENG' : 'اردو'}
               </span>
             </button>
@@ -78,15 +80,17 @@ export const Navbar: React.FC = () => {
               href={`https://wa.me/${siteConfig.contact.phoneClean}`}
               target="_blank"
               rel="noreferrer"
-              className="text-[#00C4FF] hover:text-white transition-colors flex items-center gap-1 font-semibold"
+              className="text-[#00C4FF] hover:text-white transition-colors flex items-center gap-1 font-semibold text-[10px] sm:text-[11px] shrink-0"
+              dir="ltr"
             >
-              <MessageSquare className="w-3 h-3" />
-              <span>WhatsApp: {siteConfig.contact.phone}</span>
+              <MessageSquare className="w-3 h-3 text-[#00B050]" />
+              <span><span className="hidden sm:inline">WhatsApp: </span>{siteConfig.contact.phone}</span>
             </a>
             <span className="text-[#0047B3] hidden md:inline">|</span>
             <a
               href={`tel:${siteConfig.contact.phoneClean}`}
-              className="text-[#22C55E] hover:text-white transition-colors hidden md:flex items-center gap-1 font-semibold"
+              className="text-[#22C55E] hover:text-white transition-colors hidden md:flex items-center gap-1 font-semibold text-[11px]"
+              dir="ltr"
             >
               <Phone className="w-3 h-3" />
               <span>Call: {siteConfig.contact.phone}</span>
@@ -102,7 +106,7 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Brand Logo */}
             <NavLink
               to="/"
@@ -110,7 +114,7 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0056D2] rounded-lg p-1 -ml-1"
               aria-label="FAYJEXTECH Home"
             >
-              <Logo variant="full" theme="light" iconSize={40} />
+              <Logo variant="full" theme="light" iconSize={36} className="scale-95 sm:scale-100 origin-left" />
             </NavLink>
 
             {/* Desktop Navigation Links with Mega Dropdown */}
@@ -185,7 +189,7 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {navLinks.slice(1).map((link) => (
+              {navLinks.slice(2).map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
@@ -241,7 +245,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="fixed inset-0 top-[110px] z-40 bg-white lg:hidden flex flex-col justify-between overflow-y-auto px-6 py-6 border-t border-slate-200 shadow-xl">
+        <div className="fixed inset-x-0 bottom-0 top-[94px] sm:top-[112px] z-40 bg-white lg:hidden flex flex-col justify-between overflow-y-auto px-5 sm:px-6 py-5 border-t border-slate-200 shadow-2xl">
           <nav className="flex flex-col space-y-1.5" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
               <NavLink
@@ -257,23 +261,23 @@ export const Navbar: React.FC = () => {
                 }
               >
                 <span>{link.label}</span>
-                <span className="text-xs text-[#00B050] font-bold">→</span>
+                <span className="text-xs text-[#00B050] font-bold rtl-flip">→</span>
               </NavLink>
             ))}
           </nav>
 
-          <div className="pt-6 border-t border-slate-200 mt-6 flex flex-col gap-3">
+          <div className="pt-5 border-t border-slate-200 mt-5 flex flex-col gap-3">
             <div className="bg-[#F8FAFC] p-3.5 rounded-xl border border-slate-200 text-xs space-y-2">
               <span className="font-bold text-[#0056D2] block">FAYJEXTECH Official:</span>
               <div className="flex justify-between items-center text-[#64748B]">
                 <span>Helpline / Call:</span>
-                <a href={`tel:${siteConfig.contact.phoneClean}`} className="font-bold text-[#0F172A]">
+                <a href={`tel:${siteConfig.contact.phoneClean}`} className="font-bold text-[#0F172A]" dir="ltr">
                   {siteConfig.contact.phone}
                 </a>
               </div>
               <div className="flex justify-between items-center text-[#64748B]">
                 <span>WhatsApp:</span>
-                <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noreferrer" className="font-bold text-[#00B050]">
+                <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noreferrer" className="font-bold text-[#00B050]" dir="ltr">
                   {siteConfig.contact.phone}
                 </a>
               </div>
@@ -289,7 +293,7 @@ export const Navbar: React.FC = () => {
                 toggleLang();
                 setIsOpen(false);
               }}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50 text-[#0056D2] font-bold text-sm border border-blue-200"
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-blue-50 text-[#0056D2] font-bold text-sm border border-blue-200 cursor-pointer"
             >
               <span className="flex items-center gap-2">
                 <Languages className="w-4 h-4 text-[#00B050]" />
@@ -300,7 +304,7 @@ export const Navbar: React.FC = () => {
               </span>
             </button>
 
-            <Button to="/contact" variant="primary" size="lg" className="w-full">
+            <Button to="/contact" variant="primary" size="lg" className="w-full text-center justify-center" onClick={() => setIsOpen(false)}>
               {isUrdu ? 'ابھی رابطہ کریں / مفت مشورہ' : 'Free Consultation / Rabta Karein'}
             </Button>
           </div>
