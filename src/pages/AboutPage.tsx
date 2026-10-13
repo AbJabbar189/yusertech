@@ -2,7 +2,6 @@ import React from 'react';
 import {
   CheckCircle2,
   Phone,
-  MessageSquare,
   Clock,
   MapPin,
 } from 'lucide-react';
@@ -34,76 +33,78 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Fayyaz Khan */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col justify-between hover-lift">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#0056D2] border border-blue-200 flex items-center justify-center font-extrabold text-xl shadow-xs">
-                    FK
+                <div className="flex items-center justify-between mb-5">
+                  <div className="relative">
+                    <img
+                      src="./images/fayyaz_khan.jpg"
+                      alt="Fayyaz Khan Founder FAYJEXTECH"
+                      className="w-20 h-20 rounded-2xl object-cover border-2 border-[#0056D2] shadow-md"
+                    />
+                    <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#0056D2] border-2 border-white flex items-center justify-center text-[10px] text-white font-bold">
+                      ✓
+                    </span>
                   </div>
                   <Badge variant="primary">Founder</Badge>
                 </div>
                 <h3 className="text-xl font-bold text-[#0F172A]">Fayyaz Khan</h3>
                 <span className="text-xs text-[#0056D2] font-bold block mb-3">Founder &amp; Business Strategist</span>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
                   {siteConfig.founders[0].bio} Fayyaz oversees business strategy, client requirements analysis, project roadmaps, and ensures every client gets an honest, transparent engagement tailored for the local market.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={`tel:${siteConfig.founders[0].phoneClean}`}
-                  className="flex items-center gap-2 text-xs font-semibold text-[#0F172A] hover:text-[#0056D2]"
-                >
-                  <Phone className="w-4 h-4 text-[#0056D2]" />
-                  <span>Call: {siteConfig.founders[0].phone}</span>
-                </a>
-                <a
-                  href={siteConfig.founders[0].whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00873D] hover:underline"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#00B050]" />
-                  <span>Chat on WhatsApp →</span>
-                </a>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
+                  <span className="text-slate-400">Email:</span>
+                  <a href="mailto:Fyyz2238@gmail.com" className="text-[#0056D2] hover:underline font-bold">
+                    Fyyz2238@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
+                  <Phone className="w-3.5 h-3.5 text-[#0056D2]" />
+                  <span>Helpline: {siteConfig.contact.phone}</span>
+                </div>
               </div>
             </div>
 
             {/* Abdul Jabbar */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col justify-between hover-lift">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-[#00873D] border border-emerald-200 flex items-center justify-center font-extrabold text-xl shadow-xs">
-                    AJ
+                <div className="flex items-center justify-between mb-5">
+                  <div className="relative">
+                    <img
+                      src="./images/abdul_jabbar.jpg"
+                      alt="Abdul Jabbar Co-Founder FAYJEXTECH"
+                      className="w-20 h-20 rounded-2xl object-cover border-2 border-[#00B050] shadow-md"
+                    />
+                    <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#00B050] border-2 border-white flex items-center justify-center text-[10px] text-white font-bold">
+                      ✓
+                    </span>
                   </div>
                   <Badge variant="accent">Co-Founder</Badge>
                 </div>
                 <h3 className="text-xl font-bold text-[#0F172A]">Abdul Jabbar</h3>
                 <span className="text-xs text-[#00873D] font-bold block mb-3">Co-Founder &amp; Lead Systems Engineer</span>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
                   {siteConfig.founders[1].bio} Abdul Jabbar leads full-stack software development, offline database synchronization, hardware thermal printer drivers, complete PC setups, and custom workflow scripts.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={`tel:${siteConfig.founders[1].phoneClean}`}
-                  className="flex items-center gap-2 text-xs font-semibold text-[#0F172A] hover:text-[#00873D]"
-                >
-                  <Phone className="w-4 h-4 text-[#00B050]" />
-                  <span>Call: {siteConfig.founders[1].phone}</span>
-                </a>
-                <a
-                  href={siteConfig.founders[1].whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00873D] hover:underline"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#00B050]" />
-                  <span>Chat on WhatsApp →</span>
-                </a>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
+                  <span className="text-slate-400">Email:</span>
+                  <a href="mailto:abduljabbarlala189@gmail.com" className="text-[#0056D2] hover:underline font-bold">
+                    abduljabbarlala189@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
+                  <Phone className="w-3.5 h-3.5 text-[#00B050]" />
+                  <span>Helpline: {siteConfig.contact.phone}</span>
+                </div>
               </div>
             </div>
           </div>

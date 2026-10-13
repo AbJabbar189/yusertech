@@ -56,23 +56,21 @@ export const Navbar: React.FC = () => {
 
           <div className="flex items-center gap-3">
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              href={`https://wa.me/${siteConfig.contact.phoneClean}`}
               target="_blank"
               rel="noreferrer"
-              className="text-[#00C4FF] hover:text-white transition-colors flex items-center gap-1 font-medium"
+              className="text-[#00C4FF] hover:text-white transition-colors flex items-center gap-1 font-semibold"
             >
               <MessageSquare className="w-3 h-3" />
-              <span>Abdul Jabbar: {siteConfig.founders[1].phone}</span>
+              <span>WhatsApp: {siteConfig.contact.phone}</span>
             </a>
             <span className="text-[#0047B3]">|</span>
             <a
-              href={`https://wa.me/${siteConfig.founders[0].phoneClean}`}
-              target="_blank"
-              rel="noreferrer"
-              className="text-[#22C55E] hover:text-white transition-colors hidden md:flex items-center gap-1 font-medium"
+              href={`tel:${siteConfig.contact.phoneClean}`}
+              className="text-[#22C55E] hover:text-white transition-colors hidden md:flex items-center gap-1 font-semibold"
             >
-              <MessageSquare className="w-3 h-3" />
-              <span>Fayyaz Khan: {siteConfig.founders[0].phone}</span>
+              <Phone className="w-3 h-3" />
+              <span>Call: {siteConfig.contact.phone}</span>
             </a>
           </div>
         </div>
@@ -182,11 +180,11 @@ export const Navbar: React.FC = () => {
             {/* Action Buttons: Phone & "Hire a Pro" (Nanosoft style primary CTA) */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href={`tel:${siteConfig.founders[1].phoneClean}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-lg text-[#0056D2] bg-[#EEF4FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] transition-colors"
+                href={`tel:${siteConfig.contact.phoneClean}`}
+                className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-2.5 rounded-xl text-[#0056D2] bg-[#EEF4FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-[#00B050]" />
-                <span>Call Karachi</span>
+                <span>Call: {siteConfig.contact.phone}</span>
               </a>
 
               {/* Nanosoft Style "Hire a Pro" Button */}
@@ -239,19 +237,23 @@ export const Navbar: React.FC = () => {
           </nav>
 
           <div className="pt-6 border-t border-slate-200 mt-6 flex flex-col gap-3">
-            <div className="bg-[#F8FAFC] p-3 rounded-xl border border-slate-200 text-xs space-y-1.5">
-              <span className="font-bold text-[#0056D2] block">Direct Karachi Founders:</span>
-              <div className="flex justify-between text-[#64748B]">
-                <span>Abdul Jabbar:</span>
-                <a href={`tel:${siteConfig.founders[1].phoneClean}`} className="font-semibold text-[#0F172A]">
-                  {siteConfig.founders[1].phone}
+            <div className="bg-[#F8FAFC] p-3.5 rounded-xl border border-slate-200 text-xs space-y-2">
+              <span className="font-bold text-[#0056D2] block">FAYJEXTECH Official:</span>
+              <div className="flex justify-between items-center text-[#64748B]">
+                <span>Helpline / Call:</span>
+                <a href={`tel:${siteConfig.contact.phoneClean}`} className="font-bold text-[#0F172A]">
+                  {siteConfig.contact.phone}
                 </a>
               </div>
-              <div className="flex justify-between text-[#64748B]">
-                <span>Fayyaz Khan:</span>
-                <a href={`tel:${siteConfig.founders[0].phoneClean}`} className="font-semibold text-[#0F172A]">
-                  {siteConfig.founders[0].phone}
+              <div className="flex justify-between items-center text-[#64748B]">
+                <span>WhatsApp:</span>
+                <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noreferrer" className="font-bold text-[#00B050]">
+                  {siteConfig.contact.phone}
                 </a>
+              </div>
+              <div className="border-t border-slate-200 pt-1.5 text-[11px] text-slate-500">
+                <div>Abdul Jabbar: <a href="mailto:abduljabbarlala189@gmail.com" className="text-[#0056D2]">abduljabbarlala189@gmail.com</a></div>
+                <div>Fayyaz Khan: <a href="mailto:Fyyz2238@gmail.com" className="text-[#0056D2]">Fyyz2238@gmail.com</a></div>
               </div>
             </div>
 

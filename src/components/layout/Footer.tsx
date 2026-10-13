@@ -94,20 +94,27 @@ export const Footer: React.FC = () => {
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-[#1E293B] space-y-1.5">
+              <div className="pt-2 border-t border-[#1E293B] space-y-2">
                 <div className="flex items-center gap-1.5 font-medium text-white">
                   <Phone className="w-3.5 h-3.5 text-[#00B050]" />
-                  <span>Abdul Jabbar:</span>
-                  <a href={`tel:${siteConfig.founders[1].phoneClean}`} className="text-[#00C4FF] hover:underline">
-                    {siteConfig.founders[1].phone}
+                  <span>Call / WhatsApp:</span>
+                  <a href={`tel:${siteConfig.contact.phoneClean}`} className="text-[#00C4FF] hover:underline font-bold">
+                    {siteConfig.contact.phone}
                   </a>
                 </div>
-                <div className="flex items-center gap-1.5 font-medium text-white">
-                  <Phone className="w-3.5 h-3.5 text-[#00B050]" />
-                  <span>Fayyaz Khan:</span>
-                  <a href={`tel:${siteConfig.founders[0].phoneClean}`} className="text-[#00C4FF] hover:underline">
-                    {siteConfig.founders[0].phone}
-                  </a>
+                <div className="text-[11px] text-slate-300 space-y-1">
+                  <div>
+                    <span className="text-slate-400">Abdul Jabbar:</span>{' '}
+                    <a href="mailto:abduljabbarlala189@gmail.com" className="text-[#00C4FF] hover:underline">
+                      abduljabbarlala189@gmail.com
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-slate-400">Fayyaz Khan:</span>{' '}
+                    <a href="mailto:Fyyz2238@gmail.com" className="text-[#00C4FF] hover:underline">
+                      Fyyz2238@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,12 +137,12 @@ export const Footer: React.FC = () => {
               FAQ
             </Link>
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="text-[#22C55E] hover:text-white font-semibold transition-colors"
             >
-              WhatsApp Support
+              WhatsApp Official
             </a>
           </div>
         </div>

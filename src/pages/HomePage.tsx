@@ -16,6 +16,7 @@ import {
   Users,
   Star,
   Quote,
+  CheckCircle2,
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/common/Button';
@@ -228,23 +229,21 @@ export const HomePage: React.FC = () => {
           {/* Direct Founders Contact Ribbon */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md shadow-green-600/20 hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00B050] hover:bg-[#009644] text-white text-xs sm:text-sm font-bold shadow-md shadow-green-600/20 hover:-translate-y-0.5 transition-all"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>WhatsApp Abdul Jabbar (0346 7366879)</span>
+              <span>WhatsApp Official: {siteConfig.contact.phone}</span>
             </a>
 
             <a
-              href={`https://wa.me/${siteConfig.founders[0].phoneClean}`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#0056D2] border border-blue-200 text-xs sm:text-sm font-bold hover:bg-blue-50 hover:-translate-y-0.5 transition-all shadow-xs"
+              href={`tel:${siteConfig.contact.phoneClean}`}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-[#0056D2] border border-blue-200 text-xs sm:text-sm font-bold hover:bg-blue-50 hover:-translate-y-0.5 transition-all shadow-xs"
             >
               <Phone className="w-4 h-4 text-[#0056D2]" />
-              <span>Call Fayyaz Khan (0342 2643761)</span>
+              <span>Call Helpline: {siteConfig.contact.phone}</span>
             </a>
           </div>
         </div>
@@ -512,6 +511,139 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ==============================================================
+          SECTION 5.5: REAL INSTALLATIONS & FOUNDERS IN ACTION (Rich Photo Gallery)
+          ============================================================== */}
+      <section className="py-20 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            badge="Ground Reality & Leadership"
+            title="Real Deployments, Real Hardware & Dedicated Leadership"
+            subtitle="Explore our active touch-point setups, retail counter hardware, and the founders behind FAYJEXTECH delivering solutions across Karachi."
+          />
+
+          {/* Founders Spotlight Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+            {siteConfig.founders.map((founder, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl shadow-slate-200/50 hover-lift flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-2xl group-hover:bg-emerald-50 transition-colors pointer-events-none" />
+
+                <div className="relative shrink-0">
+                  <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-4 border-white shadow-lg ring-2 ring-blue-500/20 group-hover:ring-[#00B050] transition-all">
+                    <img
+                      src={founder.image}
+                      alt={founder.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-[#00B050] text-white p-1.5 rounded-lg shadow-md">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center sm:text-left space-y-2">
+                  <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider text-[#0056D2] bg-blue-50 px-3 py-1 rounded-full border border-blue-200/60">
+                    {founder.role}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight">
+                    {founder.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {founder.bio}
+                  </p>
+                  <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <a
+                      href={`mailto:${founder.email}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-[#0056D2] hover:text-white px-3 py-1.5 rounded-lg transition-colors border border-slate-200"
+                    >
+                      <span>{founder.email}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Visual Grid: Real Retail Counters, Touch POS & Modern Workstations */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white hover-lift">
+              <div className="h-52 overflow-hidden relative">
+                <img
+                  src="./images/mart_pos.jpg"
+                  alt="Supermarket & Mart Counter POS Setup"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0056D2]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                  Supermarket &amp; Mart POS
+                </span>
+              </div>
+              <div className="p-4 bg-white space-y-1">
+                <p className="text-xs font-semibold text-slate-800">High-speed barcode billing</p>
+                <p className="text-[11px] text-slate-500">Offline cash drawer &amp; receipt printer integration</p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white hover-lift">
+              <div className="h-52 overflow-hidden relative">
+                <img
+                  src="./images/pos_touchscreen.jpg"
+                  alt="Touchscreen POS Terminal"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#00B050]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                  Touch POS Hardware
+                </span>
+              </div>
+              <div className="p-4 bg-white space-y-1">
+                <p className="text-xs font-semibold text-slate-800">All-in-One Touch Billing</p>
+                <p className="text-[11px] text-slate-500">Fast item tap, multi-kds screen &amp; thermal printing</p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white hover-lift">
+              <div className="h-52 overflow-hidden relative">
+                <img
+                  src="./images/bakery_pos.jpg"
+                  alt="Bakery & Sweet Shop Weighing Scale POS"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-amber-600/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                  Bakery &amp; Sweets Counter
+                </span>
+              </div>
+              <div className="p-4 bg-white space-y-1">
+                <p className="text-xs font-semibold text-slate-800">Weighing Scale Synchronization</p>
+                <p className="text-[11px] text-slate-500">Automated gram billing and daily item freshness</p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md bg-white hover-lift">
+              <div className="h-52 overflow-hidden relative">
+                <img
+                  src="./images/cashier_pos.jpg"
+                  alt="Retail Cashier Checkout Desk"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0F172A]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                  Cashier &amp; Inventory Hub
+                </span>
+              </div>
+              <div className="p-4 bg-white space-y-1">
+                <p className="text-xs font-semibold text-slate-800">Multi-Counter Local Network</p>
+                <p className="text-[11px] text-slate-500">Centralized database sync with zero cloud delay</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==============================================================
           SECTION 6: WHY FUTURISTIC TRADES CHOOSE FAYJEXTECH (Nanosoft .futuristic with Sticky Left)
           ============================================================== */}
       <section className="py-20 bg-[#F8FAFC] border-b border-slate-200">
@@ -656,13 +788,13 @@ export const HomePage: React.FC = () => {
             </Link>
 
             <a
-              href={`https://wa.me/${siteConfig.founders[1].phoneClean}`}
+              href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm sm:text-base font-bold border border-white/20 hover:scale-105 transition-all"
             >
               <MessageSquare className="w-4 h-4 text-[#00C4FF]" />
-              <span>WhatsApp Us Directly</span>
+              <span>WhatsApp Helpline: {siteConfig.contact.phone}</span>
             </a>
           </div>
 

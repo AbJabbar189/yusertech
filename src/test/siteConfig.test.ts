@@ -7,17 +7,21 @@ describe('Centralized siteConfig Verification', () => {
     expect(siteConfig.brand.tagline).toBe('Your Ideas. Our Technology.');
   });
 
-  it('contains company founders Fayyaz Khan and Abdul Jabbar with real numbers', () => {
+  it('contains company founders Fayyaz Khan and Abdul Jabbar with photos and emails', () => {
     expect(siteConfig.founders[0].name).toBe('Fayyaz Khan');
-    expect(siteConfig.founders[0].role).toBe('Founder');
-    expect(siteConfig.founders[0].phone).toBe('0342 2643761');
+    expect(siteConfig.founders[0].role).toContain('Founder');
+    expect(siteConfig.founders[0].email).toBe('Fyyz2238@gmail.com');
+    expect(siteConfig.founders[0].image).toContain('fayyaz_khan.jpg');
 
     expect(siteConfig.founders[1].name).toBe('Abdul Jabbar');
-    expect(siteConfig.founders[1].role).toBe('Co-Founder');
-    expect(siteConfig.founders[1].phone).toBe('0346 7366879');
+    expect(siteConfig.founders[1].role).toContain('Co-Founder');
+    expect(siteConfig.founders[1].email).toBe('abduljabbarlala189@gmail.com');
+    expect(siteConfig.founders[1].image).toContain('abdul_jabbar.jpg');
   });
 
-  it('verifies Orangi Town, Karachi location and working hours (Fri & Sun Off)', () => {
+  it('verifies company single phone number 0348 9133738, Orangi Town location, and working hours', () => {
+    expect(siteConfig.contact.phone).toBe('0348 9133738');
+    expect(siteConfig.contact.whatsapp).toBe('923489133738');
     expect(siteConfig.contact.address).toContain('Orangi Town, Karachi');
     expect(siteConfig.contact.officeHours).toContain('9:00 AM – 5:00 PM');
     expect(siteConfig.contact.offDays).toContain('Friday & Sunday');
