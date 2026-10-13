@@ -143,22 +143,22 @@ export const HomePage: React.FC = () => {
         <div className="hidden lg:block pointer-events-none select-none">
           <div className="absolute top-20 left-12 animate-float-1 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-blue-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
             <Cpu className="w-4 h-4 text-[#0056D2]" />
-            <span>Python Powered POS Core</span>
+            <span>{isUrdu ? 'پائتھون پی او ایس انجن' : 'Python Powered POS Core'}</span>
           </div>
 
           <div className="absolute bottom-28 left-8 animate-float-2 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-emerald-200 shadow-lg text-xs font-bold text-[#00B050] flex items-center gap-2">
             <HardDrive className="w-4 h-4 text-[#00B050]" />
-            <span>100% Offline Python + SQLite</span>
+            <span>{isUrdu ? '۱۰۰٪ آف لائن لوکل ڈیٹا بیس' : '100% Offline Python + SQLite'}</span>
           </div>
 
           <div className="absolute top-24 right-12 animate-float-3 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-cyan-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
             <Printer className="w-4 h-4 text-[#00C4FF]" />
-            <span>Python Thermal ESC/POS Driver</span>
+            <span>{isUrdu ? 'تھرمل رسید پرنٹر ڈرائیور' : 'Python Thermal ESC/POS Driver'}</span>
           </div>
 
           <div className="absolute bottom-24 right-10 animate-float-1 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-blue-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
             <Zap className="w-4 h-4 text-[#00B050]" />
-            <span>Fast Native Performance</span>
+            <span>{isUrdu ? 'صفر ماہانہ فیس اور کرایہ' : 'Fast Native Performance'}</span>
           </div>
         </div>
 
@@ -459,13 +459,13 @@ export const HomePage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B]/90 via-[#0B132B]/20 to-transparent flex flex-col justify-end p-5 text-white">
                     <span className="text-xs font-bold text-[#00C4FF] uppercase tracking-wider">
-                      Turnkey Counter Hardware
+                      {isUrdu ? 'مکمل کاؤنٹر ہارڈ ویئر' : 'Turnkey Counter Hardware'}
                     </span>
-                    <h3 className="text-lg font-bold text-white mt-1">
-                      Complete Desktop Unit + Thermal Printer + Scanner
+                    <h3 className={`text-lg font-bold text-white mt-1 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu ? 'مکمل کمپیوٹر + تیز رفتار تھرمل پرنٹر + بارکوڈ اسکینر' : 'Complete Desktop Unit + Thermal Printer + Scanner'}
                     </h3>
-                    <p className="text-xs text-slate-200 mt-1">
-                      On-site installation and testing across Karachi.
+                    <p className={`text-xs text-slate-200 mt-1 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu ? 'پورے کراچی میں دکان پر آ کر فٹنگ اور ٹریننگ کی سہولت۔' : 'On-site installation and testing across Karachi.'}
                     </p>
                   </div>
                 </div>
@@ -473,11 +473,15 @@ export const HomePage: React.FC = () => {
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
                   <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100 flex items-center gap-2">
                     <Cpu className="w-4 h-4 text-[#0056D2]" />
-                    <span className="font-bold text-[#0F172A]">Python POS Engine</span>
+                    <span className={`font-bold text-[#0F172A] ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu ? 'پائتھون پی او ایس انجن' : 'Python POS Engine'}
+                    </span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-2">
                     <Printer className="w-4 h-4 text-[#00B050]" />
-                    <span className="font-bold text-[#0F172A]">58/80mm Thermal</span>
+                    <span className={`font-bold text-[#0F172A] ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu ? '۸۰ ملی میٹر تھرمل پرنٹر' : '58/80mm Thermal'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -627,13 +631,17 @@ export const HomePage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0056D2]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                  Supermarket &amp; Mart POS
+                <span className={`absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0056D2]/90 backdrop-blur-sm px-2.5 py-1 rounded-md ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'سپر مارٹ بلنگ کاؤنٹر' : 'Supermarket & Mart POS'}
                 </span>
               </div>
               <div className="p-4 bg-white space-y-1">
-                <p className="text-xs font-semibold text-slate-800">High-speed barcode billing</p>
-                <p className="text-[11px] text-slate-500">Offline cash drawer &amp; receipt printer integration</p>
+                <p className={`text-xs font-semibold text-slate-800 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'تیز رفتار بارکوڈ اسکیننگ' : 'High-speed barcode billing'}
+                </p>
+                <p className={`text-[11px] text-slate-500 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'آف لائن کیش دراز اور پرنٹر فٹنگ' : 'Offline cash drawer & receipt printer integration'}
+                </p>
               </div>
             </div>
 
@@ -645,13 +653,17 @@ export const HomePage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#00B050]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                  Touch POS Hardware
+                <span className={`absolute bottom-3 left-3 text-xs font-bold text-white bg-[#00B050]/90 backdrop-blur-sm px-2.5 py-1 rounded-md ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'ٹچ اسکرین پی او ایس' : 'Touch POS Hardware'}
                 </span>
               </div>
               <div className="p-4 bg-white space-y-1">
-                <p className="text-xs font-semibold text-slate-800">All-in-One Touch Billing</p>
-                <p className="text-[11px] text-slate-500">Fast item tap, multi-kds screen &amp; thermal printing</p>
+                <p className={`text-xs font-semibold text-slate-800 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'آل ان ون ٹچ اسکرین بلنگ' : 'All-in-One Touch Billing'}
+                </p>
+                <p className={`text-[11px] text-slate-500 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'ایک کلک پر آئٹم انتخاب اور پرنٹ' : 'Fast item tap, multi-kds screen & thermal printing'}
+                </p>
               </div>
             </div>
 
@@ -663,13 +675,17 @@ export const HomePage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-amber-600/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                  Bakery &amp; Sweets Counter
+                <span className={`absolute bottom-3 left-3 text-xs font-bold text-white bg-amber-600/90 backdrop-blur-sm px-2.5 py-1 rounded-md ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'بیکری اور مٹھائی کاؤنٹر' : 'Bakery & Sweets Counter'}
                 </span>
               </div>
               <div className="p-4 bg-white space-y-1">
-                <p className="text-xs font-semibold text-slate-800">Weighing Scale Synchronization</p>
-                <p className="text-[11px] text-slate-500">Automated gram billing and daily item freshness</p>
+                <p className={`text-xs font-semibold text-slate-800 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'وزنی کانٹے کے ساتھ بلنگ' : 'Weighing Scale Synchronization'}
+                </p>
+                <p className={`text-[11px] text-slate-500 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'خودکار گرام حساب اور پرچی' : 'Automated gram billing and daily item freshness'}
+                </p>
               </div>
             </div>
 
@@ -681,13 +697,17 @@ export const HomePage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0F172A]/90 backdrop-blur-sm px-2.5 py-1 rounded-md">
-                  Cashier &amp; Inventory Hub
+                <span className={`absolute bottom-3 left-3 text-xs font-bold text-white bg-[#0F172A]/90 backdrop-blur-sm px-2.5 py-1 rounded-md ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'کیش کاؤنٹر و انوینٹری' : 'Cashier & Inventory Hub'}
                 </span>
               </div>
               <div className="p-4 bg-white space-y-1">
-                <p className="text-xs font-semibold text-slate-800">Multi-Counter Local Network</p>
-                <p className="text-[11px] text-slate-500">Centralized database sync with zero cloud delay</p>
+                <p className={`text-xs font-semibold text-slate-800 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'ملٹی کاؤنٹر لوکل نیٹ ورک' : 'Multi-Counter Local Network'}
+                </p>
+                <p className={`text-[11px] text-slate-500 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? 'مرکزی کمپیوٹر کے ساتھ بلاتعطل ہم آہنگی' : 'Centralized database sync with zero cloud delay'}
+                </p>
               </div>
             </div>
           </div>

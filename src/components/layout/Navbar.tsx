@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
                     }`
                   }
                 >
-                  <span>Services</span>
+                  <span>{isUrdu ? 'ہماری خدمات' : 'Services'}</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </NavLink>
 
@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                     <div className="px-3 py-2 border-b border-slate-100 mb-1">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-[#0056D2]">
-                        Software &amp; Counter Hardware
+                        {isUrdu ? 'سافٹ ویئر اور کاؤنٹر ہارڈ ویئر' : 'Software & Counter Hardware'}
                       </span>
                     </div>
                     {siteConfig.services.map((s) => (
@@ -167,7 +167,13 @@ export const Navbar: React.FC = () => {
                         </div>
                         <div>
                           <span className="text-xs font-bold text-[#0F172A] block group-hover:text-[#0056D2]">
-                            {s.title}
+                            {isUrdu
+                              ? s.id === 'custom-pos-systems' ? 'کسٹم پی او ایس سسٹم'
+                                : s.id === 'management-systems' ? 'ادارہ جاتی مینجمنٹ و ای آر پی'
+                                : s.id === 'workflow-automation' ? 'ورک فلو اور پروسیس آٹومیشن'
+                                : s.id === 'website-development' ? 'جدید ویب سائٹ ڈیولپمنٹ'
+                                : 'سسٹم کی مرمت اور سپورٹ'
+                              : s.title}
                           </span>
                           <span className="text-[10px] text-slate-500 line-clamp-1">
                             {s.shortDescription}
@@ -201,9 +207,10 @@ export const Navbar: React.FC = () => {
               <a
                 href={`tel:${siteConfig.contact.phoneClean}`}
                 className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-2.5 rounded-xl text-[#0056D2] bg-[#EEF4FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] transition-colors"
+                dir="ltr"
               >
                 <Phone className="w-3.5 h-3.5 text-[#00B050]" />
-                <span>Call: {siteConfig.contact.phone}</span>
+                <span>{isUrdu ? 'ہیلپ لائن: 0348 9133738' : `Call: ${siteConfig.contact.phone}`}</span>
               </a>
 
               {/* Nanosoft Style "Hire a Pro" Button */}
@@ -212,7 +219,7 @@ export const Navbar: React.FC = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0056D2] to-[#00388F] text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#00C4FF]" />
-                <span>Hire a Pro</span>
+                <span>{isUrdu ? 'مفت مشورہ لیں' : 'Hire a Pro'}</span>
               </Link>
             </div>
 

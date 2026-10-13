@@ -19,7 +19,7 @@ export const Logo: React.FC<LogoProps> = ({
   const tagColor = isDark ? 'text-[#00C4FF]' : 'text-[#0056D2]';
 
   return (
-    <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
+    <div dir="ltr" className={`inline-flex items-center gap-2.5 select-none ${className}`}>
       {/* Brand Logo Symbol */}
       <div
         className="relative shrink-0 overflow-hidden rounded-lg transition-transform duration-300 hover:scale-105"
@@ -38,7 +38,7 @@ export const Logo: React.FC<LogoProps> = ({
 
       {/* Wordmark & Tagline */}
       {variant !== 'mark-only' && (
-        <div className="flex flex-col leading-none">
+        <div className="flex flex-col leading-none text-left">
           <div className="flex items-center">
             <span className={`font-extrabold tracking-tight text-xl ${textColor} font-sans`}>
               FAYJEX
@@ -48,7 +48,7 @@ export const Logo: React.FC<LogoProps> = ({
             </span>
           </div>
           {variant === 'full' && (
-            <span className={`text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${tagColor}`}>
+            <span className={`text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${tagColor} font-sans`}>
               {siteConfig.brand.tagline}
             </span>
           )}
