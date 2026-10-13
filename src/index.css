@@ -242,54 +242,11 @@
   font-display: swap;
 }
 
-html[lang="ur"] {
-  font-size: 112% !important;
-}
-
 html[lang="ur"],
 html[lang="ur"] body,
-html[lang="ur"] div,
-html[lang="ur"] span,
-html[lang="ur"] p,
-html[lang="ur"] a,
-html[lang="ur"] li,
-html[lang="ur"] strong,
-html[lang="ur"] input,
-html[lang="ur"] select,
-html[lang="ur"] textarea,
-html[lang="ur"] button,
 html.font-nastaliq,
 .font-nastaliq {
-  font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', 'Alvi Nastaleeq', serif !important;
-  line-height: 2.3 !important;
-  letter-spacing: 0 !important;
-}
-
-html[lang="ur"] p,
-html[lang="ur"] span,
-html[lang="ur"] a,
-html[lang="ur"] li {
-  font-size: 1.05rem;
-}
-
-html[lang="ur"] h1 {
-  line-height: 1.9 !important;
-  font-size: 2.6rem !important;
-}
-
-html[lang="ur"] h2 {
-  line-height: 1.9 !important;
-  font-size: 2.1rem !important;
-}
-
-html[lang="ur"] h3 {
-  line-height: 1.8 !important;
-  font-size: 1.55rem !important;
-}
-
-html[lang="ur"] h4 {
-  line-height: 1.8 !important;
-  font-size: 1.25rem !important;
+  font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', 'Alvi Nastaleeq', serif;
 }
 
 [dir="rtl"] {
