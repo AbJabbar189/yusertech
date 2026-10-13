@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, X, Phone, MessageSquare, Clock, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { Menu, X, Phone, MessageSquare, Clock, MapPin, ChevronDown, Sparkles, ShoppingBag } from 'lucide-react';
 import { Logo } from '../common/Logo';
 import { Button } from '../common/Button';
 import { siteConfig } from '../../config/siteConfig';
@@ -8,8 +8,9 @@ import { siteConfig } from '../../config/siteConfig';
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [servicesDropdown, setServicesDropdown] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -17,7 +18,7 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -30,12 +31,11 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'Home', to: '/' },
-    { label: 'Services', to: '/services' },
-    { label: 'Products', to: '/products' },
+    { label: 'Products & POS', to: '/products' },
     { label: 'Portfolio', to: '/portfolio' },
     { label: 'About & Team', to: '/about' },
     { label: 'FAQ', to: '/faq' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'Contact Us', to: '/contact' },
   ];
 
   return (
@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
             </span>
             <span className="hidden sm:flex items-center gap-1 text-slate-300">
               <Clock className="w-3 h-3 text-[#00C4FF]" />
-              <span>Mon–Thu & Sat: 9:00 AM – 5:00 PM (Fri & Sun Off)</span>
+              <span>Mon–Thu &amp; Sat: 9:00 AM – 5:00 PM (Fri &amp; Sun Off)</span>
             </span>
           </div>
 
@@ -78,10 +78,10 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Navbar - Nanosoft Style Header with Mega Dropdown & Hire Pro CTA */}
       <div
         className={`bg-white transition-all duration-200 border-b ${
-          isScrolled ? 'border-slate-200 shadow-md' : 'border-slate-200'
+          isScrolled ? 'border-slate-200 shadow-md backdrop-blur-md bg-white/95' : 'border-slate-200'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,9 +96,73 @@ export const Navbar: React.FC = () => {
               <Logo variant="full" theme="light" iconSize={40} />
             </NavLink>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="Main Navigation">
-              {navLinks.map((link) => (
+            {/* Desktop Navigation Links with Mega Dropdown */}
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `px-3 py-2 text-sm font-semibold rounded-lg transition-all ${
+                    isActive
+                      ? 'text-[#0056D2] bg-[#EEF4FF] font-bold shadow-xs'
+                      : 'text-[#334155] hover:text-[#0056D2] hover:bg-slate-50'
+                  }`
+                }
+              >
+                Home
+              </NavLink>
+
+              {/* Services Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setServicesDropdown(true)}
+                onMouseLeave={() => setServicesDropdown(false)}
+              >
+                <NavLink
+                  to="/services"
+                  className={({ isActive }) =>
+                    `px-3 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-1 ${
+                      isActive
+                        ? 'text-[#0056D2] bg-[#EEF4FF] font-bold shadow-xs'
+                        : 'text-[#334155] hover:text-[#0056D2] hover:bg-slate-50'
+                    }`
+                  }
+                >
+                  <span>Services</span>
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </NavLink>
+
+                {servicesDropdown && (
+                  <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <div className="px-3 py-2 border-b border-slate-100 mb-1">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#0056D2]">
+                        Software &amp; Counter Hardware
+                      </span>
+                    </div>
+                    {siteConfig.services.map((s) => (
+                      <Link
+                        key={s.id}
+                        to={`/services#${s.id}`}
+                        onClick={() => setServicesDropdown(false)}
+                        className="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0056D2] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#0056D2] group-hover:text-white transition-colors">
+                          <ShoppingBag className="w-3.5 h-3.5" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-bold text-[#0F172A] block group-hover:text-[#0056D2]">
+                            {s.title}
+                          </span>
+                          <span className="text-[10px] text-slate-500 line-clamp-1">
+                            {s.shortDescription}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {navLinks.slice(1).map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
@@ -106,7 +170,7 @@ export const Navbar: React.FC = () => {
                     `px-3 py-2 text-sm font-semibold rounded-lg transition-all ${
                       isActive
                         ? 'text-[#0056D2] bg-[#EEF4FF] font-bold shadow-xs'
-                        : 'text-[#475569] hover:text-[#0056D2] hover:bg-slate-50'
+                        : 'text-[#334155] hover:text-[#0056D2] hover:bg-slate-50'
                     }`
                   }
                 >
@@ -115,18 +179,24 @@ export const Navbar: React.FC = () => {
               ))}
             </nav>
 
-            {/* Action Buttons */}
-            <div className="hidden lg:flex items-center gap-2.5">
+            {/* Action Buttons: Phone & "Hire a Pro" (Nanosoft style primary CTA) */}
+            <div className="hidden lg:flex items-center gap-3">
               <a
                 href={`tel:${siteConfig.founders[1].phoneClean}`}
                 className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-lg text-[#0056D2] bg-[#EEF4FF] hover:bg-[#DBEAFE] border border-[#BFDBFE] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-[#00B050]" />
-                <span>Call Us</span>
+                <span>Call Karachi</span>
               </a>
-              <Button to="/contact" variant="primary" size="md">
-                Discuss Project
-              </Button>
+
+              {/* Nanosoft Style "Hire a Pro" Button */}
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0056D2] to-[#00388F] text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#00C4FF]" />
+                <span>Hire a Pro</span>
+              </Link>
             </div>
 
             {/* Mobile Toggle */}
@@ -170,7 +240,7 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-6 border-t border-slate-200 mt-6 flex flex-col gap-3">
             <div className="bg-[#F8FAFC] p-3 rounded-xl border border-slate-200 text-xs space-y-1.5">
-              <span className="font-bold text-[#0056D2] block">Direct Contact:</span>
+              <span className="font-bold text-[#0056D2] block">Direct Karachi Founders:</span>
               <div className="flex justify-between text-[#64748B]">
                 <span>Abdul Jabbar:</span>
                 <a href={`tel:${siteConfig.founders[1].phoneClean}`} className="font-semibold text-[#0F172A]">
@@ -186,7 +256,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             <Button to="/contact" variant="primary" size="lg" className="w-full">
-              Get Free Consultation
+              Hire a Pro / Book Visit
             </Button>
           </div>
         </div>

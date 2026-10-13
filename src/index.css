@@ -2,9 +2,9 @@
 
 @layer base {
   :root {
-    /* FAYJEXTECH Brand Palette (Royal Blue & Emerald Green) */
+    /* FAYJEXTECH Brand Colors */
     --color-primary: #0056D2;
-    --color-primary-dark: #003E9A;
+    --color-primary-dark: #00388F;
     --color-primary-light: #2A7BFF;
     --color-primary-surface: #EEF4FF;
 
@@ -19,8 +19,8 @@
     --color-offwhite-card: #FFFFFF;
     --color-offwhite-alt: #F1F5F9;
 
-    --color-charcoal: #0F172A;
-    --color-charcoal-light: #1E293B;
+    --color-charcoal: #0B132B;
+    --color-charcoal-light: #1C2541;
     --color-white: #FFFFFF;
     --color-muted: #64748B;
     --color-muted-light: #94A3B8;
@@ -32,17 +32,18 @@
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #F8FAFC;
-    color: #0F172A;
+    color: #0B132B;
   }
 
   body {
     min-height: 100vh;
     background-color: #F8FAFC;
-    color: #0F172A;
+    color: #0B132B;
     margin: 0;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   /* Accessible focus indicators */
@@ -61,7 +62,7 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --color-primary: #0056D2;
-  --color-primary-dark: #003E9A;
+  --color-primary-dark: #00388F;
   --color-primary-light: #2A7BFF;
   --color-primary-surface: #EEF4FF;
   --color-accent: #00B050;
@@ -72,61 +73,159 @@
   --color-offwhite: #F8FAFC;
   --color-offwhite-card: #FFFFFF;
   --color-offwhite-alt: #F1F5F9;
-  --color-charcoal: #0F172A;
-  --color-charcoal-light: #1E293B;
+  --color-charcoal: #0B132B;
+  --color-charcoal-light: #1C2541;
   --color-muted: #64748B;
   --color-muted-light: #94A3B8;
   --color-border: #E2E8F0;
   --color-border-dark: #1E3A8A;
 }
 
-/* Custom Keyframe Animations for Modern Interactive Feel */
-@keyframes float {
+/* ==============================================================
+   NANOSOFT STYLE KEYFRAME ANIMATIONS & DECORATIONS
+   ============================================================== */
+
+/* Floating animated background icons */
+@keyframes floatSlow1 {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translate(0, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translate(12px, -18px) rotate(8deg);
   }
 }
 
-@keyframes pulseGlow {
+@keyframes floatSlow2 {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(0, 86, 210, 0.15), 0 0 30px rgba(0, 176, 80, 0.1);
+    transform: translate(0, 0) rotate(0deg);
   }
   50% {
-    box-shadow: 0 0 25px rgba(0, 86, 210, 0.3), 0 0 45px rgba(0, 176, 80, 0.2);
+    transform: translate(-14px, 16px) rotate(-10deg);
   }
 }
 
-@keyframes shimmer {
+@keyframes floatSlow3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8px, -12px) scale(1.08);
+  }
+}
+
+.animate-float-1 {
+  animation: floatSlow1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 7s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatSlow3 5s ease-in-out infinite;
+}
+
+/* Infinite Marquee Animation for Tech Stacks / Clients (Slick / Owl effect) */
+@keyframes marqueeScroll {
   0% {
-    background-position: -200% 0;
+    transform: translateX(0);
   }
   100% {
-    background-position: 200% 0;
+    transform: translateX(-50%);
   }
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite reverse;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Glowing Pulsing Ellipses like Nanosoft topbanner */
+@keyframes ellipseGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.1);
+  }
+}
+
+.nanosoft-ellipse-blue {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 86, 210, 0.25) 0%, rgba(0, 196, 255, 0.1) 50%, transparent 75%);
+  filter: blur(50px);
+  animation: ellipseGlow 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.nanosoft-ellipse-green {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 176, 80, 0.22) 0%, rgba(34, 197, 94, 0.08) 50%, transparent 75%);
+  filter: blur(55px);
+  animation: ellipseGlow 8s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Gradient shimmer */
+@keyframes shimmerText {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-gradient-text {
+  background: linear-gradient(90deg, #0056D2 0%, #00B050 40%, #00C4FF 70%, #0056D2 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerText 5s linear infinite;
+}
+
+/* Shimmer badge */
 .shimmer-badge {
-  background: linear-gradient(90deg, rgba(0, 86, 210, 0.08) 0%, rgba(0, 176, 80, 0.15) 50%, rgba(0, 86, 210, 0.08) 100%);
+  background: linear-gradient(90deg, rgba(0, 86, 210, 0.06) 0%, rgba(0, 176, 80, 0.14) 50%, rgba(0, 86, 210, 0.06) 100%);
   background-size: 200% 100%;
-  animation: shimmer 3s infinite linear;
+  animation: shimmerText 3s infinite linear;
 }
 
-/* Card hover animation enhancements */
+/* Modern Card Hover Effects */
 .hover-lift {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px -10px rgba(0, 86, 210, 0.15), 0 4px 12px -2px rgba(0, 176, 80, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(0, 86, 210, 0.15), 0 8px 16px -4px rgba(0, 176, 80, 0.1);
+  border-color: rgba(0, 86, 210, 0.4);
+}
+
+/* Interactive tab item styling */
+.industry-node-card {
+  transition: all 0.25s ease;
+}
+.industry-node-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 86, 210, 0.15);
 }
