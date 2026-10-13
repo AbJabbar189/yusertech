@@ -322,11 +322,11 @@ export const siteConfig = {
       ],
       deploymentType: 'Desktop PC / Touch POS Terminal (Offline)',
       specs: {
-        platform: 'Windows Desktop / Touchscreen POS Terminal',
-        offlineSupport: 'Full offline local sales execution',
-        database: 'Local transactional database with automated export',
+        platform: 'Python Native Desktop Engine + SQLite (Fast Offline)',
+        offlineSupport: 'Full offline local sales execution (Python Native Core)',
+        database: 'Local transactional ACID database (SQLite / PostgreSQL) with automated backup',
         dataExport: 'Thermal receipts, PDF statements, Excel/CSV reports',
-        licenseModel: 'One-time setup with optional maintenance support',
+        licenseModel: 'One-time setup with lifetime ownership (Zero Monthly Fees)',
       },
       faqs: [
         {

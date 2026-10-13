@@ -124,11 +124,11 @@ export const translations: Record<'en-ur' | 'ur', ContentDictionary> = {
     heroTitleHighlight: 'Hamari Mazboot Technology.',
     heroTitleEnd: 'Karachi k Market k Mutabiq.',
     heroDescription:
-      'Retail marts, super stores, bakeries, pharmacies aur wholesale shops k liye mukammal POS Software, PC Billing Counters, Inventory Management aur Automation — 100% Offline chalne wala, baghair kisi monthly fees k.',
+      'Retail marts, super stores, bakeries, pharmacies aur wholesale shops k liye Python Powered POS Software, PC Billing Counters, Inventory Management aur Automation — 100% Offline chalne wala, baghair kisi monthly fees k.',
     heroPrimaryCta: 'Billing Setup Lagwayen',
     heroSecondaryCta: 'WhatsApp Helpline (0348 9133738)',
     heroFreeConsult: 'Free Counter Setup Mashwara',
-    heroOfflineGuarantee: '100% Offline Kaam Karega (No Internet Needed)',
+    heroOfflineGuarantee: 'Python + SQLite 100% Offline (No Internet Needed)',
     heroLocalHardware: 'Thermal Printer, Scanner aur Cash Drawer Ready',
 
     metric1Label: '100% Offline',
@@ -218,11 +218,11 @@ export const translations: Record<'en-ur' | 'ur', ContentDictionary> = {
     heroTitleHighlight: 'ہماری مضبوط ٹیکنالوجی۔',
     heroTitleEnd: 'پاکستانی مارکیٹ کے عین مطابق۔',
     heroDescription:
-      'ریٹیل مارٹس، بیکریوں، میڈیکل اسٹورز، اور ہول سیل دکانوں کے لیے مکمل پی او ایس (POS) سافٹ ویئر، کمپیوٹر بلنگ کاؤنٹرز، انوینٹری مینجمنٹ اور آٹومیشن — ۱۰۰٪ بغیر انٹرنیٹ (آف لائن) چلنے والا، بغیر کسی ماہانہ فیس کے۔',
+      'ریٹیل مارٹس، بیکریوں، میڈیکل اسٹورز، اور ہول سیل دکانوں کے لیے پائتھون (Python) کی تیز رفتار طاقت پر بنا مکمل پی او ایس (POS) سافٹ ویئر، کمپیوٹر بلنگ کاؤنٹرز، انوینٹری مینجمنٹ اور آٹومیشن — ۱۰۰٪ بغیر انٹرنیٹ (آف لائن) چلنے والا، بغیر کسی ماہانہ فیس کے۔',
     heroPrimaryCta: 'بلنگ سسٹم لگوائیں',
     heroSecondaryCta: 'واٹس ایپ ہیلپ لائن (0348 9133738)',
     heroFreeConsult: 'مفت کاؤنٹر مشورہ اور رہنمائی',
-    heroOfflineGuarantee: '۱۰۰٪ آف لائن کام کرے گا (انٹرنیٹ بند ہونے پر بھی بلنگ جاری)',
+    heroOfflineGuarantee: 'پائتھون + لوکل ڈیٹا بیس ۱۰۰٪ آف لائن (انٹرنیٹ بند ہونے پر بھی بلنگ جاری)',
     heroLocalHardware: 'تھرمل پرنٹر، بارکوڈ اسکینر اور کیش ڈراور کی مکمل سیٹنگ',
 
     metric1Label: '۱۰۰٪ آف لائن',

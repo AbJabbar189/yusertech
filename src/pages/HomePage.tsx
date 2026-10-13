@@ -42,12 +42,13 @@ export const HomePage: React.FC = () => {
   };
 
   const techStacksRow1 = [
-    { name: 'POS Desktop Systems', tag: 'C# / .NET' },
+    { name: 'Core POS Engine', tag: 'Python (Custom Core Engine)' },
+    { name: 'POS Desktop Systems', tag: 'Python / C# Desktop' },
     { name: 'Offline ACID Database', tag: 'SQLite / PostgreSQL' },
     { name: 'React UI Counters', tag: 'React 19 & Tailwind' },
-    { name: 'Thermal ESC/POS Slip', tag: 'USB / Serial 80mm' },
+    { name: 'Thermal ESC/POS Slip', tag: 'Python Serial / USB 80mm' },
     { name: 'Barcode Scanner Protocol', tag: 'HID / Virtual COM' },
-    { name: 'Khata Automation Scripts', tag: 'Python / Node.js' },
+    { name: 'Khata Automation Scripts', tag: 'Python Scripts' },
   ];
 
   const techStacksRow2 = [
@@ -141,23 +142,23 @@ export const HomePage: React.FC = () => {
         {/* Floating Geometric Decorative Badges (Nanosoft .objectss icons) */}
         <div className="hidden lg:block pointer-events-none select-none">
           <div className="absolute top-20 left-12 animate-float-1 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-blue-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
-            <Monitor className="w-4 h-4 text-[#0056D2]" />
-            <span>Turnkey PC Setups</span>
+            <Cpu className="w-4 h-4 text-[#0056D2]" />
+            <span>Python Powered POS Core</span>
           </div>
 
           <div className="absolute bottom-28 left-8 animate-float-2 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-emerald-200 shadow-lg text-xs font-bold text-[#00B050] flex items-center gap-2">
             <HardDrive className="w-4 h-4 text-[#00B050]" />
-            <span>100% Offline Local DB</span>
+            <span>100% Offline Python + SQLite</span>
           </div>
 
           <div className="absolute top-24 right-12 animate-float-3 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-cyan-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
             <Printer className="w-4 h-4 text-[#00C4FF]" />
-            <span>ESC/POS Thermal Slips</span>
+            <span>Python Thermal ESC/POS Driver</span>
           </div>
 
           <div className="absolute bottom-24 right-10 animate-float-1 p-3 rounded-2xl bg-white/90 backdrop-blur-md border border-blue-200 shadow-lg text-xs font-bold text-[#0056D2] flex items-center gap-2">
             <Zap className="w-4 h-4 text-[#00B050]" />
-            <span>Zero Monthly Rent Traps</span>
+            <span>Fast Native Performance</span>
           </div>
         </div>
 
@@ -471,8 +472,8 @@ export const HomePage: React.FC = () => {
 
                 <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
                   <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-100 flex items-center gap-2">
-                    <Monitor className="w-4 h-4 text-[#0056D2]" />
-                    <span className="font-bold text-[#0F172A]">Core i3/i5 Desktops</span>
+                    <Cpu className="w-4 h-4 text-[#0056D2]" />
+                    <span className="font-bold text-[#0F172A]">Python POS Engine</span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-2">
                     <Printer className="w-4 h-4 text-[#00B050]" />
