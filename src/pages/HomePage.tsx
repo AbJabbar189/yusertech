@@ -492,9 +492,9 @@ export const HomePage: React.FC = () => {
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Industry Verticals"
-            title="Across Pakistani Business Verticals"
-            subtitle="From local supermarts to wholesale godowns and faith-based institutions, each trade requires exact features. Select a vertical to see how we solve it:"
+            badge={t.industriesBadge}
+            title={t.industriesTitle}
+            subtitle={t.industriesSubtitle}
           />
 
           {/* Industry Vertical Interactive Grid */}
@@ -524,19 +524,35 @@ export const HomePage: React.FC = () => {
                         <IconComp className="w-6 h-6" />
                       </div>
                       <span className="text-[11px] font-bold text-[#00873D] bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                        {ind.stat}
+                        {isUrdu ? 'مکمل سسٹم دستیاب' : ind.stat}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-bold text-[#0F172A] mb-2">{ind.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                      {ind.desc}
+                    <h3 className={`text-base font-bold text-[#0F172A] mb-2 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu
+                        ? ind.id === 'retail-marts' ? 'سپر مارٹ اور جنرل اسٹور پی او ایس'
+                          : ind.id === 'bakeries-sweets' ? 'بیکری اور مٹھائی کاؤنٹر سسٹم'
+                          : ind.id === 'pharmacies' ? 'میڈیکل اسٹور اور کلینک بلنگ'
+                          : ind.id === 'wholesale-godowns' ? 'ہول سیل کھاتہ اور گودام ڈسپیچ'
+                          : ind.id === 'education-madrasa' ? 'مدرسہ و اسکول فیس اور داخلہ نظام'
+                          : 'بزنس آٹومیشن اور واٹس ایپ رپورٹنگ'
+                        : ind.title}
+                    </h3>
+                    <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                      {isUrdu
+                        ? ind.id === 'retail-marts' ? 'تیز رفتار بارکوڈ اسکیننگ، کم اسٹاک الرٹس، کیش کاؤنٹر حساب اور ہول سیل ریٹ کی خودکار ایڈجسٹمنٹ۔'
+                          : ind.id === 'bakeries-sweets' ? 'الیکٹرانک وزنی کانٹے سے براہ راست کنکشن، پیشگی کیک آرڈر اور فوری ٹوکن رسید پرنٹنگ۔'
+                          : ind.id === 'pharmacies' ? 'میڈیسن بیچ نمبر اور ایکسپائری کنٹرول، سپلائر واپسی اور نسخہ فارمولا تلاش۔'
+                          : ind.id === 'wholesale-godowns' ? 'پارٹی وائز کھاتہ نام/جمع، پی ڈی ایف بل واٹس ایپ شیئرنگ اور ریکوری حساب۔'
+                          : ind.id === 'education-madrasa' ? 'طلباء کے داخلہ فارم، ماہانہ فیس چالان واؤچر، امتحانی نمبرات اور حاضری کا مکمل نظام۔'
+                          : 'روزانہ کی سیل اور منافع کی خودکار واٹس ایپ رپورٹ اور دکان کا فوری خلاصہ۔'
+                        : ind.desc}
                     </p>
                   </div>
 
                   <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#0056D2]">
-                    <span>Inquire for {ind.title}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>{isUrdu ? 'اس شعبے کے لیے رابطہ کریں' : `Inquire for ${ind.title}`}</span>
+                    <ArrowRight className="w-4 h-4 rtl-flip" />
                   </div>
                 </div>
               );
@@ -722,11 +738,13 @@ export const HomePage: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0056D2] flex items-center justify-center font-bold mb-4 border border-blue-200">
                   <Monitor className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                  1. Zero Monthly Subscriptions — Permanent Ownership
+                <h3 className={`text-lg font-bold text-[#0F172A] mb-2 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? '۱. زیرو منتھلی کرایہ — تاحیات آپ کی اپنی ملکیت' : '1. Zero Monthly Subscriptions — Permanent Ownership'}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Standard SaaS systems lock your shop data behind heavy monthly or yearly subscription fees. If you miss a payment, your register is locked. With FAYJEXTECH, you own your software permanently on your local hardware.
+                <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu
+                    ? 'مارکیٹ کے کلاؤڈ سسٹمز آپ کا ڈیٹا ہر مہینے فیس کے پیچھے بند کر دیتے ہیں۔ اگر فیس نہ دیں تو دکان کا کھاتہ بند ہو جاتا ہے۔ فایجیکس ٹیک کے ساتھ سافٹ ویئر زندگی بھر آپ کا اپنا ہے۔'
+                    : 'Standard SaaS systems lock your shop data behind heavy monthly or yearly subscription fees. If you miss a payment, your register is locked. With FAYJEXTECH, you own your software permanently on your local hardware.'}
                 </p>
               </div>
 
@@ -734,11 +752,13 @@ export const HomePage: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#00873D] flex items-center justify-center font-bold mb-4 border border-emerald-200">
                   <HardDrive className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                  2. 100% Offline Fault Tolerance
+                <h3 className={`text-lg font-bold text-[#0F172A] mb-2 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? '۲. ۱۰۰٪ آف لائن پائتھون اور لوکل ڈیٹا بیس' : '2. 100% Offline Python & Local Database'}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Local internet connections in Karachi can drop due to line cuts or weather. Our software runs on local high-performance ACID databases that execute instant barcode scans and thermal receipts with zero dependency on the internet.
+                <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu
+                    ? 'کراچی میں بارش یا تار کٹنے سے انٹرنیٹ بند ہو جائے تو بھی ہمارا سسٹم نہیں رکتا۔ یہ تیز رفتار پائتھون اور لوکل ڈیٹا بیس پر چلتا ہے جس سے پلک جھپکتے ہی بل پرنٹ ہو جاتا ہے۔'
+                    : 'Local internet connections in Karachi can drop due to line cuts or weather. Our software runs on local high-performance Python + ACID databases that execute instant barcode scans and thermal receipts with zero dependency on the internet.'}
                 </p>
               </div>
 
@@ -746,11 +766,13 @@ export const HomePage: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0056D2] flex items-center justify-center font-bold mb-4 border border-blue-200">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2">
-                  3. Tailored to Local Market Norms (Urdu &amp; English)
+                <h3 className={`text-lg font-bold text-[#0F172A] mb-2 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu ? '۳. مقامی مارکیٹ کے مطابق (اردو اور انگریزی پرچی)' : '3. Tailored to Local Market Norms (Urdu & English)'}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Whether you need thermal receipts in Urdu, custom product short codes for fast typing, or integration with weighing scales for sweets and meat, we customize the software specifically for your counters.
+                <p className={`text-xs sm:text-sm text-slate-600 leading-relaxed ${isUrdu ? 'font-nastaliq' : ''}`}>
+                  {isUrdu
+                    ? 'چاہے آپ کو اردو میں رسید پرنٹ کرنی ہو، بیکری اور مٹھائی کے لیے الیکٹرانک کانٹا لگانا ہو یا ہول سیل کھاتہ رکھنا ہو — ہم آپ کی دکان کے مطابق سافٹ ویئر سیٹ کر کے دیتے ہیں۔'
+                    : 'Whether you need thermal receipts in Urdu, custom product short codes for fast typing, or integration with weighing scales for sweets and meat, we customize the software specifically for your counters.'}
                 </p>
               </div>
             </div>
@@ -764,34 +786,48 @@ export const HomePage: React.FC = () => {
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeader
-            badge="Customer Testimonials"
-            title="Trusted by Local Business Owners Across Karachi"
-            subtitle="Here is what shopkeepers and institutional heads have to say about our software and counter hardware installations:"
+            badge={t.testimonialsBadge}
+            title={t.testimonialsTitle}
+            subtitle={t.testimonialsSubtitle}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {testimonials.map((t, idx) => (
+            {testimonials.map((testim, idx) => (
               <div
                 key={idx}
                 className="bg-[#F8FAFC] rounded-2xl p-6 sm:p-7 border border-slate-200 hover-lift text-left flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-1 text-amber-400 mb-3">
-                    {[...Array(t.rating)].map((_, i) => (
+                    {[...Array(testim.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-amber-400" />
                     ))}
                   </div>
 
-                  <Quote className="w-8 h-8 text-blue-200 mb-2" />
+                  <Quote className="w-8 h-8 text-blue-200 mb-2 rtl-flip" />
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
-                    &ldquo;{t.quote}&rdquo;
+                  <p className={`text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6 ${isUrdu ? 'font-nastaliq' : ''}`}>
+                    &ldquo;{isUrdu
+                      ? idx === 0
+                        ? 'فایجیکس ٹیک نے اورنگی ٹاؤن میں ہمارے سپر مارٹ کے ۲ کمپیوٹر بلنگ کاؤنٹرز پر بارکوڈ اسکینر اور تھرمل پرنٹر لگائے۔ جب انٹرنیٹ بند بھی ہوا تو ایک سیکنڈ کے لیے بھی بلنگ نہیں رکی۔ عبدالجبار اور فیاض خان نے بہترین سروس دی!'
+                        : idx === 1
+                        ? 'ہمارے پرانے سافٹ ویئر والے ہر مہینے بھاری فیس مانگتے تھے اور شام کے وقت سافٹ ویئر ہینگ ہو جاتا تھا۔ فایجیکس ٹیک نے وزنی کانٹے کے ساتھ مستقل پائتھون سافٹ ویئر لگا کر دیا، دکانداروں کے لیے بہترین ہے!'
+                        : 'سینکڑوں طلباء کے فیس چالان اور امتحانی نتائج رجسٹر پر لکھنا دردِ سر تھا۔ فایجیکس ٹیک نے ایک کلک پر چالان پرنٹ کرنے والا سسٹم بنا کر دیا۔ دونوں بانیان نہایت بااخلاق اور وقت کے پابند ہیں۔'
+                      : testim.quote}&rdquo;
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-200">
-                  <h4 className="text-xs sm:text-sm font-bold text-[#0F172A]">{t.name}</h4>
-                  <span className="text-[11px] text-[#0056D2] font-semibold">{t.role}</span>
+                  <h4 className={`text-xs sm:text-sm font-bold text-[#0F172A] ${isUrdu ? 'font-nastaliq' : ''}`}>
+                    {isUrdu
+                      ? idx === 0 ? 'حاجی محمد رضوان' : idx === 1 ? 'طارق محمود' : 'مولانا حافظ بلال'
+                      : testim.name}
+                  </h4>
+                  <span className={`text-[11px] text-[#0056D2] font-semibold ${isUrdu ? 'font-nastaliq' : ''}`}>
+                    {isUrdu
+                      ? idx === 0 ? 'مالک، المدینہ سپر مارٹ (کراچی)' : idx === 1 ? 'مینجنگ ڈائریکٹر، رائل بیکرز' : 'مہتمم، جامعہ فیض القرآن'
+                      : testim.role}
+                  </span>
                 </div>
               </div>
             ))}
